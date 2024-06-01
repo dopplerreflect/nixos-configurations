@@ -95,14 +95,14 @@
   hardware.bluetooth.enable = true;
   hardware.raspberry-pi."4".bluetooth.enable = true;
 
-  systemd.services.btattach = {
-    before = [ "bluetooth.service" ];
-    after = [ "dev-ttyAMA0.device" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.bluez}/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000";
-    };
-  };
+#  systemd.services.btattach = {
+#    before = [ "bluetooth.service" ];
+#    after = [ "dev-ttyAMA0.device" ];
+#    wantedBy = [ "multi-user.target" ];
+#    serviceConfig = {
+#      ExecStart = "${pkgs.bluez}/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000";
+#    };
+#  };
 
   hardware.enableRedistributableFirmware = true;
   system.stateVersion = "23.11";

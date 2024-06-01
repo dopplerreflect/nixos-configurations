@@ -9,6 +9,7 @@
   outputs = { self, nixpkgs, nixos-hardware, ... }@attrs: {
 
 		nixosConfigurations = {
+			security.sudo.wheelNeedsPassword = false;
 			nixpi = nixpkgs.lib.nixosSystem {
 				system = "aarch64-linux";
 				specialArgs = attrs;
