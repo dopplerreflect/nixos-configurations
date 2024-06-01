@@ -1,6 +1,10 @@
 { config, pkgs, lib, ... }:
 
 {
+  imports = [
+    ./bluetooth.nix
+  ];
+
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
@@ -58,6 +62,7 @@
     serviceConfig = {
       Type = "forking";
       User = "doppler";
+			WorkingDirectory = "/home/doppler";
       ExecStart = "/home/doppler/start-wf.sh";
       # ExecStop = "${pkgs.tmux}/bin/tmux kill-session -t wf";
     };
@@ -86,11 +91,6 @@
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  imports = [
-    <nixos-hardware/raspberry-pi/4>
-    ./bluetooth.nix
-  ];
 
   hardware.bluetooth.enable = true;
   hardware.raspberry-pi."4".bluetooth.enable = true;
