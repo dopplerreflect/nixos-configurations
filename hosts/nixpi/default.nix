@@ -1,7 +1,10 @@
 { config, pkgs, lib, ... }:
 
 {
+  security.sudo.wheelNeedsPassword = false;
+
   imports = [
+    ../common
     ./bluetooth.nix
   ];
 
@@ -30,11 +33,11 @@
   networking = {
     hostName = "nixpi";
     firewall.enable = false;
-    wireless = {
-      enable = true;
-      networks."Spaceland-Public".psk = null;
-      interfaces = [ "wlp1s0u1u2" ];
-    };
+    #wireless = {
+    #  enable = true;
+    #  networks."Spaceland-Public".psk = null;
+    #  interfaces = [ "wlp1s0u1u2" ];
+    #};
   };
 
   services.create_ap = {
@@ -62,31 +65,27 @@
     serviceConfig = {
       Type = "forking";
       User = "doppler";
-			WorkingDirectory = "/home/doppler";
+      WorkingDirectory = "/home/doppler";
       ExecStart = "/home/doppler/start-wf.sh";
-      # ExecStop = "${pkgs.tmux}/bin/tmux kill-session -t wf";
     };
   };
 
   environment.systemPackages = with pkgs; [ 
-    git
     linux-wifi-hotspot
     nodejs
-    tmux
-    vim 
     yarn
   ];
 
-  environment.variables = { EDITOR = "vim"; };
-
-  services.openssh.enable = true;
+#  environment.variables = { EDITOR = "vim"; };
+#
+#  services.openssh.enable = true;
 
   users = {
     mutableUsers = false;
     users.doppler = {
       isNormalUser = true;
       password = "bb";
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel" "networkmanager" ];
     };
   };
 
