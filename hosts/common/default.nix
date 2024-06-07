@@ -9,6 +9,7 @@
   ];
 
   networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   environment.variables = { EDITOR = "vim"; };
 
