@@ -76,10 +76,6 @@
     yarn
   ];
 
-#  environment.variables = { EDITOR = "vim"; };
-#
-#  services.openssh.enable = true;
-
   users = {
     mutableUsers = false;
     users.doppler = {
