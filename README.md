@@ -1,1 +1,1 @@
-# NixOS config for *nixpi*
+# NixOS Configurations
