@@ -1,0 +1,12 @@
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F"
+mods = "Command|Control"
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "W"
+mods = "Command"
+
+[window]
+opacity = 0.8
