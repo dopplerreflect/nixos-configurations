@@ -22,7 +22,7 @@
     git
     gnome.dconf-editor
     gnome3.gnome-tweaks
-    # google-chrome
+    google-chrome
     googleearth-pro
     heroku
     imagemagick
