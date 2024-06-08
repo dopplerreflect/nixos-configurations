@@ -88,8 +88,8 @@
 
   dconf.settings = {
     "org/gnome/desktop/background" = {
-      picture-uri = ''${./new3-2023-08-22T23_41_32.375Z.png}'';
-      picture-uri-dark = ''${./new3-2023-08-22T23_41_32.375Z.png}'';
+      picture-uri = ''${./bg.png}'';
+      picture-uri-dark = ''${./bg.png}'';
       picture-options = "zoom";
     };
   };
