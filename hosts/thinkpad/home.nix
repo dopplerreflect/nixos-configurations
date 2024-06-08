@@ -88,8 +88,8 @@
 
   dconf.settings = {
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///home/doppler/flake/new3-2023-08-22T23_41_32.375Z.png";
-      picture-uri-dark = "file:///home/doppler/flake/new3-2023-08-22T23_41_32.375Z.png";
+      picture-uri = ''${./new3-2023-08-22T23_41_32.375Z.png}'';
+      picture-uri-dark = ''${./new3-2023-08-22T23_41_32.375Z.png}'';
       picture-options = "zoom";
     };
   };
