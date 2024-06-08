@@ -13,28 +13,28 @@
   outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@attrs: {
 
     nixosConfigurations = {
-      nixpi = nixpkgs.lib.nixosSystem {
+      pi = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = attrs;
         modules = [
           nixos-hardware.nixosModules.raspberry-pi-4
-          ./hosts/nixpi
+          ./hosts/pi
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.doppler = import ./hosts/nixpi/home.nix;
+            home-manager.users.doppler = import ./hosts/pi/home.nix;
           }
         ];
       };
-      nixpad = nixpkgs.lib.nixosSystem {
+      thinkpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [
-          ./hosts/nixpad
+          ./hosts/thinkpad
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.doppler = import ./hosts/nixpad/home.nix;
+            home-manager.users.doppler = import ./hosts/thinkpad/home.nix;
           }
         ];
       };

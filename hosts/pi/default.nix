@@ -31,7 +31,7 @@
   };
 
   networking = {
-    hostName = "nixpi";
+    hostName = "pi";
     firewall.enable = false;
     #wireless = {
     #  enable = true;

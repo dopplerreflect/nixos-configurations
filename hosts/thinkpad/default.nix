@@ -15,9 +15,9 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  networking.hostName = "nixpad"; # Define your hostname.
+  networking.hostName = "thinkpad"; # Define your hostname.
   networking.networkmanager.enable = true;
-  networking.extraHosts = "10.42.0.1 wfbase\n192.168.12.1 nixpi";
+  networking.extraHosts = "10.42.0.1 wfbase\n192.168.12.1 pi";
 
   networking.nameservers = [ "8.8.8.8" ];
   
