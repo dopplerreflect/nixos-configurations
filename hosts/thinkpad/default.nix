@@ -74,6 +74,7 @@
   ];
   environment.variables = {
     EDITOR = "vi";
+    UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
   };
 
   fonts.packages = with pkgs; [
