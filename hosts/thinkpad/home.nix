@@ -33,6 +33,7 @@
     nmap
     nodejs
     # obs-studio
+    python3
     realvnc-vnc-viewer
     ripgrep
     rpi-imager
