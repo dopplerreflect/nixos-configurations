@@ -15,6 +15,7 @@
     # discord
     easyeffects
     # exiftool
+    fastfetch # like neofetch
     ffmpeg
     file
     firefox
