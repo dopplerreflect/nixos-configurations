@@ -26,18 +26,6 @@
           }
         ];
       };
-      thinkpad = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = attrs;
-        modules = [
-          ./hosts/thinkpad
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.doppler = import ./hosts/thinkpad/home.nix;
-          }
-        ];
-      };
     };
     
   };

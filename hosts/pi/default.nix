@@ -8,6 +8,34 @@
     ./bluetooth.nix
   ];
 
+  users = {
+    mutableUsers = false;
+    users.justin = {
+      isNormalUser = true;
+      password = "justin";
+      extraGroups = [ "wheel" "networkmanager" ];
+    };
+  };
+
+  services.create_ap = {
+    enable = true;
+    settings = {
+      INTERNET_IFACE = "wlp1s0u1u2";
+      WIFI_IFACE = "wlan0";
+      SSID = "pi-ap";
+      PASSPHRASE = "wifipass";
+    };
+  };
+
+  networking = {
+    hostName = "pi";
+    firewall.enable = false;
+  };
+
+  environment.systemPackages = with pkgs; [ 
+    linux-wifi-hotspot
+  ];
+
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
@@ -30,59 +58,12 @@
     };
   };
 
-  networking = {
-    hostName = "pi";
-    firewall.enable = false;
-    #wireless = {
-    #  enable = true;
-    #  networks."Spaceland-Public".psk = null;
-    #  interfaces = [ "wlp1s0u1u2" ];
-    #};
-  };
-
-  services.create_ap = {
-    enable = true;
-    settings = {
-      INTERNET_IFACE = "wlp1s0u1u2";
-      WIFI_IFACE = "wlan0";
-      SSID = "weatherflow";
-      PASSPHRASE = "wifipass";
-    };
-  };
-
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     earlySetup = true;
     font = "${pkgs.terminus_font}/share/consolefonts/ter-124n.psf.gz";
     packages = with pkgs; [ terminus_font ];
-    keyMap = "dvorak";
-  };
-
-  systemd.services.svelte-weatherflow = {
-    description = "Svelte Weatherflow Webapp";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    serviceConfig = {
-      Type = "forking";
-      User = "doppler";
-      WorkingDirectory = "/home/doppler";
-      ExecStart = "/home/doppler/start-wf.sh";
-    };
-  };
-
-  environment.systemPackages = with pkgs; [ 
-    linux-wifi-hotspot
-    nodejs
-    yarn
-  ];
-
-  users = {
-    mutableUsers = false;
-    users.doppler = {
-      isNormalUser = true;
-      password = "bb";
-      extraGroups = [ "wheel" "networkmanager" ];
-    };
+    # keyMap = "dvorak";
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
