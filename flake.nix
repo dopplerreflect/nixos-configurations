@@ -22,7 +22,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.doppler = import ./hosts/pi/home.nix;
+            home-manager.users.justin = import ./hosts/pi/home.nix;
           }
         ];
       };

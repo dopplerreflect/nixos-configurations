@@ -12,7 +12,7 @@
     mutableUsers = false;
     users.justin = {
       isNormalUser = true;
-      password = "justin";
+      password = "j";
       extraGroups = [ "wheel" "networkmanager" ];
     };
   };
