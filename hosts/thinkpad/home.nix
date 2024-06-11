@@ -39,6 +39,7 @@
     ripgrep
     rpi-imager
     # slack
+    sqlite
     tmux
     unzip
     vim
