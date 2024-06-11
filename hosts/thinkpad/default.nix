@@ -6,21 +6,22 @@
       ./hardware-configuration.nix
     ];
 
-  # workaround to fix sound issue
-  # https://github.com/NixOS/nixpkgs/issues/198180
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_zen;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    loader.efi.efiSysMountPoint = "/boot/efi";
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
+  };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  networking = {
+    hostName = "thinkpad"; # Define your hostname.
+    networkmanager.enable = true;
+    extraHosts = "10.42.0.1 wfbase\n192.168.12.1 pi";
+    nameservers = [ "8.8.8.8" ];
+    firewall.enable = false;
+  };
 
-  networking.hostName = "thinkpad"; # Define your hostname.
-  networking.networkmanager.enable = true;
-  networking.extraHosts = "10.42.0.1 wfbase\n192.168.12.1 pi";
-
-  networking.nameservers = [ "8.8.8.8" ];
-  
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.utf8";
   console.keyMap = "dvorak";
