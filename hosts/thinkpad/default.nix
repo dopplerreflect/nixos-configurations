@@ -17,7 +17,7 @@
   networking = {
     hostName = "thinkpad"; # Define your hostname.
     networkmanager.enable = true;
-    extraHosts = "10.42.0.1 wfbase\n192.168.12.1 pi";
+    extraHosts = "192.168.12.1 pi";
     nameservers = [ "8.8.8.8" ];
     firewall.enable = false;
   };
