@@ -43,11 +43,11 @@
 
   nixpkgs.overlays = [ (final: prev: {
     linux-wifi-hotspot = prev.linux-wifi-hotspot.overrideAttrs (old: {
-      src = prev.fetchFromGithub {
+      src = prev.fetchFromGitHub {
         owner = "dopplerreflect";
         repo = "linux-wifi-hotspot";
         rev = "bfe7ca6f4bab6e20e1a94197714b1938e4ac3337";
-        hash = "";
+        hash = "sha256-y+3Pav72JJNgq/C1DoPFLl84SXy9+3nu7V5Qh4U/4Xc=";
       };
     });
   }) ];
@@ -56,6 +56,7 @@
     enable = true;
     settings = {
       ETC_HOSTS=1;
+      DHCP_HOSTS = "thinkpad GW2000X";
       INTERNET_IFACE = "wlp1s0u1u2";
       WIFI_IFACE = "wlan0";
       SSID = "weatherflow";
