@@ -41,6 +41,17 @@
     #};
   };
 
+  nixpkgs.overlays = [ (final: prev: {
+    linux-wifi-hotspot = prev.linux-wifi-hotspot.overrideAttrs (old: {
+      src = prev.fetchFromGithub {
+        owner = "dopplerreflect";
+        repo = "linux-wifi-hotspot";
+        rev = "bfe7ca6f4bab6e20e1a94197714b1938e4ac3337";
+        hash = "";
+      };
+    });
+  }) ];
+
   services.create_ap = {
     enable = true;
     settings = {
