@@ -33,6 +33,7 @@
   networking = {
     hostName = "pi";
     firewall.enable = false;
+    extraHosts = "192.168.12.3 GW2000X\n192.168.12.2 thinkpad";
     #wireless = {
     #  enable = true;
     #  networks."Spaceland-Public".psk = null;
@@ -43,6 +44,7 @@
   services.create_ap = {
     enable = true;
     settings = {
+      ETC_HOSTS=1;
       INTERNET_IFACE = "wlp1s0u1u2";
       WIFI_IFACE = "wlan0";
       SSID = "weatherflow";
