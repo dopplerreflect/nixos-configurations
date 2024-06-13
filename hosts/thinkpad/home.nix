@@ -15,6 +15,7 @@
     # discord
     easyeffects
     # exiftool
+    fastfetch # like neofetch
     ffmpeg
     file
     firefox
@@ -33,10 +34,12 @@
     nmap
     nodejs
     # obs-studio
+    python3
     realvnc-vnc-viewer
     ripgrep
     rpi-imager
     # slack
+    sqlite-interactive
     tmux
     unzip
     vim
@@ -88,8 +91,8 @@
 
   dconf.settings = {
     "org/gnome/desktop/background" = {
-      picture-uri = ''${./new3-2023-08-22T23_41_32.375Z.png}'';
-      picture-uri-dark = ''${./new3-2023-08-22T23_41_32.375Z.png}'';
+      picture-uri = ''${./bg.png}'';
+      picture-uri-dark = ''${./bg.png}'';
       picture-options = "zoom";
     };
   };
