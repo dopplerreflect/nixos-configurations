@@ -56,7 +56,7 @@
     enable = true;
     settings = {
       ETC_HOSTS=1;
-      DHCP_HOSTS = "thinkpad GW2000X";
+      DHCP_HOSTS = "thinkpad,192.168.12.10 GW2000X,192.168.12.11";
       INTERNET_IFACE = "wlp1s0u1u2";
       WIFI_IFACE = "wlan0";
       SSID = "weatherflow";
@@ -70,18 +70,6 @@
     font = "${pkgs.terminus_font}/share/consolefonts/ter-124n.psf.gz";
     packages = with pkgs; [ terminus_font ];
     keyMap = "dvorak";
-  };
-
-  systemd.services.svelte-weatherflow = {
-    description = "Svelte Weatherflow Webapp";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    serviceConfig = {
-      Type = "forking";
-      User = "doppler";
-      WorkingDirectory = "/home/doppler";
-      ExecStart = "/home/doppler/start-wf.sh";
-    };
   };
 
   environment.systemPackages = with pkgs; [ 
