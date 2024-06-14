@@ -32,13 +32,12 @@
 
   networking = {
     hostName = "pi";
-    firewall.enable = false;
     extraHosts = "192.168.12.3 GW2000X\n192.168.12.2 thinkpad";
-    #wireless = {
-    #  enable = true;
-    #  networks."Spaceland-Public".psk = null;
-    #  interfaces = [ "wlp1s0u1u2" ];
-    #};
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 22 80 3000 ];
+      extraCommands = "iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000";
+    };
   };
 
   nixpkgs.overlays = [ (final: prev: {
