@@ -73,6 +73,7 @@
   };
 
   environment.systemPackages = with pkgs; [ 
+    bun
     linux-wifi-hotspot
     nodejs
     yarn
@@ -84,6 +85,19 @@
       isNormalUser = true;
       password = "bb";
       extraGroups = [ "wheel" "networkmanager" ];
+    };
+  };
+
+  systemd.services.ecowitt = {
+    description = "Ecowitt Weather Thing";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = {
+      Type = "forking";
+      User = "doppler";
+      WorkingDirectory = "/home/doppler";
+      ExecStart = "/run/current-system/sw/bin/sh /home/doppler/start-ecowitt.sh";
+      ExecStop = "/run/current-system/sw/bin/tmux kill-session -t ecowitt";
     };
   };
 

@@ -20,6 +20,10 @@
     };
   };
 
+  home.file = {
+    "start-ecowitt.sh".text = builtins.readFile ./start-ecowitt.sh;
+  };
+
   home.stateVersion = "24.05";
 }
 
