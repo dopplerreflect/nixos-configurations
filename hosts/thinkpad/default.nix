@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../common
     ];
 
   boot = {
@@ -70,11 +71,10 @@
     shell = pkgs.zsh;
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   vim
+  # ];
   environment.variables = {
-    EDITOR = "vi";
     UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
   };
 
@@ -84,11 +84,24 @@
 
   system.stateVersion = "22.05"; # Did you read the comment?
 
-  security.sudo.wheelNeedsPassword = false;
-  nixpkgs.config.allowUnfree = true;
+  # security.sudo.wheelNeedsPassword = false;
+  # nixpkgs.config.allowUnfree = true;
 
-  services.sshd.enable = true;
+  # services.sshd.enable = true;
 
+  systemd.services.ecowitt = {
+    description = "Ecowitt Weather Thing";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = {
+      Type = "forking";
+      User = "doppler";
+      WorkingDirectory = "/home/doppler";
+      ExecStart = "/run/current-system/sw/bin/sh /home/doppler/start-ecowitt.sh";
+      ExecStop = "/run/current-system/sw/bin/tmux kill-session -t ecowitt";
+    };
+  };
+  
   nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.4.8248" ];
 
   nix = {

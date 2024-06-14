@@ -10,7 +10,7 @@
     # blender
     brave
     btop
-    bun
+    # bun # moved to system
     # deno
     # discord
     easyeffects
@@ -40,7 +40,6 @@
     rpi-imager
     # slack
     sqlite-interactive
-    tmux
     unzip
     vim
     virt-manager
@@ -55,6 +54,7 @@
   
   home.file = {
     ".config/alacritty/alacritty.toml".text = builtins.readFile ./config/alacritty/alacritty.toml;
+    "start-ecowitt.sh".text = builtins.readFile ./start-ecowitt.sh;
   };
   
   programs.git = {

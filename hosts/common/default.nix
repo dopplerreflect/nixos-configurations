@@ -3,6 +3,7 @@
   security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
+    bun
     git
     tmux
     vim
@@ -14,5 +15,8 @@
   environment.variables = { EDITOR = "vim"; };
 
   services.openssh.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
+
 }
 
