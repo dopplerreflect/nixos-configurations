@@ -18,7 +18,7 @@
   networking = {
     hostName = "thinkpad"; # Define your hostname.
     networkmanager.enable = true;
-    extraHosts = "192.168.12.1 pi";
+    extraHosts = "192.168.12.1 pi\n192.168.12.11 ecowitt ecowitt.local GW2000x";
     nameservers = [ "8.8.8.8" ];
     firewall.enable = false;
   };
