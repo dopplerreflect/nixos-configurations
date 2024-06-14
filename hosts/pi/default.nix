@@ -32,7 +32,7 @@
 
   networking = {
     hostName = "pi";
-    extraHosts = "192.168.12.3 GW2000X\n192.168.12.2 thinkpad";
+    extraHosts = "192.168.12.11 GW2000X\n192.168.12.10 thinkpad";
     firewall = {
       enable = true;
       allowedTCPPorts = [ 22 80 3000 ];
