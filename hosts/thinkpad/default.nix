@@ -97,7 +97,7 @@
       Type = "forking";
       User = "doppler";
       WorkingDirectory = "/home/doppler";
-      ExecStart = "/run/current-system/sw/bin/sh /home/doppler/start-ecowitt.sh";
+      ExecStart = "/run/current-system/sw/bin/sh /home/doppler/bin/start-ecowitt.sh";
       ExecStop = "/run/current-system/sw/bin/tmux kill-session -t ecowitt";
     };
   };

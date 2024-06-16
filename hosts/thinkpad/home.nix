@@ -54,7 +54,9 @@
   
   home.file = {
     ".config/alacritty/alacritty.toml".text = builtins.readFile ./config/alacritty/alacritty.toml;
-    "start-ecowitt.sh".text = builtins.readFile ./start-ecowitt.sh;
+  };
+    home.file = {
+    "/bin/start-ecowitt.sh".text = builtins.readFile ./start-ecowitt.sh;
   };
   
   programs.git = {
