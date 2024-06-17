@@ -10,6 +10,7 @@
     # blender
     brave
     btop
+    chromedriver
     # bun # moved to system
     # deno
     # discord

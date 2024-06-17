@@ -27,17 +27,24 @@
   i18n.defaultLocale = "en_US.utf8";
   console.keyMap = "dvorak";
 
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-    # layout = "us";
-    # xkbVariant = "dvorak";
-    # xkbOptions = "ctrl:nocaps";
-    xkb = {
-      layout = "us";
-      variant = "dvorak";
-      options = "ctrl:nocaps";
+  services = {
+    xserver = {
+      enable = true;
+      # displayManager.gdm.enable = true;
+      # desktopManager.gnome.enable = true;
+      displayManager = {
+        gdm = {
+          enable = true;
+          wayland =true;
+        };
+      };
+      desktopManager.gnome.enable = true;
+      xkb = {
+        layout = "us";
+        variant = "dvorak";
+        options = "ctrl:nocaps";
+      };
+      excludePackages = with pkgs; [ xterm ];
     };
   };
   services.gnome.gnome-browser-connector.enable = true;
