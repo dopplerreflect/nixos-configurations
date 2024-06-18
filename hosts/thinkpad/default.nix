@@ -27,17 +27,24 @@
   i18n.defaultLocale = "en_US.utf8";
   console.keyMap = "dvorak";
 
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-    # layout = "us";
-    # xkbVariant = "dvorak";
-    # xkbOptions = "ctrl:nocaps";
-    xkb = {
-      layout = "us";
-      variant = "dvorak";
-      options = "ctrl:nocaps";
+  services = {
+    xserver = {
+      enable = true;
+      # displayManager.gdm.enable = true;
+      # desktopManager.gnome.enable = true;
+      displayManager = {
+        gdm = {
+          enable = true;
+          wayland =true;
+        };
+      };
+      desktopManager.gnome.enable = true;
+      xkb = {
+        layout = "us";
+        variant = "dvorak";
+        options = "ctrl:nocaps";
+      };
+      excludePackages = with pkgs; [ xterm ];
     };
   };
   services.gnome.gnome-browser-connector.enable = true;
@@ -97,7 +104,7 @@
       Type = "forking";
       User = "doppler";
       WorkingDirectory = "/home/doppler";
-      ExecStart = "/run/current-system/sw/bin/sh /home/doppler/start-ecowitt.sh";
+      ExecStart = "/run/current-system/sw/bin/sh /home/doppler/bin/start-ecowitt.sh";
       ExecStop = "/run/current-system/sw/bin/tmux kill-session -t ecowitt";
     };
   };
