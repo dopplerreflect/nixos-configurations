@@ -103,7 +103,7 @@
     serviceConfig = {
       Type = "forking";
       User = "doppler";
-      WorkingDirectory = "/home/doppler";
+      WorkingDirectory = "/home/doppler/Code/bun-sveltekit-ecowitt";
       ExecStart = "/run/current-system/sw/bin/sh /home/doppler/bin/start-ecowitt.sh";
       ExecStop = "/run/current-system/sw/bin/tmux kill-session -t ecowitt";
     };
