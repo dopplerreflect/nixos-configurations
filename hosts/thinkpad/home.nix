@@ -20,6 +20,7 @@
     ffmpeg
     file
     firefox
+    freefilesync
     gimp
     git
     gnome.dconf-editor
@@ -51,6 +52,7 @@
     wget
     # zoom-us
     zstd
+
   ];
   
   home.file = {

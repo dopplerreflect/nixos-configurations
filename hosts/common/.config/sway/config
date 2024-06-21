@@ -1,0 +1,108 @@
+
+default_border pixel 1
+
+mouse_warping container
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term alacritty
+
+set $menu exec nwggrid --class=launcher
+# set $menu exec ulauncher --hide-window --no-window-shadow
+# for_window [app_id="ulauncher"] floating enable, border none
+
+
+set $mod Mod4
+set $alt Mod1
+
+# set $external_display HDMI-A-1
+set $external_display DP-1
+set $laptop_display eDP-1
+set $portable_display DP-2
+
+set $ws1  		1:Browser
+set $ws2     	2:Code
+set $ws3     	3:Coms
+set $ws4  		4:Weather
+set $ws5 			5:Misc
+set $ws6			6:Terminals
+set $ws7			7:7
+set $ws8			8:8
+set $ws9			9:9
+set $ws10			10:10
+
+
+# for_window [instance="google-chrome"] move container to workspace $ws6, inhibit_idle fullscreen
+
+# for_window [class="Code"] move container to workspace $ws7
+
+# Load Clock
+for_window [instance="crx_oeokgbjniodmkeegnihddagoolkhljec"] {
+	floating enable
+	resize set width 470 px height 690 px
+	move position 472 0
+	move window to workspace $ws4
+}
+
+for_window [app_id="nwgbar"] floating enable, sticky enable
+
+workspace {
+	$ws1				  output $external_display
+	$ws2		   	  output $external_display
+	$ws3		   	  output $external_display
+	$ws4			  	output $external_display
+	$ws5        	output $external_display
+	$ws6				  output $laptop_display
+	$ws7	        output $laptop_display
+	$ws8	        output $laptop_display
+	$ws9	        output $laptop_display
+	$ws10	        output $laptop_display
+}
+
+output {
+	DP-1 {
+		resolution 1920x1080
+		position 0,0
+    background ~/Pictures/Wallpapers/spiral-star-with-stars.png fill
+    # background ~/Pictures/Wallpapers/shadow-star-2.png fill
+	}
+	eDP-1 {
+		resolution 1920x1080
+		position 320,1080
+		scale 1.5
+    background ~/Pictures/Wallpapers/Metatron.png fill
+    # background ~/Pictures/Wallpapers/dr-logo.svg fill
+    # background ~/Pictures/Wallpapers/spiral-star-with-stars.svg fill
+    # background ~/Pictures/Wallpapers/illusion-orange.svg fill
+
+	}
+  HDMI-A-1 {
+    resolution 1920x1080
+    position 0,0
+    background ~/Pictures/Wallpapers/spiral-star-with-stars.png fill
+  }
+}
+
+input type:keyboard {
+	xkb_layout us
+	xkb_variant dvorak
+	xkb_options caps:ctrl_modifier
+}
+
+input type:touchpad {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	click_method clickfinger
+}
+
+exec mako -c /home/doppler/.config/mako/mako.conf
+
+exec wlsunset -l 33.9 -L -85.1
+
+exec udiskie
+
+include /home/doppler/.config/sway/config.d/*

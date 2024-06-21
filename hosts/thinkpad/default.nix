@@ -27,28 +27,28 @@
   i18n.defaultLocale = "en_US.utf8";
   console.keyMap = "dvorak";
 
-  services = {
-    xserver = {
-      enable = true;
-      # displayManager.gdm.enable = true;
-      # desktopManager.gnome.enable = true;
-      displayManager = {
-        gdm = {
-          enable = true;
-          wayland =true;
-        };
-      };
-      desktopManager.gnome.enable = true;
-      xkb = {
-        layout = "us";
-        variant = "dvorak";
-        options = "ctrl:nocaps";
-      };
-      excludePackages = with pkgs; [ xterm ];
-    };
-  };
-  services.gnome.gnome-browser-connector.enable = true;
-
+#  services = {
+#    xserver = {
+#      enable = true;
+#      # displayManager.gdm.enable = true;
+#      # desktopManager.gnome.enable = true;
+#      displayManager = {
+#        gdm = {
+#          enable = true;
+#          wayland =true;
+#        };
+#      };
+#      desktopManager.gnome.enable = true;
+#      xkb = {
+#        layout = "us";
+#        variant = "dvorak";
+#        options = "ctrl:nocaps";
+#      };
+#      excludePackages = with pkgs; [ xterm ];
+#    };
+#  };
+#  services.gnome.gnome-browser-connector.enable = true;
+#
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -78,16 +78,59 @@
     shell = pkgs.zsh;
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   vim
-  # ];
+  environment.systemPackages = with pkgs; [
+    wlroots
+    pulseaudioFull
+    pavucontrol
+  ];
+
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    extraPackages = with pkgs; [
+      alacritty
+      dmenu
+      wofi
+      swaylock
+      swayidle
+      swaybg
+      wl-clipboard
+      mako
+      i3status-rust
+      nwg-launchers
+    ];
+  };
+
   environment.variables = {
     UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
   };
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    corefonts
+    terminus_font
+    inconsolata
+    dejavu_fonts
+    font-awesome
+    source-code-pro
+    source-sans-pro
+    source-serif-pro
   ];
+  # fonts = {
+  #   fontDir.enable = true;
+  #   enableGhostscriptFonts = true;
+  #   fonts = with pkgs; [
+  #     corefonts
+  #     terminus_font
+  #     inconsolata
+  #     dejavu_fonts
+  #     font-awesome-ttf
+  #     source-code-pro
+  #     source-sans-pro
+  #     source-serif-pro
+  #   ];
+  # };
+
 
   system.stateVersion = "22.05"; # Did you read the comment?
 
