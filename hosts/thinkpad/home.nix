@@ -53,6 +53,11 @@
     # zoom-us
     zstd
 
+    wlroots
+    pulseaudioFull
+    pavucontrol
+    gnome.nautilus
+    hicolor-icon-theme
   ];
   
   home.file = {

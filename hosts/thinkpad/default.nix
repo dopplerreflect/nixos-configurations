@@ -79,9 +79,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    wlroots
-    pulseaudioFull
-    pavucontrol
   ];
 
   programs.sway = {
@@ -98,11 +95,15 @@
       mako
       i3status-rust
       nwg-launchers
+      nwg-bar
     ];
   };
 
   environment.variables = {
     UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
+  };
+  environment.sessionVariables = {
+    GTK_THEME = "Adwaita-dark";
   };
 
   fonts.packages = with pkgs; [
