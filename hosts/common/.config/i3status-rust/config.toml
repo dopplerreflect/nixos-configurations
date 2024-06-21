@@ -6,7 +6,7 @@ icons = "awesome6"
 
 [[block]]
 block = "focused_window"
-format="$title.str(max_w:21) |"
+format="$title.str(max_w:50) |"
 
 [[block]]
 block = "disk_space"
@@ -20,36 +20,32 @@ format = " $icon / $available.eng(w:2) "
 
 [[block]]
 block = "net"
-device = "wl40s20f3"
+device = "wlp0s20f3"
 [[block.click]]
 button = "left"
-cmd = "/etc/profiles/per-user/doppler/bin/alacritty -e nmtui"
+cmd = "alacritty -e nmtui"
 
-# [[block]]
-# block = "memory"
-# display_type = "memory"
-# format_mem = "{mem_total_used_percents}"
-# format_swap = "{swap_used_percents}"
-# 
-# [[block]]
-# block = "cpu"
-# interval = 1
-# 
-# [[block]]
-# block = "load"
-# interval = 1
-# format = "{1m}"
-# 
-# [[block]]
-# block = "battery"
-# 
 [[block]]
 block = "sound"
-# 
-# [[block]]
-# block = "backlight"
-# 
-# [[block]]
-# block = "time"
-# interval = 60
-# format = "%a %d/%m %R"
+
+[[block]]
+block = "time"
+format = " $icon $timestamp.datetime(f:'%a %b %e %H:%M') "
+
+[[block]]
+block = "menu"
+text = "\u23fb "
+[[block.items]]
+display = " -&gt;   Exit    &lt;-"
+cmd = ""
+[[block.items]]
+display = " -&gt;   Sleep   &lt;-"
+cmd = "systemctl suspend"
+[[block.items]]
+display = " -&gt; Power Off &lt;-"
+cmd = "poweroff"
+confirm_msg = "Are you sure you want to power off?"
+[[block.items]]
+display = " -&gt;  Reboot   &lt;-"
+cmd = "reboot"
+confirm_msg = "Are you sure you want to reboot?"
