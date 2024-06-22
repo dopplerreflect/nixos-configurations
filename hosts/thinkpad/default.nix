@@ -86,23 +86,23 @@
     UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
   };
 
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-    extraPackages = with pkgs; [
-      alacritty
-      dmenu
-      wofi
-      swaylock
-      swayidle
-      swaybg
-      wl-clipboard
-      mako
-      i3status-rust
-      nwg-launchers
-      nwg-bar
-    ];
-  };
+  # programs.sway = {
+  #   enable = true;
+  #   wrapperFeatures.gtk = true;
+  #   extraPackages = with pkgs; [
+  #     alacritty
+  #     dmenu
+  #     wofi
+  #     swaylock
+  #     swayidle
+  #     swaybg
+  #     wl-clipboard
+  #     mako
+  #     i3status-rust
+  #     nwg-launchers
+  #     nwg-bar
+  #   ];
+  # };
 
 #  services.getty.autologinUser = "doppler";
 #  environment.loginShellInit = ''
