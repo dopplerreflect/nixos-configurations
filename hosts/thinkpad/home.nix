@@ -69,13 +69,52 @@
 
   wayland.windowManager.sway = {
     enable = true;
+    extraConfig = "default_border none\n";
     config = rec {
       modifier = "Mod4";
       # Use kitty as default terminal
-      terminal = "kitty"; 
+      terminal = "alacritty"; 
       startup = [
         # Launch Firefox on start
-        {command = "firefox";}
+        {command = "brave";}
+      ];
+      input = {
+        "type:keyboard" = {
+          xkb_layout = "us";
+          xkb_variant = "dvorak";
+          xkb_options = "caps:ctrl_modifier";
+        };
+        "type:touchpad" = {
+          dwt = "enabled";
+          tap = "enabled";
+          natural_scroll = "enabled";
+          click_method = "clickfinger";
+        };
+      };
+      output = {
+        "DP-1" = {
+          resolution = "1920x1080";
+          position = "0,0";
+        };
+        "eDP-1" = {
+          resolution = "1920x1080";
+          position = "0,1080";
+        };
+      };
+      assigns = {
+        "1" = [{ class = "^Brave-browser$"; }];
+        "2" = [{ class = "^Code$"; }];
+      };
+      bars = [
+        {
+          id = "bar-test";
+          command = "${pkgs.i3status-rust}/bin/i3status-rs";
+          position = "bottom";
+          hiddenState = "show";
+          fonts = {
+            names = [ "Font Awesome 6 Pro" "DejaVu Sans Mono" ];
+          };
+        }
       ];
     };
   };
