@@ -27,28 +27,29 @@
   i18n.defaultLocale = "en_US.utf8";
   console.keyMap = "dvorak";
 
-#  services = {
-#    xserver = {
-#      enable = true;
-#      # displayManager.gdm.enable = true;
-#      # desktopManager.gnome.enable = true;
-#      displayManager = {
-#        gdm = {
-#          enable = true;
-#          wayland =true;
-#        };
-#      };
-#      desktopManager.gnome.enable = true;
-#      xkb = {
-#        layout = "us";
-#        variant = "dvorak";
-#        options = "ctrl:nocaps";
-#      };
-#      excludePackages = with pkgs; [ xterm ];
-#    };
-#  };
-#  services.gnome.gnome-browser-connector.enable = true;
-#
+  services = {
+    xserver = {
+      enable = true;
+      # displayManager.gdm.enable = true;
+      # desktopManager.gnome.enable = true;
+      displayManager = {
+        gdm = {
+          enable = true;
+          wayland =true;
+        };
+      };
+      #  desktopManager.gnome.enable = true;
+      xkb = {
+        layout = "us";
+        variant = "dvorak";
+        options = "ctrl:nocaps";
+      };
+      excludePackages = with pkgs; [ xterm ];
+    };
+    displayManager.sessionPackages = [ pkgs.sway ];
+  };
+  services.gnome.gnome-browser-connector.enable = true;
+
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -81,6 +82,10 @@
   environment.systemPackages = with pkgs; [
   ];
 
+  environment.variables = {
+    UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
+  };
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -99,14 +104,11 @@
     ];
   };
 
-  services.getty.autologinUser = "doppler";
-  environment.loginShellInit = ''
-    [[ "$(tty)" == /dev/tty1 ]] && sway
-  '';
+#  services.getty.autologinUser = "doppler";
+#  environment.loginShellInit = ''
+#    [[ "$(tty)" == /dev/tty1 ]] && sway
+#  '';
 
-  environment.variables = {
-    UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
-  };
   environment.sessionVariables = {
     GTK_THEME = "Adwaita-dark";
   };
@@ -122,21 +124,6 @@
     source-sans-pro
     source-serif-pro
   ];
-  # fonts = {
-  #   fontDir.enable = true;
-  #   enableGhostscriptFonts = true;
-  #   fonts = with pkgs; [
-  #     corefonts
-  #     terminus_font
-  #     inconsolata
-  #     dejavu_fonts
-  #     font-awesome-ttf
-  #     source-code-pro
-  #     source-sans-pro
-  #     source-serif-pro
-  #   ];
-  # };
-
 
   system.stateVersion = "22.05"; # Did you read the comment?
 

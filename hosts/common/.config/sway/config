@@ -1,5 +1,6 @@
 
-default_border pixel 1
+default_border none
+hide_edge_borders both
 
 mouse_warping container
 
@@ -10,7 +11,7 @@ set $right l
 
 set $term alacritty
 
-set $menu exec nwggrid --class=launcher
+set $menu exec nwggrid --class=launcher -d /etc/profiles/per-user/doppler/share/applications:/run/current-system/sw/share/applications
 # set $menu exec ulauncher --hide-window --no-window-shadow
 # for_window [app_id="ulauncher"] floating enable, border none
 
@@ -36,6 +37,7 @@ set $ws10			10:10
 
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
+bindgesture swipe:up exec nwggrid --class=launcher
 
 # for_window [instance="google-chrome"] move container to workspace $ws6, inhibit_idle fullscreen
 
