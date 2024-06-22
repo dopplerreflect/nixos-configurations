@@ -34,19 +34,28 @@ set $ws8			8:8
 set $ws9			9:9
 set $ws10			10:10
 
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
 
 # for_window [instance="google-chrome"] move container to workspace $ws6, inhibit_idle fullscreen
 
 # for_window [class="Code"] move container to workspace $ws7
 
+for_window [instance="brave-browser"] inhibit_idle fullscreen
 # Load Clock
-for_window [instance="crx_oeokgbjniodmkeegnihddagoolkhljec"] {
+for_window [instance="crx_fhndgjphicgdlodikegejijmhegkhhdc"] {
 	floating enable
 	resize set width 470 px height 690 px
-	move position 472 0
-	move window to workspace $ws4
+#	move position 472 0
+#	move window to workspace $ws4
 }
 
+for_window [instance="crx_hnpfjngllnobngcgfapefoaidbinmjnm"] {
+  floating enable
+  resize set width 960 px height 1080 px
+  move position 540 0
+  move window to 5
+}
 for_window [app_id="nwgbar"] floating enable, sticky enable
 
 workspace {
@@ -72,7 +81,7 @@ output {
 	eDP-1 {
 		resolution 1920x1080
 		position 320,1080
-		scale 1.5
+		# scale 1.5
     background ~/Pictures/Wallpapers/Metatron.png fill
     # background ~/Pictures/Wallpapers/dr-logo.svg fill
     # background ~/Pictures/Wallpapers/spiral-star-with-stars.svg fill

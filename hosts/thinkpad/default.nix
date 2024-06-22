@@ -99,6 +99,11 @@
     ];
   };
 
+  services.getty.autologinUser = "doppler";
+  environment.loginShellInit = ''
+    [[ "$(tty)" == /dev/tty1 ]] && sway
+  '';
+
   environment.variables = {
     UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
   };
