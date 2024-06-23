@@ -11,7 +11,7 @@ set $right l
 
 set $term alacritty
 
-set $menu exec nwggrid --class=launcher -d /etc/profiles/per-user/doppler/share/applications:/run/current-system/sw/share/applications
+set $menu exec nwggrid --class=launcher -d /etc/profiles/per-user/doppler/share/applications:/home/doppler/.local/share/applications
 # set $menu exec ulauncher --hide-window --no-window-shadow
 # for_window [app_id="ulauncher"] floating enable, border none
 
@@ -81,14 +81,14 @@ output {
 	DP-1 {
 		resolution 1920x1080
 		position 0,0
-    background /home/doppler/Pictures/BP-DODECA-2023-10-01T03_38_52.482Z.png fill
+    background /home/doppler/Pictures/DISCODEC-2024-06-23T01_54_56.075Z.png fill
     # background ~/Pictures/Wallpapers/spiral-star-with-stars.png fill
     # background ~/Pictures/Wallpapers/shadow-star-2.png fill
 	}
 	eDP-1 {
 		resolution 1920x1080
 		position 320,1080
-    background /home/doppler/Pictures/BP-DODECA-2023-10-01T03_38_52.482Z.png fill
+    background /home/doppler/Pictures/DesktopBackground.png fill
 		# scale 1.5
     # background ~/Pictures/Wallpapers/Metatron.png fill
     # background ~/Pictures/Wallpapers/dr-logo.svg fill
@@ -303,7 +303,7 @@ for_window [title="shotman"] move position 30 30, floating enable, sticky
 
 bar {
     # mode invisible
-    output eDP-1
+    # output eDP-1
     font pango:DejaVu Sans Mono, Font Awesome 6 Free
     position bottom
     # status_command path/to/i3status-rs path/to/your/config.toml
