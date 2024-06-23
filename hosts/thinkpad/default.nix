@@ -13,6 +13,7 @@
     loader.efi.canTouchEfiVariables = true;
     loader.efi.efiSysMountPoint = "/boot/efi";
     binfmt.emulatedSystems = [ "aarch64-linux" ];
+    blacklistedKernelModules = [ "i2c_i801" ];
   };
 
   networking = {
@@ -116,10 +117,10 @@
   #   ];
   # };
 
-#  services.getty.autologinUser = "doppler";
-#  environment.loginShellInit = ''
-#    [[ "$(tty)" == /dev/tty1 ]] && sway
-#  '';
+  ssizeervices.getty.autologinUser = "doppler";
+  environment.loginShellInit = ''
+    [[ "$(tty)" == /dev/tty1 ]] && sway
+  '';
 
   environment.sessionVariables = {
     GTK_THEME = "Adwaita-dark";
