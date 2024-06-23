@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "doppler";
@@ -53,11 +53,23 @@
     # zoom-us
     zstd
 
+    sway
+    i3status-rust
     wlroots
     pulseaudioFull
     pavucontrol
     gnome.nautilus
     hicolor-icon-theme
+    dmenu
+    wofi
+    swaylock
+    swayidle
+    swaybg
+    wl-clipboard
+    mako
+    nwg-launchers
+    nwg-bar
+
   ];
   
   home.file = {
@@ -69,54 +81,62 @@
 
   wayland.windowManager.sway = {
     enable = true;
-    extraConfig = "default_border none\n";
-    config = rec {
-      modifier = "Mod4";
-      # Use kitty as default terminal
-      terminal = "alacritty"; 
-      startup = [
-        # Launch Firefox on start
-        {command = "brave";}
-      ];
-      input = {
-        "type:keyboard" = {
-          xkb_layout = "us";
-          xkb_variant = "dvorak";
-          xkb_options = "caps:ctrl_modifier";
-        };
-        "type:touchpad" = {
-          dwt = "enabled";
-          tap = "enabled";
-          natural_scroll = "enabled";
-          click_method = "clickfinger";
-        };
-      };
-      output = {
-        "DP-1" = {
-          resolution = "1920x1080";
-          position = "0,0";
-        };
-        "eDP-1" = {
-          resolution = "1920x1080";
-          position = "0,1080";
-        };
-      };
-      assigns = {
-        "1" = [{ class = "^Brave-browser$"; }];
-        "2" = [{ class = "^Code$"; }];
-      };
-      bars = [
-        {
-          id = "bar-test";
-          command = "${pkgs.i3status-rust}/bin/i3status-rs";
-          position = "bottom";
-          hiddenState = "show";
-          fonts = {
-            names = [ "Font Awesome 6 Pro" "DejaVu Sans Mono" ];
-          };
-        }
-      ];
-    };
+    package = null;
+    config = null;
+    checkConfig = false;
+    systemd.xdgAutostart = true;
+    # commented out while still fucking with it
+
+    # all the rest of this was proving to be a pain in the ass
+    # extraConfig = lib.fileContents ../common/.config/sway/config;
+    #config = rec {
+    #  modifier = "Mod4";
+    #  # Use kitty as default terminal
+    #  terminal = "alacritty"; 
+    #  startup = [
+    #    # Launch Firefox on start
+    #    {command = "brave";}
+    #  ];
+    #  input = {
+    #    "type:keyboard" = {
+    #      xkb_layout = "us";
+    #      xkb_variant = "dvorak";
+    #      xkb_options = "caps:ctrl_modifier";
+    #    };
+    #    "type:touchpad" = {
+    #      dwt = "enabled";
+    #      tap = "enabled";
+    #      natural_scroll = "enabled";
+    #      click_method = "clickfinger";
+    #    };
+    #  };
+    #  output = {
+    #    "DP-1" = {
+    #      resolution = "1920x1080";
+    #      position = "0,0";
+    #    };
+    #    "eDP-1" = {
+    #      resolution = "1920x1080";
+    #      position = "0,1080";
+    #    };
+    #  };
+    #  assigns = {
+    #    "1" = [{ class = "^Brave-browser$"; }];
+    #    "2" = [{ class = "^Code$"; }];
+    #  };
+    #  bars = [
+    #    {
+    #      id = "bar-test";
+    #      statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs";
+    #      position = "bottom";
+    #      hiddenState = "show";
+    #      fonts = {
+    #        names = [ "Font Awesome 6 Pro" "DejaVu Sans Mono" ];
+    #        size = 14.0;
+    #      };
+    #    }
+    #  ];
+    #};
   };
 
   programs.git = {

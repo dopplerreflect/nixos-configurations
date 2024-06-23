@@ -46,13 +46,25 @@
       };
       excludePackages = with pkgs; [ xterm ];
     };
-    displayManager.sessionPackages = [ pkgs.sway ];
+    # displayManager.sessionPackages = [ pkgs.sway ];
   };
-  services.gnome.gnome-browser-connector.enable = true;
+  # services.gnome.gnome-browser-connector.enable = true;
+
+  # security.pam.services.swaylock = {
+  #   text = ''
+  #     auth include login
+  #   '';
+  # };
+
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+    pam.services.swaylock.text = ''auth include login'';
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+  # security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
