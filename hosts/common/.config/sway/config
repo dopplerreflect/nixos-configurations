@@ -1,5 +1,5 @@
 
-default_border none
+default_border pixel
 hide_edge_borders both
 
 mouse_warping container
@@ -24,16 +24,29 @@ set $external_display DP-1
 set $laptop_display eDP-1
 set $portable_display DP-2
 
-set $ws1  		1:Browser
-set $ws2     	2:Code
-set $ws3     	3:Coms
-set $ws4  		4:Weather
+set $ws1  		1:Terms
+set $ws2     	2:Web
+set $ws3     	3:Scratch
+set $ws4  		4:Code
 set $ws5 			5:Misc
-set $ws6			6:Terminals
+set $ws6			6:Coms
 set $ws7			7:7
 set $ws8			8:8
 set $ws9			9:9
 set $ws10			10:10
+
+workspace {
+	$ws1				  output $laptop_display
+	$ws2		   	  output $external_display
+	$ws3		   	  output $laptop_display
+	$ws4			  	output $external_display
+	$ws5        	output $laptop_display
+	$ws6				  output $external_display
+	$ws7	        output $external_display
+	$ws8	        output $external_display
+	$ws9	        output $external_display
+	$ws10	        output $external_display
+}
 
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
@@ -41,11 +54,11 @@ bindgesture swipe:up exec nwggrid --class=launcher
 
 # for_window [instance="google-chrome"] move container to workspace $ws6, inhibit_idle fullscreen
 
-for_window [class="Code"] move container to workspace $ws2
+for_window [class="Code"] move container to workspace $ws4
 
 for_window [class="Brave-browser"] {
   inhibit_idle fullscreen
-  move window to workspace $ws1
+  move window to workspace $ws2
 }
 
 # Load Clock
@@ -56,26 +69,14 @@ for_window [instance="crx_fhndgjphicgdlodikegejijmhegkhhdc"] {
 #	move window to workspace $ws4
 }
 
+# WhatsApp
 for_window [instance="crx_hnpfjngllnobngcgfapefoaidbinmjnm"] {
   floating enable
   resize set width 960 px height 1080 px
-  move position 540 0
-  move window to 5
+  move position 960 0
+  move window to $ws6
 }
 for_window [app_id="nwgbar"] floating enable, sticky enable
-
-workspace {
-	$ws1				  output $external_display
-	$ws2		   	  output $external_display
-	$ws3		   	  output $external_display
-	$ws4			  	output $external_display
-	$ws5        	output $external_display
-	$ws6				  output $laptop_display
-	$ws7	        output $laptop_display
-	$ws8	        output $laptop_display
-	$ws9	        output $laptop_display
-	$ws10	        output $laptop_display
-}
 
 output {
 	DP-1 {
@@ -205,6 +206,7 @@ include /home/doppler/.config/sway/config.d/*
     bindsym $mod+Shift+0 move container to workspace $ws10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    bindsym $mod+w workspace back_and_forth
 #
 # Layout stuff:
 #
@@ -216,7 +218,7 @@ include /home/doppler/.config/sway/config.d/*
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
+    bindsym $mod+t layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen

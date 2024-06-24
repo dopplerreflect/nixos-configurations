@@ -29,6 +29,7 @@
   console.keyMap = "dvorak";
 
   services = {
+    gvfs.enable = true;
     xserver = {
       enable = true;
       # displayManager.gdm.enable = true;
@@ -117,7 +118,7 @@
   #   ];
   # };
 
-  ssizeervices.getty.autologinUser = "doppler";
+  services.getty.autologinUser = "doppler";
   environment.loginShellInit = ''
     [[ "$(tty)" == /dev/tty1 ]] && sway
   '';

@@ -53,7 +53,7 @@
     # zoom-us
     zstd
 
-    sway
+    # sway
     i3status-rust
     wlroots
     pulseaudioFull
@@ -81,14 +81,14 @@
 
   wayland.windowManager.sway = {
     enable = true;
-    package = null;
+    # package = null;
     config = null;
     checkConfig = false;
     systemd.xdgAutostart = true;
     # commented out while still fucking with it
 
     # all the rest of this was proving to be a pain in the ass
-    # extraConfig = lib.fileContents ../common/.config/sway/config;
+    extraConfig = lib.fileContents ../common/.config/sway/config;
     #config = rec {
     #  modifier = "Mod4";
     #  # Use kitty as default terminal
