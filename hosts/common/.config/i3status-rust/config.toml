@@ -1,0 +1,51 @@
+icons_format = "{icon}"
+[theme]
+theme = "solarized-dark"
+[icons]
+icons = "awesome6"
+
+[[block]]
+block = "focused_window"
+format="$title.str(max_w:50) |"
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = " $icon / $available.eng(w:2) "
+
+[[block]]
+block = "net"
+device = "wlp0s20f3"
+[[block.click]]
+button = "left"
+cmd = "alacritty -e nmtui"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "time"
+format = " $icon $timestamp.datetime(f:'%a %b %e %H:%M') "
+
+[[block]]
+block = "menu"
+text = "\u23fb "
+[[block.items]]
+display = " -&gt;   Exit    &lt;-"
+cmd = ""
+[[block.items]]
+display = " -&gt;   Sleep   &lt;-"
+cmd = "systemctl suspend"
+[[block.items]]
+display = " -&gt; Power Off &lt;-"
+cmd = "poweroff"
+confirm_msg = "Are you sure you want to power off?"
+[[block.items]]
+display = " -&gt;  Reboot   &lt;-"
+cmd = "reboot"
+confirm_msg = "Are you sure you want to reboot?"

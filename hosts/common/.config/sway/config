@@ -1,0 +1,358 @@
+
+default_border pixel
+hide_edge_borders both
+
+mouse_warping container
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term alacritty
+
+set $menu exec nwggrid --class=launcher -d /etc/profiles/per-user/doppler/share/applications:/home/doppler/.local/share/applications
+# set $menu exec ulauncher --hide-window --no-window-shadow
+# for_window [app_id="ulauncher"] floating enable, border none
+
+
+set $mod Mod4
+set $alt Mod1
+
+# set $external_display HDMI-A-1
+set $external_display DP-1
+set $laptop_display eDP-1
+set $portable_display DP-2
+
+set $ws1  		1:Terms
+set $ws2     	2:Web
+set $ws3     	3:Scratch
+set $ws4  		4:Code
+set $ws5 			5:Misc
+set $ws6			6:Coms
+set $ws7			7:7
+set $ws8			8:8
+set $ws9			9:9
+set $ws10			10:10
+
+workspace {
+	$ws1				  output $laptop_display
+	$ws2		   	  output $external_display
+	$ws3		   	  output $laptop_display
+	$ws4			  	output $external_display
+	$ws5        	output $laptop_display
+	$ws6				  output $external_display
+	$ws7	        output $external_display
+	$ws8	        output $external_display
+	$ws9	        output $external_display
+	$ws10	        output $external_display
+}
+
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
+bindgesture swipe:up exec nwggrid --class=launcher
+
+# for_window [instance="google-chrome"] move container to workspace $ws6, inhibit_idle fullscreen
+
+for_window [class="Code"] move container to workspace $ws4
+
+for_window [class="Brave-browser"] {
+  inhibit_idle fullscreen
+  move window to workspace $ws2
+}
+
+# Load Clock
+for_window [instance="crx_fhndgjphicgdlodikegejijmhegkhhdc"] {
+	floating enable
+	resize set width 470 px height 690 px
+#	move position 472 0
+#	move window to workspace $ws4
+}
+
+# WhatsApp
+for_window [instance="crx_hnpfjngllnobngcgfapefoaidbinmjnm"] {
+  floating enable
+  resize set width 960 px height 1080 px
+  move position 960 0
+  move window to $ws6
+}
+# Messages
+for_window [instance="crx_hpfldicfbfomlpcikngkocigghgafkph"] {
+  floating enable
+  resize set width 960 px height 1080 px
+  move position 0 0
+  move window to $ws6
+}
+# PPG.report
+for_window [instance="crx_bepfaajflllindcdcehkmpbdadhbmeid"] floating enable
+
+for_window [app_id="nwgbar"] floating enable, sticky enable
+
+output {
+	DP-1 {
+		resolution 1920x1080
+		position 0,0
+    background /home/doppler/Pictures/DISCODEC-2024-06-23T01_54_56.075Z.png fill
+    # background ~/Pictures/Wallpapers/spiral-star-with-stars.png fill
+    # background ~/Pictures/Wallpapers/shadow-star-2.png fill
+	}
+	eDP-1 {
+		resolution 1920x1080
+		position 320,1080
+    background /home/doppler/Pictures/DesktopBackground.png fill
+		# scale 1.5
+    # background ~/Pictures/Wallpapers/Metatron.png fill
+    # background ~/Pictures/Wallpapers/dr-logo.svg fill
+    # background ~/Pictures/Wallpapers/spiral-star-with-stars.svg fill
+    # background ~/Pictures/Wallpapers/illusion-orange.svg fill
+
+	}
+  HDMI-A-1 {
+    resolution 1920x1080
+    position 0,0
+    # background ~/Pictures/Wallpapers/spiral-star-with-stars.png fill
+  }
+}
+
+input type:keyboard {
+	xkb_layout us
+	xkb_variant dvorak
+	xkb_options caps:ctrl_modifier
+}
+
+input type:touchpad {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	click_method clickfinger
+}
+
+# exec mako -c /home/doppler/.config/mako/mako.conf
+
+# exec wlsunset -l 33.9 -L -85.1
+
+# exec udiskie
+
+include /home/doppler/.config/sway/config.d/*
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Start internet browser
+    bindsym $mod+i exec /usr/bin/google-chrome-stable %U
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+r reload
+
+    # Exit sway (logs you out of your Wayland session)
+    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    # bindsym $mod+Shift+e exec nwg-bar
+
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+7 workspace $ws7
+    bindsym $mod+8 workspace $ws8
+    bindsym $mod+9 workspace $ws9
+    bindsym $mod+0 workspace $ws10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace $ws9
+    bindsym $mod+Shift+0 move container to workspace $ws10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+    bindsym $mod+w workspace back_and_forth
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+t layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+$alt+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Media keys
+#
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+#
+# Brightness
+#
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+# This is a sample config file for shotman.
+#
+# This file is _not_ loaded by shotman, but rather but sway, which handles both
+# the executing and the positioning of shotman.
+#
+# Place this in ~/.config/sway/shotman.conf and customise as you see fit.
+
+# Super+Print: Current window
+# Super+Shift+Print: Select region
+# Super+Alt+Print Current output
+# Super+Ctrl+Print Select a window
+
+bindsym $mod+Print       exec shotman active
+bindsym $mod+Shift+Print exec shotman area
+bindsym $mod+$alt+Print  exec shotman output
+bindsym $mod+Ctrl+Print  exec shotman window
+
+for_window [title="shotman"] move position 30 30, floating enable, sticky
+
+# bar
+
+bar {
+    # mode invisible
+    # output eDP-1
+    font pango:DejaVu Sans Mono, Font Awesome 6 Free
+    position bottom
+    # status_command path/to/i3status-rs path/to/your/config.toml
+    status_command $(which i3status-rs)
+    colors {
+        separator #666666
+        background #001A6680
+        statusline #809FFF
+        focused_workspace #002080 #00208040 #809FFF
+        active_workspace #002080 #00208040 #809FFF
+        inactive_workspace #002080 #00208040 #527DFF
+        urgent_workspace #2f343a #900000 #ffffff
+    }
+}
+
+bindsym $mod+Shift+b bar mode toggle
+# swayidle
+
+set $image /home/doppler/Pictures/Wallpapers/shadow-star.png
+
+exec swayidle -w \
+  timeout 600 "swaylock -f -c 002266 -i $image" \
+  timeout 900 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  before-sleep "swaylock -f -c 002266 -i $image"
+# swaylock
+
+set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
+mode "$mode_system" {
+  bindsym l exec swaylock -f -c 002266 -i /home/doppler/Pictures/Wallpapers/shadow-star.png
+  bindsym e exit
+  bindsym s exec systemctl suspend, mode "default"
+  bindsym r exec systemctl reboot, mode "default"
+  bindsym Shift+s exec systemctl poweroff -i, mode "default"
+  bindsym Shift+r exec systemctl reboot --firmware-setup, mode "default"
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$mode_system"

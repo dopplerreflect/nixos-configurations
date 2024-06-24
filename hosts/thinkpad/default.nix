@@ -13,6 +13,7 @@
     loader.efi.canTouchEfiVariables = true;
     loader.efi.efiSysMountPoint = "/boot/efi";
     binfmt.emulatedSystems = [ "aarch64-linux" ];
+    blacklistedKernelModules = [ "i2c_i801" ];
   };
 
   networking = {
@@ -28,6 +29,7 @@
   console.keyMap = "dvorak";
 
   services = {
+    gvfs.enable = true;
     xserver = {
       enable = true;
       # displayManager.gdm.enable = true;
@@ -38,7 +40,7 @@
           wayland =true;
         };
       };
-      desktopManager.gnome.enable = true;
+      #  desktopManager.gnome.enable = true;
       xkb = {
         layout = "us";
         variant = "dvorak";
@@ -46,12 +48,25 @@
       };
       excludePackages = with pkgs; [ xterm ];
     };
+    # displayManager.sessionPackages = [ pkgs.sway ];
   };
-  services.gnome.gnome-browser-connector.enable = true;
+  # services.gnome.gnome-browser-connector.enable = true;
+
+  # security.pam.services.swaylock = {
+  #   text = ''
+  #     auth include login
+  #   '';
+  # };
+
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+    pam.services.swaylock.text = ''auth include login'';
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+  # security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -78,15 +93,50 @@
     shell = pkgs.zsh;
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   vim
-  # ];
+  environment.systemPackages = with pkgs; [
+  ];
+
   environment.variables = {
     UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
   };
 
+  # programs.sway = {
+  #   enable = true;
+  #   wrapperFeatures.gtk = true;
+  #   extraPackages = with pkgs; [
+  #     alacritty
+  #     dmenu
+  #     wofi
+  #     swaylock
+  #     swayidle
+  #     swaybg
+  #     wl-clipboard
+  #     mako
+  #     i3status-rust
+  #     nwg-launchers
+  #     nwg-bar
+  #   ];
+  # };
+
+  services.getty.autologinUser = "doppler";
+  environment.loginShellInit = ''
+    [[ "$(tty)" == /dev/tty1 ]] && sway
+  '';
+
+  environment.sessionVariables = {
+    GTK_THEME = "Adwaita-dark";
+  };
+
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    corefonts
+    terminus_font
+    inconsolata
+    dejavu_fonts
+    font-awesome
+    source-code-pro
+    source-sans-pro
+    source-serif-pro
   ];
 
   system.stateVersion = "22.05"; # Did you read the comment?
@@ -103,7 +153,7 @@
     serviceConfig = {
       Type = "forking";
       User = "doppler";
-      WorkingDirectory = "/home/doppler";
+      WorkingDirectory = "/home/doppler/Code/bun-sveltekit-ecowitt";
       ExecStart = "/run/current-system/sw/bin/sh /home/doppler/bin/start-ecowitt.sh";
       ExecStop = "/run/current-system/sw/bin/tmux kill-session -t ecowitt";
     };
