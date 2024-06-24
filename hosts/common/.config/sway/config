@@ -76,6 +76,16 @@ for_window [instance="crx_hnpfjngllnobngcgfapefoaidbinmjnm"] {
   move position 960 0
   move window to $ws6
 }
+# Messages
+for_window [instance="crx_hpfldicfbfomlpcikngkocigghgafkph"] {
+  floating enable
+  resize set width 960 px height 1080 px
+  move position 0 0
+  move window to $ws6
+}
+# PPG.report
+for_window [instance="crx_bepfaajflllindcdcehkmpbdadhbmeid"] floating enable
+
 for_window [app_id="nwgbar"] floating enable, sticky enable
 
 output {
