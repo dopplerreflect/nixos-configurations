@@ -30,17 +30,16 @@
 
   services = {
     gvfs.enable = true;
+    # gnome.tracker-miners.enable = true;
     xserver = {
       enable = true;
-      # displayManager.gdm.enable = true;
-      # desktopManager.gnome.enable = true;
       displayManager = {
         gdm = {
           enable = true;
           wayland =true;
         };
       };
-      #  desktopManager.gnome.enable = true;
+       desktopManager.gnome.enable = true;
       xkb = {
         layout = "us";
         variant = "dvorak";
@@ -48,15 +47,14 @@
       };
       excludePackages = with pkgs; [ xterm ];
     };
-    # displayManager.sessionPackages = [ pkgs.sway ];
+    displayManager.sessionPackages = [ pkgs.sway ];
   };
   # services.gnome.gnome-browser-connector.enable = true;
 
-  # security.pam.services.swaylock = {
-  #   text = ''
-  #     auth include login
-  #   '';
-  # };
+  services.getty.autologinUser = "doppler";
+  environment.loginShellInit = ''
+    [[ "$(tty)" == /dev/tty1 ]] && sway
+  '';
 
   security = {
     rtkit.enable = true;
@@ -66,7 +64,6 @@
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
-  # security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -94,34 +91,12 @@
   };
 
   environment.systemPackages = with pkgs; [
+    ffmpegthumbnailer
   ];
 
   environment.variables = {
     UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
   };
-
-  # programs.sway = {
-  #   enable = true;
-  #   wrapperFeatures.gtk = true;
-  #   extraPackages = with pkgs; [
-  #     alacritty
-  #     dmenu
-  #     wofi
-  #     swaylock
-  #     swayidle
-  #     swaybg
-  #     wl-clipboard
-  #     mako
-  #     i3status-rust
-  #     nwg-launchers
-  #     nwg-bar
-  #   ];
-  # };
-
-  services.getty.autologinUser = "doppler";
-  environment.loginShellInit = ''
-    [[ "$(tty)" == /dev/tty1 ]] && sway
-  '';
 
   environment.sessionVariables = {
     GTK_THEME = "Adwaita-dark";
@@ -140,11 +115,6 @@
   ];
 
   system.stateVersion = "22.05"; # Did you read the comment?
-
-  # security.sudo.wheelNeedsPassword = false;
-  # nixpkgs.config.allowUnfree = true;
-
-  # services.sshd.enable = true;
 
   systemd.services.ecowitt = {
     description = "Ecowitt Weather Thing";
@@ -166,4 +136,35 @@
     extraOptions = "experimental-features = nix-command flakes";
   };
 
+  environment.gnome.excludePackages = with pkgs.gnome; [
+    baobab      # disk usage analyzer
+    cheese      # photo booth
+    eog         # image viewer
+    epiphany    # web browser
+    pkgs.gedit       # text editor
+    simple-scan # document scanner
+    totem       # video player
+    yelp        # help viewer
+    # evince      # document viewer
+    file-roller # archive manager
+    geary       # email client
+    # seahorse    # password manager
+
+    # these should be self explanatory
+    # gnome-calculator
+    # gnome-calendar
+    gnome-characters
+    gnome-clocks
+    gnome-contacts
+    # gnome-font-viewer
+    gnome-logs
+    gnome-maps
+    gnome-music
+    # gnome-photos
+    gnome-screenshot
+    gnome-system-monitor
+    gnome-weather
+    # gnome-disk-utility
+    pkgs.gnome-connections
+  ];
 }

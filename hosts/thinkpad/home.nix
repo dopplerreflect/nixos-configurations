@@ -10,6 +10,7 @@
     # blender
     brave
     btop
+    bc
     chromedriver
     # bun # moved to system
     # deno
@@ -42,6 +43,8 @@
     rpi-imager
     # slack
     sqlite-interactive
+    # tracker
+    # tracker-miners
     unzip
     vim
     virt-manager
@@ -75,7 +78,7 @@
   home.file = {
     ".config/alacritty/alacritty.toml".text = builtins.readFile ./config/alacritty/alacritty.toml;
   };
-    home.file = {
+  home.file = {
     "/bin/start-ecowitt.sh".text = builtins.readFile ./start-ecowitt.sh;
   };
 
@@ -85,6 +88,7 @@
     config = null;
     checkConfig = false;
     systemd.xdgAutostart = true;
+    wrapperFeatures.gtk = true;
     # commented out while still fucking with it
 
     # all the rest of this was proving to be a pain in the ass
