@@ -71,6 +71,8 @@
     pulse.enable = true;
   };
 
+  hardware.rtl-sdr.enable = true;
+
   virtualisation.libvirtd.enable = true;
   virtualisation.docker = {
     enable = true;
@@ -86,7 +88,7 @@
   users.users.doppler = {
     isNormalUser = true;
     description = "doppler";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "plugdev" ];
     shell = pkgs.zsh;
   };
 

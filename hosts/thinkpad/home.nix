@@ -22,6 +22,7 @@
     file
     firefox
     freefilesync
+    gqrx
     gimp
     git
     gnome.dconf-editor
@@ -41,6 +42,8 @@
     realvnc-vnc-viewer
     ripgrep
     rpi-imager
+    rtl-sdr
+    rtl_433
     # slack
     sqlite-interactive
     # tracker
