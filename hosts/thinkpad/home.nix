@@ -68,7 +68,6 @@
     hicolor-icon-theme
     dmenu
     wofi
-    shotman
     slurp
     swaylock
     swayidle
@@ -77,7 +76,7 @@
     mako
     nwg-launchers
     nwg-bar
-
+    sway-contrib.grimshot
   ];
   
   home.file = {

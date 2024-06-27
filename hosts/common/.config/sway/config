@@ -12,9 +12,6 @@ set $right l
 set $term alacritty
 
 set $menu exec nwggrid --class=launcher -d /etc/profiles/per-user/doppler/share/applications:/home/doppler/.local/share/applications
-# set $menu exec ulauncher --hide-window --no-window-shadow
-# for_window [app_id="ulauncher"] floating enable, border none
-
 
 set $mod Mod4
 set $alt Mod1
@@ -48,12 +45,16 @@ workspace {
 	$ws10	        output $external_display
 }
 
+#
+# swipes
+########################################
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
 bindgesture swipe:up exec nwggrid --class=launcher
 
-# for_window [instance="google-chrome"] move container to workspace $ws6, inhibit_idle fullscreen
-
+#
+# place and size windows
+########################################
 for_window [class="Code"] move container to workspace $ws4
 
 for_window [class="Brave-browser"] {
@@ -88,52 +89,45 @@ for_window [instance="crx_bepfaajflllindcdcehkmpbdadhbmeid"] floating enable
 
 for_window [app_id="nwgbar"] floating enable, sticky enable
 
+#
+# outputs
+########################################
 output {
 	DP-1 {
 		resolution 1920x1080
 		position 0,0
     background /home/doppler/Pictures/DISCODEC-2024-06-23T01_54_56.075Z.png fill
-    # background ~/Pictures/Wallpapers/spiral-star-with-stars.png fill
-    # background ~/Pictures/Wallpapers/shadow-star-2.png fill
 	}
 	eDP-1 {
 		resolution 1920x1080
 		position 0,1080
     background /home/doppler/Pictures/DesktopBackground.png fill
-		# scale 1.5
-    # background ~/Pictures/Wallpapers/Metatron.png fill
-    # background ~/Pictures/Wallpapers/dr-logo.svg fill
-    # background ~/Pictures/Wallpapers/spiral-star-with-stars.svg fill
-    # background ~/Pictures/Wallpapers/illusion-orange.svg fill
 
 	}
   HDMI-A-1 {
     resolution 1920x1080
     position 0,0
-    # background ~/Pictures/Wallpapers/spiral-star-with-stars.png fill
   }
 }
 
+#
+# keyboard
+########################################
 input type:keyboard {
 	xkb_layout us
 	xkb_variant dvorak
 	xkb_options caps:ctrl_modifier
 }
 
+#
+# touchpad
+########################################
 input type:touchpad {
 	dwt enabled
 	tap enabled
 	natural_scroll enabled
 	click_method clickfinger
 }
-
-# exec mako -c /home/doppler/.config/mako/mako.conf
-
-# exec wlsunset -l 33.9 -L -85.1
-
-# exec udiskie
-
-include /home/doppler/.config/sway/config.d/*
 
 ### Key bindings
 #
@@ -292,26 +286,19 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 #
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-# This is a sample config file for shotman.
-#
-# This file is _not_ loaded by shotman, but rather but sway, which handles both
-# the executing and the positioning of shotman.
-#
-# Place this in ~/.config/sway/shotman.conf and customise as you see fit.
 
-# Super+Print: Current window
-# Super+Shift+Print: Select region
-# Super+Alt+Print Current output
-# Super+Ctrl+Print Select a window
-
-bindsym $mod+Print       exec shotman -c window
-bindsym $mod+Shift+Print exec shotman -c output
-bindsym $mod+$alt+Print  exec shotman -c region
+#
+# Screenshots
+#########################################
+bindsym Print             exec grimshot save active
+bindsym $mod+Print        exec grimshot save output
+bindsym $mod+Shift+Print  exec grimshot area
 
 for_window [title="shotman"] move position 30 30, floating enable, sticky
 
+#
 # bar
-
+#########################################
 bar {
     # mode invisible
     # output eDP-1
@@ -331,8 +318,9 @@ bar {
 }
 
 bindsym $mod+Shift+b bar mode toggle
+#
 # swayidle
-
+########################################
 set $image /home/doppler/Pictures/Wallpapers/shadow-star.png
 
 exec swayidle -w \
