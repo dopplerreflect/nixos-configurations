@@ -100,8 +100,9 @@
     UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
   };
 
-  environment.sessionVariables = {
-    GTK_THEME = "Adwaita-dark";
+  environment.sessionVariables = rec {
+    GTK_THEME = "Adwaita-Dark";
+    PATH = [ "$HOME/.local/bin" ];
   };
 
   fonts.packages = with pkgs; [

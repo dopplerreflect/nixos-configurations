@@ -68,6 +68,8 @@
     hicolor-icon-theme
     dmenu
     wofi
+    shotman
+    slurp
     swaylock
     swayidle
     swaybg

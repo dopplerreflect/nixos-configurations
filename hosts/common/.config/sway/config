@@ -304,10 +304,9 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 # Super+Alt+Print Current output
 # Super+Ctrl+Print Select a window
 
-bindsym $mod+Print       exec shotman active
-bindsym $mod+Shift+Print exec shotman area
-bindsym $mod+$alt+Print  exec shotman output
-bindsym $mod+Ctrl+Print  exec shotman window
+bindsym $mod+Print       exec shotman -c window
+bindsym $mod+Shift+Print exec shotman -c output
+bindsym $mod+$alt+Print  exec shotman -c region
 
 for_window [title="shotman"] move position 30 30, floating enable, sticky
 
