@@ -55,9 +55,9 @@ bindgesture swipe:up exec nwggrid --class=launcher
 #
 # place and size windows
 ########################################
-for_window [class="Code"] move container to workspace $ws4
+# for_window [class="Code"] move container to workspace $ws4
 
-for_window [class="Brave-browser"] {
+for_window [instance="brave-browser"] {
   inhibit_idle fullscreen
   move window to workspace $ws2
 }
