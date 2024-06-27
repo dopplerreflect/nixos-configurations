@@ -294,8 +294,6 @@ bindsym Print             exec grimshot save active
 bindsym $mod+Print        exec grimshot save output
 bindsym $mod+Shift+Print  exec grimshot area
 
-for_window [title="shotman"] move position 30 30, floating enable, sticky
-
 #
 # bar
 #########################################
