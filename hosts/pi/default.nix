@@ -20,6 +20,12 @@
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
     };
+    kernel = {
+      sysctl = {
+        "net.ipv6.conf.wlp0s20f3.hop_limit" = 65;
+        "net.ipv4.ip_default_ttl" = 65;
+      };
+    };
   };
 
   fileSystems = {

@@ -10,7 +10,8 @@
     # blender
     brave
     btop
-    chromedriver
+    bc
+    # chromedriver
     # bun # moved to system
     # deno
     # discord
@@ -21,11 +22,12 @@
     file
     firefox
     freefilesync
+    gqrx
     gimp
     git
     gnome.dconf-editor
     gnome3.gnome-tweaks
-    google-chrome
+    # google-chrome
     googleearth-pro
     heroku
     imagemagick
@@ -40,8 +42,12 @@
     realvnc-vnc-viewer
     ripgrep
     rpi-imager
+    rtl-sdr
+    rtl_433
     # slack
     sqlite-interactive
+    # tracker
+    # tracker-miners
     unzip
     vim
     virt-manager
@@ -62,6 +68,7 @@
     hicolor-icon-theme
     dmenu
     wofi
+    slurp
     swaylock
     swayidle
     swaybg
@@ -69,13 +76,13 @@
     mako
     nwg-launchers
     nwg-bar
-
+    sway-contrib.grimshot
   ];
   
   home.file = {
     ".config/alacritty/alacritty.toml".text = builtins.readFile ./config/alacritty/alacritty.toml;
   };
-    home.file = {
+  home.file = {
     "/bin/start-ecowitt.sh".text = builtins.readFile ./start-ecowitt.sh;
   };
 
@@ -85,6 +92,7 @@
     config = null;
     checkConfig = false;
     systemd.xdgAutostart = true;
+    wrapperFeatures.gtk = true;
     # commented out while still fucking with it
 
     # all the rest of this was proving to be a pain in the ass
