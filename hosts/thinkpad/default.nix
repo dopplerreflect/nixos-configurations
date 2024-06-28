@@ -14,6 +14,12 @@
     loader.efi.efiSysMountPoint = "/boot/efi";
     binfmt.emulatedSystems = [ "aarch64-linux" ];
     blacklistedKernelModules = [ "i2c_i801" ];
+    kernel = {
+      sysctl = {
+        "net.ipv6.conf.wlp0s20f3.hop_limit" = 66;
+        "net.ipv4.ip_default_ttl" = 66;
+      };
+    };
   };
 
   networking = {
