@@ -11,7 +11,7 @@
     brave
     btop
     bc
-    chromedriver
+    # chromedriver
     # bun # moved to system
     # deno
     # discord
@@ -27,7 +27,7 @@
     git
     gnome.dconf-editor
     gnome3.gnome-tweaks
-    google-chrome
+    # google-chrome
     googleearth-pro
     heroku
     imagemagick
