@@ -5,7 +5,7 @@
 
   imports = [
     ../common
-    ./bluetooth.nix
+    # ./bluetooth.nix
   ];
 
   boot = {
@@ -59,7 +59,7 @@
       DHCP_DNS = "192.168.12.1,8.8.8.8,8.8.4.4,1.1.1.1";
       INTERNET_IFACE = "wlp1s0u1u2";
       WIFI_IFACE = "wlan0";
-      SSID = "weatherflow";
+      SSID = "pi";
       PASSPHRASE = "wifipass";
     };
   };
