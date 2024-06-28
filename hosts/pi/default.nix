@@ -22,7 +22,7 @@
     };
     kernel = {
       sysctl = {
-        "net.ipv6.conf.wlp0s20f3.hop_limit" = 65;
+        "net.ipv6.conf.wlp1s0u1u2.hop_limit" = 65;
         "net.ipv4.ip_default_ttl" = 65;
       };
     };
