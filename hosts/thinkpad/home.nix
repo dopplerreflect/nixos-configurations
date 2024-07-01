@@ -38,6 +38,7 @@
     nmap
     nodejs
     # obs-studio
+    onagre # launcher
     python3
     realvnc-vnc-viewer
     ripgrep
@@ -186,6 +187,18 @@
       picture-options = "zoom";
     };
   };
+
+  # tried this from https://www.reddit.com/r/NixOS/comments/18hdool/how_do_i_set_a_global_dark_theme_and_configure_gtk/
+  # trying to get dark theme and all icons
+  # don't think it helped.
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome.gnome-themes-extra;
+    };
+  };
+
   home.stateVersion = "24.05";
 
 }

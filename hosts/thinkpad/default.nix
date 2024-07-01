@@ -35,8 +35,14 @@
   console.keyMap = "dvorak";
 
   services = {
+    udisks2 = {
+      enable = true;
+      mountOnMedia = true;
+    };
     gvfs.enable = true;
+    gnome.gnome-keyring.enable = true;
     # gnome.tracker-miners.enable = true;
+    displayManager.sessionPackages = [ pkgs.sway ];
     xserver = {
       enable = true;
       displayManager = {
@@ -53,13 +59,12 @@
       };
       excludePackages = with pkgs; [ xterm ];
     };
-    displayManager.sessionPackages = [ pkgs.sway ];
   };
   # services.gnome.gnome-browser-connector.enable = true;
 
   services.getty.autologinUser = "doppler";
   environment.loginShellInit = ''
-    [[ "$(tty)" == /dev/tty1 ]] && sway
+    [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session sway
   '';
 
   security = {
@@ -107,7 +112,7 @@
   };
 
   environment.sessionVariables = rec {
-    GTK_THEME = "Adwaita-Dark";
+    GTK_THEME = "Adwaita:dark";
     PATH = [ "$HOME/.local/bin" ];
   };
 
