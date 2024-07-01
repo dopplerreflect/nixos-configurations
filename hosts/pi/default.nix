@@ -5,7 +5,7 @@
 
   imports = [
     ../common
-    ./bluetooth.nix
+    # ./bluetooth.nix
   ];
 
   boot = {
@@ -22,7 +22,7 @@
     };
     kernel = {
       sysctl = {
-        "net.ipv6.conf.wlp0s20f3.hop_limit" = 65;
+        "net.ipv6.conf.wlp1s0u1u2.hop_limit" = 65;
         "net.ipv4.ip_default_ttl" = 65;
       };
     };
@@ -38,7 +38,7 @@
 
   networking = {
     hostName = "pi";
-    extraHosts = "192.168.12.11 GW2000X\n192.168.12.10 thinkpad";
+    extraHosts = "192.168.12.11 GW2000X ecowitt\n192.168.12.10 thinkpad";
     firewall = {
       enable = false;
       # allowedTCPPorts = [ 22 80 3000 ];
@@ -61,10 +61,11 @@
     enable = true;
     settings = {
       ETC_HOSTS=1;
-      DHCP_HOSTS = "thinkpad,192.168.12.10 GW2000X,192.168.12.11";
+      DHCP_HOSTS = "thinkpad GW2000X";
+      DHCP_DNS = "192.168.12.1,8.8.8.8,8.8.4.4,1.1.1.1";
       INTERNET_IFACE = "wlp1s0u1u2";
       WIFI_IFACE = "wlan0";
-      SSID = "weatherflow";
+      SSID = "pi";
       PASSPHRASE = "wifipass";
     };
   };
