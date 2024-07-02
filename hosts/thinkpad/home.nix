@@ -33,7 +33,9 @@
     imagemagick
     imv
     inkscape
+    jq
     miller # miller text parser thing https://miller.readthedocs.io/en/latest/
+    morewaita-icon-theme
     mpv
     nmap
     nodejs
@@ -66,7 +68,7 @@
     pulseaudioFull
     pavucontrol
     gnome.nautilus
-    hicolor-icon-theme
+    # hicolor-icon-theme
     dmenu
     wofi
     slurp
