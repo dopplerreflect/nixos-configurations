@@ -32,7 +32,15 @@
 
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.utf8";
-  console.keyMap = "dvorak";
+  # console.keyMap = "dvorak";
+  console = {
+    earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-124n.psf.gz";
+    packages = with pkgs; [ terminus_font ];
+    keyMap = "dvorak";
+  };
+
+
 
   services = {
     udisks2 = {

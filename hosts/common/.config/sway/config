@@ -11,8 +11,8 @@ set $right l
 
 set $term alacritty
 
-# set $menu exec nwggrid --class=launcher -d /etc/profiles/per-user/doppler/share/applications:/home/doppler/.local/share/applications
-set $menu exec onagre -s 2
+set $menu exec nwggrid --class=launcher -d /etc/profiles/per-user/doppler/share/applications:/home/doppler/.local/share/applications
+# set $menu exec onagre -s 2
 
 set $mod Mod4
 set $alt Mod1
@@ -72,14 +72,14 @@ for_window [instance="crx_fhndgjphicgdlodikegejijmhegkhhdc"] {
 # WhatsApp
 for_window [instance="crx_hnpfjngllnobngcgfapefoaidbinmjnm"] {
   floating enable
-  resize set width 960 px height 1080 px
+  resize set width 960 px height 1055 px
   move position 960 0
   move window to $ws6
 }
 # Messages
 for_window [instance="crx_hpfldicfbfomlpcikngkocigghgafkph"] {
   floating enable
-  resize set width 960 px height 1080 px
+  resize set width 960 px height 1055 px
   move position 0 0
   move window to $ws6
 }
