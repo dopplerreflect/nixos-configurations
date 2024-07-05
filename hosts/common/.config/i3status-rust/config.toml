@@ -1,6 +1,6 @@
 icons_format = "{icon}"
 [theme]
-theme = "solarized-dark"
+theme = "plain"
 [icons]
 icons = "awesome6"
 
