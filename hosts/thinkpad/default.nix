@@ -53,13 +53,13 @@
     displayManager.sessionPackages = [ pkgs.sway ];
     xserver = {
       enable = true;
-      displayManager = {
-        gdm = {
-          enable = true;
-          wayland =true;
-        };
-      };
-       desktopManager.gnome.enable = true;
+      # displayManager = {
+      #   gdm = {
+      #     enable = true;
+      #     wayland =true;
+      #   };
+      # };
+      # desktopManager.gnome.enable = true;
       xkb = {
         layout = "us";
         variant = "dvorak";
@@ -70,7 +70,7 @@
   };
   # services.gnome.gnome-browser-connector.enable = true;
 
-  services.getty.autologinUser = "doppler";
+  # services.getty.autologinUser = "doppler";
   environment.loginShellInit = ''
     [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session sway
   '';
