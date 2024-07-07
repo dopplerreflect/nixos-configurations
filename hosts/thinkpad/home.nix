@@ -9,6 +9,7 @@
     bc
     bitwarden
     brave
+    brightnessctl
     btop
     dmenu
     easyeffects

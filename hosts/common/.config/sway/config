@@ -140,7 +140,7 @@ input type:touchpad {
 bindsym $mod+Return exec $term
 
 # Start internet browser
-bindsym $mod+i exec /usr/bin/google-chrome-stable %U
+bindsym $mod+i exec $(which brave) %U
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -295,7 +295,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 #########################################
 bindsym Print             exec grimshot save active
 bindsym $mod+Print        exec grimshot save output
-bindsym $mod+Shift+Print  exec grimshot area
+bindsym $mod+Shift+Print  exec grimshot save area
 
 #
 # bar
@@ -309,12 +309,12 @@ bar {
   status_command $(which i3status-rs)
   colors {
     separator #666666
-    background #000000cc
-    statusline #809FFF
-    focused_workspace #666666 #333333 #FFFFFF
-    active_workspace #666666 #222222 #999999
-    inactive_workspace #666666 #222222 #666666
-    urgent_workspace #2f343a #FFAA00 #441100
+    background #28007a80
+    statusline #f2e9ffe6
+    focused_workspace #f2e9ffe6 #5e44cd80 #f2e9ffe6
+    active_workspace #a496ffe6 #5e44cd80 #a496ffe6
+    inactive_workspace #a496ffe6 #28007a80 #a496ffe6
+    urgent_workspace #dea400e6 #dea400e6 #440a0080
   }
 }
 
@@ -329,9 +329,11 @@ exec swayidle -w \
   timeout 600 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
   before-sleep "swaylock -f -c 002266 -i $image"
-# swaylock
 
-set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown
+#
+# System
+########################################
+set $mode_system System: (l)ock (e)xit (s)uspend (r)eboot (S)hutdown
 mode "$mode_system" {
   bindsym l exec swaylock -f -c 002266 -i /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png
   bindsym e exit
