@@ -4,11 +4,6 @@ hide_edge_borders both
 
 mouse_warping container
 
-set $left h
-set $down j
-set $up k
-set $right l
-
 set $term alacritty
 
 set $menu exec nwggrid --class=launcher -d /etc/profiles/per-user/doppler/share/applications:/home/doppler/.local/share/applications
@@ -46,14 +41,14 @@ workspace {
   $ws10 output $external_display
 }
 
-#
+########################################
 # swipes
 ########################################
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
 bindgesture swipe:up exec nwggrid --class=launcher
 
-#
+########################################
 # place and size windows
 ########################################
 for_window [class="Code"] move container to workspace $ws4
@@ -84,9 +79,13 @@ for_window [instance="crx_hpfldicfbfomlpcikngkocigghgafkph"] {
   move window to $ws6
 }
 # PPG.report
-for_window [instance="crx_bepfaajflllindcdcehkmpbdadhbmeid"] floating enable
+for_window [instance="crx_bepfaajflllindcdcehkmpbdadhbmeid"] {
+  floating enable
+  resize set width 960 px height 1055 px
+  move position 480 0
+}
 
-#
+########################################
 # outputs
 ########################################
 output {
@@ -94,26 +93,15 @@ output {
     resolution 1920x1080
     position 0,0
     background /home/doppler/Pictures/DISCODEC-2024-06-23T01_54_56.075Z.png fill
-    # background /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png fill
-  }
-  DP-2 {
-    resolution 1920x1080
-    position 0,0
-    background /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png fill
   }
   eDP-1 {
     resolution 1920x1080
     position 0,1080
-    # background /home/doppler/Pictures/DesktopBackground.png fill
     background /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png fill
-  }
-  HDMI-A-1 {
-    resolution 1920x1080
-    position 0,0
   }
 }
 
-#
+########################################
 # keyboard
 ########################################
 input type:keyboard {
@@ -122,7 +110,7 @@ input type:keyboard {
   xkb_options caps:ctrl_modifier
 }
 
-#
+########################################
 # touchpad
 ########################################
 input type:touchpad {
@@ -162,14 +150,9 @@ bindsym $mod+Shift+r reload
 # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 # bindsym $mod+Shift+e exec nwg-bar
 
-#
+########################################
 # Moving around:
-#
-# Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+########################################
 # Or use $mod+[up|down|left|right]
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -186,9 +169,10 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-#
+
+########################################
 # Workspaces:
-#
+########################################
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -251,9 +235,10 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
-#
+
+########################################
 # Resizing containers:
-#
+########################################
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -276,30 +261,30 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
+########################################
 # Media keys
-#
+########################################
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-#
+########################################
 # Brightness
-#
+########################################
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
-#
+########################################
 # Screenshots
-#########################################
+########################################
 bindsym Print             exec grimshot save active
 bindsym $mod+Print        exec grimshot save output
 bindsym $mod+Shift+Print  exec grimshot save area
 
-#
+########################################
 # bar
-#########################################
+########################################
 bar {
   # mode invisible
   # output eDP-1
@@ -319,7 +304,7 @@ bar {
 }
 
 bindsym $mod+Shift+b bar mode toggle
-#
+########################################
 # swayidle
 ########################################
 set $image /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png
@@ -330,7 +315,7 @@ exec swayidle -w \
   resume 'swaymsg "output * dpms on"' \
   before-sleep "swaylock -f -c 002266 -i $image"
 
-#
+########################################
 # System
 ########################################
 set $mode_system System: (l)ock (e)xit (s)uspend (r)eboot (S)hutdown
