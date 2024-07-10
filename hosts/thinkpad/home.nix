@@ -98,6 +98,9 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    # shellAliases = {
+    #   code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
+    # };
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";

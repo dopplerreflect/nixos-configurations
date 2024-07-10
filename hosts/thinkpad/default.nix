@@ -40,8 +40,6 @@
     keyMap = "dvorak";
   };
 
-
-
   services = {
     udisks2 = {
       enable = true;
@@ -69,11 +67,24 @@
     };
   };
   # services.gnome.gnome-browser-connector.enable = true;
-
   # services.getty.autologinUser = "doppler";
-  environment.loginShellInit = ''
-    [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session sway
-  '';
+
+
+  environment = {
+    loginShellInit = ''
+      [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session sway
+    '';
+    variables = {
+      UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
+    };
+    sessionVariables = rec {
+      GTK_THEME = "Adwaita:dark";
+      PATH = [ "$HOME/.local/bin" ];
+    };
+    systemPackages = with pkgs; [
+      ffmpegthumbnailer
+    ];
+  };
 
   security = {
     rtkit.enable = true;
@@ -111,19 +122,6 @@
     shell = pkgs.zsh;
   };
 
-  environment.systemPackages = with pkgs; [
-    ffmpegthumbnailer
-  ];
-
-  environment.variables = {
-    UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
-  };
-
-  environment.sessionVariables = rec {
-    GTK_THEME = "Adwaita:dark";
-    PATH = [ "$HOME/.local/bin" ];
-  };
-
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     corefonts
@@ -158,35 +156,35 @@
     extraOptions = "experimental-features = nix-command flakes";
   };
 
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    baobab      # disk usage analyzer
-    cheese      # photo booth
-    eog         # image viewer
-    epiphany    # web browser
-    pkgs.gedit       # text editor
-    simple-scan # document scanner
-    totem       # video player
-    yelp        # help viewer
-    # evince      # document viewer
-    file-roller # archive manager
-    geary       # email client
-    # seahorse    # password manager
+  # environment.gnome.excludePackages = with pkgs.gnome; [
+  #   baobab      # disk usage analyzer
+  #   cheese      # photo booth
+  #   eog         # image viewer
+  #   epiphany    # web browser
+  #   pkgs.gedit       # text editor
+  #   simple-scan # document scanner
+  #   totem       # video player
+  #   yelp        # help viewer
+  #   # evince      # document viewer
+  #   file-roller # archive manager
+  #   geary       # email client
+  #   # seahorse    # password manager
 
-    # these should be self explanatory
-    # gnome-calculator
-    # gnome-calendar
-    gnome-characters
-    gnome-clocks
-    gnome-contacts
-    # gnome-font-viewer
-    gnome-logs
-    gnome-maps
-    gnome-music
-    # gnome-photos
-    gnome-screenshot
-    gnome-system-monitor
-    gnome-weather
-    # gnome-disk-utility
-    pkgs.gnome-connections
-  ];
+  #   # these should be self explanatory
+  #   # gnome-calculator
+  #   # gnome-calendar
+  #   gnome-characters
+  #   gnome-clocks
+  #   gnome-contacts
+  #   # gnome-font-viewer
+  #   gnome-logs
+  #   gnome-maps
+  #   gnome-music
+  #   # gnome-photos
+  #   gnome-screenshot
+  #   gnome-system-monitor
+  #   gnome-weather
+  #   # gnome-disk-utility
+  #   pkgs.gnome-connections
+  # ];
 }
