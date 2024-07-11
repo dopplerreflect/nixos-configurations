@@ -53,7 +53,7 @@ bindgesture swipe:up exec nwggrid --class=launcher
 ########################################
 for_window [class="Code"] move container to workspace $ws4
 
-for_window [instance="brave-browser"] {
+for_window [class="Brave-browser"] {
   inhibit_idle fullscreen
   move window to workspace $ws2
 }
@@ -69,14 +69,14 @@ for_window [instance="crx_hnpfjngllnobngcgfapefoaidbinmjnm"] {
   floating enable
   resize set width 960 px height 1055 px
   move position 960 0
-  move window to $ws6
+  move window to workspace $ws6
 }
 # Messages
 for_window [instance="crx_hpfldicfbfomlpcikngkocigghgafkph"] {
   floating enable
   resize set width 960 px height 1055 px
   move position 0 0
-  move window to $ws6
+  move window to workspace $ws6
 }
 # PPG.report
 for_window [instance="crx_bepfaajflllindcdcehkmpbdadhbmeid"] {
