@@ -80,7 +80,7 @@
     checkConfig = false;
     systemd.xdgAutostart = true;
     wrapperFeatures.gtk = true;
-    extraConfig = lib.fileContents ../common/.config/sway/config;
+    extraConfig = lib.fileContents ./config/sway/config;
   };
 
   programs.git = {
