@@ -2,7 +2,6 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../common
     ];
@@ -23,7 +22,7 @@
   };
 
   networking = {
-    hostName = "thinkpad"; # Define your hostname.
+    hostName = "thinkpad";
     networkmanager.enable = true;
     extraHosts = "192.168.12.1 pi\n192.168.12.11 ecowitt ecowitt.local GW2000x";
     nameservers = [ "8.8.8.8" ];
@@ -32,7 +31,6 @@
 
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.utf8";
-  # console.keyMap = "dvorak";
   console = {
     earlySetup = true;
     font = "${pkgs.terminus_font}/share/consolefonts/ter-124n.psf.gz";
@@ -47,7 +45,6 @@
     };
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
-    # gnome.tracker-miners.enable = true;
     displayManager.sessionPackages = [ pkgs.sway ];
     xserver = {
       enable = true;
@@ -134,7 +131,7 @@
     source-serif-pro
   ];
 
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "22.05";
 
   systemd.services.ecowitt = {
     description = "Ecowitt Weather Thing";
