@@ -267,12 +267,12 @@ bar {
   status_command $(which i3status-rs)
   colors {
     separator #666666
-    background #28007a80
-    statusline #f2e9ffe6
+    background #170041bf
+    statusline #007f00d9
     focused_workspace #f2e9ffe6 #5e44cd80 #f2e9ffe6
     active_workspace #a496ffe6 #5e44cd80 #a496ffe6
-    inactive_workspace #a496ffe6 #28007a80 #a496ffe6
-    urgent_workspace #dea400e6 #dea400e6 #440a0080
+    inactive_workspace #a496ffe6 #170041bf #a496ffe6
+    urgent_workspace #ffe000d9 #ffe000d9 #440a0080
   }
 }
 

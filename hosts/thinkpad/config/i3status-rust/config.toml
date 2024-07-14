@@ -1,6 +1,12 @@
 icons_format = "{icon}"
 [theme]
 theme = "solarized-dark"
+[theme.overrides]
+idle_bg = "#170041bf"
+idle_fg = "#a496ffe6"
+separator = " : "
+separator_fg = "#655e77d9"
+
 [icons]
 icons = "awesome6"
 
