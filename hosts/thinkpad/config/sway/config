@@ -17,28 +17,17 @@ set $laptop_display eDP-1
 set $external_display DP-1 DP-2
 #set $portable_display DP-2
 
-set $ws1  1:Terms
-set $ws2  2:Web
-set $ws3  3:Scratch
-set $ws4  4:Code
-set $ws5  5:Misc
-set $ws6  6:Coms
-set $ws7  7:7
-set $ws8  8:8
-set $ws9  9:9
-set $ws10 10:10
-
 workspace {
-  $ws1  output $laptop_display
-  $ws2  output $external_display
-  $ws3  output $laptop_display
-  $ws4  output $external_display
-  $ws5  output $laptop_display
-  $ws6  output $external_display
-  $ws7  output $external_display
-  $ws8  output $external_display
-  $ws9  output $external_display
-  $ws10 output $external_display
+  1  output $laptop_display
+  2  output $external_display
+  3  output $laptop_display
+  4  output $external_display
+  5  output $laptop_display
+  6  output $external_display
+  7  output $external_display
+  8  output $external_display
+  9  output $external_display
+  10 output $external_display
 }
 
 ########################################
@@ -51,11 +40,11 @@ bindgesture swipe:up exec nwggrid --class=launcher
 ########################################
 # place and size windows
 ########################################
-for_window [class="Code"] move container to workspace $ws4
+for_window [class="Code"] move container to workspace 4
 
 for_window [instance="brave-browser"] {
   inhibit_idle fullscreen
-  move window to workspace $ws2
+  move window to workspace 2
 }
 
 # Load Clock
@@ -69,14 +58,14 @@ for_window [instance="crx_hnpfjngllnobngcgfapefoaidbinmjnm"] {
   floating enable
   resize set width 960 px height 1055 px
   move position 960 0
-  move window to workspace $ws6
+  move window to workspace 6
 }
 # Messages
 for_window [instance="crx_hpfldicfbfomlpcikngkocigghgafkph"] {
   floating enable
   resize set width 960 px height 1055 px
   move position 0 0
-  move window to workspace $ws6
+  move window to workspace 6
 }
 # PPG.report
 for_window [instance="crx_bepfaajflllindcdcehkmpbdadhbmeid"] {
@@ -168,27 +157,27 @@ bindsym $mod+Shift+Right move right
 # Workspaces:
 ########################################
 # Switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
 bindsym $mod+Tab workspace back_and_forth
