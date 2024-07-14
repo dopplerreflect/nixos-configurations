@@ -82,6 +82,7 @@
     bun
     linux-wifi-hotspot
     nodejs
+    wavemon
     yarn
   ];
 
