@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-      ./hardware-configuration.nix
-      ../common
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../common
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;

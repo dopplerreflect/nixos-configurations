@@ -59,6 +59,7 @@
     virt-manager
     virt-viewer
     vscode
+    wavemon
     wget
     wl-clipboard
     wlroots
@@ -118,13 +119,13 @@
     };
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/background" = {
-      picture-uri = ''${./bg.png}'';
-      picture-uri-dark = ''${./bg.png}'';
-      picture-options = "zoom";
-    };
-  };
+  # dconf.settings = {
+  #   "org/gnome/desktop/background" = {
+  #     picture-uri = ''${./bg.png}'';
+  #     picture-uri-dark = ''${./bg.png}'';
+  #     picture-options = "zoom";
+  #   };
+  # };
 
   # tried this from https://www.reddit.com/r/NixOS/comments/18hdool/how_do_i_set_a_global_dark_theme_and_configure_gtk/
   # trying to get dark theme and all icons
