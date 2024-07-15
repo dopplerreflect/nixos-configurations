@@ -11,10 +11,10 @@
     brave
     brightnessctl
     btop
-    dmenu
     easyeffects
     fastfetch # like neofetch
     ffmpeg
+    ffmpegthumbnailer
     file
     firefox
     freefilesync
@@ -38,7 +38,6 @@
     nodejs
     nwg-bar
     nwg-launchers
-    onagre # launcher
     pavucontrol
     pulseaudioFull
     python3

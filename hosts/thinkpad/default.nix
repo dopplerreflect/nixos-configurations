@@ -78,9 +78,6 @@
       GTK_THEME = "Adwaita:dark";
       PATH = [ "$HOME/.local/bin" ];
     };
-    systemPackages = with pkgs; [
-      ffmpegthumbnailer
-    ];
   };
 
   security = {
@@ -130,19 +127,6 @@
     source-serif-pro
   ];
 
-  # systemd.services.ecowitt = {
-  #   description = "Ecowitt Weather Thing";
-  #   wantedBy = [ "multi-user.target" ];
-  #   after = [ "network.target" ];
-  #   serviceConfig = {
-  #     Type = "forking";
-  #     User = "doppler";
-  #     WorkingDirectory = "/home/doppler/Code/bun-sveltekit-ecowitt";
-  #     ExecStart = "/run/current-system/sw/bin/sh /home/doppler/.local/bin/start-ecowitt.sh";
-  #     ExecStop = "/run/current-system/sw/bin/tmux kill-session -t ecowitt";
-  #   };
-  # };
-  
   nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.4.8248" ];
 
   nix = {
@@ -151,36 +135,4 @@
   };
 
   system.stateVersion = "22.05";
-
-  # environment.gnome.excludePackages = with pkgs.gnome; [
-  #   baobab      # disk usage analyzer
-  #   cheese      # photo booth
-  #   eog         # image viewer
-  #   epiphany    # web browser
-  #   pkgs.gedit       # text editor
-  #   simple-scan # document scanner
-  #   totem       # video player
-  #   yelp        # help viewer
-  #   # evince      # document viewer
-  #   file-roller # archive manager
-  #   geary       # email client
-  #   # seahorse    # password manager
-
-  #   # these should be self explanatory
-  #   # gnome-calculator
-  #   # gnome-calendar
-  #   gnome-characters
-  #   gnome-clocks
-  #   gnome-contacts
-  #   # gnome-font-viewer
-  #   gnome-logs
-  #   gnome-maps
-  #   gnome-music
-  #   # gnome-photos
-  #   gnome-screenshot
-  #   gnome-system-monitor
-  #   gnome-weather
-  #   # gnome-disk-utility
-  #   pkgs.gnome-connections
-  # ];
 }
