@@ -131,20 +131,18 @@
     source-serif-pro
   ];
 
-  system.stateVersion = "22.05";
-
-  systemd.services.ecowitt = {
-    description = "Ecowitt Weather Thing";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    serviceConfig = {
-      Type = "forking";
-      User = "doppler";
-      WorkingDirectory = "/home/doppler/Code/bun-sveltekit-ecowitt";
-      ExecStart = "/run/current-system/sw/bin/sh /home/doppler/bin/start-ecowitt.sh";
-      ExecStop = "/run/current-system/sw/bin/tmux kill-session -t ecowitt";
-    };
-  };
+  # systemd.services.ecowitt = {
+  #   description = "Ecowitt Weather Thing";
+  #   wantedBy = [ "multi-user.target" ];
+  #   after = [ "network.target" ];
+  #   serviceConfig = {
+  #     Type = "forking";
+  #     User = "doppler";
+  #     WorkingDirectory = "/home/doppler/Code/bun-sveltekit-ecowitt";
+  #     ExecStart = "/run/current-system/sw/bin/sh /home/doppler/.local/bin/start-ecowitt.sh";
+  #     ExecStop = "/run/current-system/sw/bin/tmux kill-session -t ecowitt";
+  #   };
+  # };
   
   nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.4.8248" ];
 
@@ -152,6 +150,8 @@
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
   };
+
+  system.stateVersion = "22.05";
 
   # environment.gnome.excludePackages = with pkgs.gnome; [
   #   baobab      # disk usage analyzer

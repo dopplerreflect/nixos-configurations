@@ -70,9 +70,9 @@
   home.file = {
     ".config/alacritty/alacritty.toml".text = builtins.readFile ./config/alacritty/alacritty.toml;
   };
-  home.file = {
-    "/bin/start-ecowitt.sh".text = builtins.readFile ./start-ecowitt.sh;
-  };
+  # home.file = {
+  #   ".local/bin/start-ecowitt.sh".text = builtins.readFile ./start-ecowitt.sh;
+  # };
 
   wayland.windowManager.sway = {
     enable = true;
