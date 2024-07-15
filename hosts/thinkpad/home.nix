@@ -19,7 +19,6 @@
     firefox
     freefilesync
     gimp
-    git
     gnome.dconf-editor
     gnome.nautilus
     gnome3.gnome-tweaks
@@ -55,7 +54,6 @@
     swayidle
     swaylock
     unzip
-    vim
     virt-manager
     virt-viewer
     vscode
@@ -71,9 +69,6 @@
   home.file = {
     ".config/alacritty/alacritty.toml".text = builtins.readFile ./config/alacritty/alacritty.toml;
   };
-  # home.file = {
-  #   ".local/bin/start-ecowitt.sh".text = builtins.readFile ./start-ecowitt.sh;
-  # };
 
   wayland.windowManager.sway = {
     enable = true;
@@ -83,50 +78,7 @@
     wrapperFeatures.gtk = true;
     extraConfig = lib.fileContents ./config/sway/config;
   };
-
-  programs.git = {
-    enable = true;
-    userName = "David Rose";
-    userEmail = "doppler@gmail.com";
-    aliases = {
-      co = "checkout";
-      st = "status";
-      br = "branch";
-      ci = "commit";
-    };
-  };
-  
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    # shellAliases = {
-    #   code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
-    # };
-    history = {
-      size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
-    };
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-      theme = "agnoster";
-    };
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "spwhitt/nix-zsh-completions"; }
-      ];
-    };
-  };
-
-  # dconf.settings = {
-  #   "org/gnome/desktop/background" = {
-  #     picture-uri = ''${./bg.png}'';
-  #     picture-uri-dark = ''${./bg.png}'';
-  #     picture-options = "zoom";
-  #   };
-  # };
-
+ 
   # tried this from https://www.reddit.com/r/NixOS/comments/18hdool/how_do_i_set_a_global_dark_theme_and_configure_gtk/
   # trying to get dark theme and all icons
   # don't think it helped.

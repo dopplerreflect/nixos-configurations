@@ -92,6 +92,7 @@
       isNormalUser = true;
       password = "bb";
       extraGroups = [ "wheel" "networkmanager" ];
+      shell = pkgs.zsh;
     };
   };
 

@@ -2,17 +2,20 @@
 {
   security.sudo.wheelNeedsPassword = false;
 
+  imports = [
+    ../../programs/git.nix
+    ../../programs/neovim.nix
+    ../../programs/zsh.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     bun
-    git
+    # git
     tmux
-    vim
   ];
 
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
-
-  environment.variables = { EDITOR = "vim"; };
 
   services.openssh.enable = true;
 
