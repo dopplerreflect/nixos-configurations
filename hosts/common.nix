@@ -3,9 +3,9 @@
   security.sudo.wheelNeedsPassword = false;
 
   imports = [
-    ../../programs/git.nix
-    ../../programs/neovim.nix
-    ../../programs/zsh.nix
+    ../programs/git.nix
+    ../programs/neovim.nix
+    ../programs/zsh.nix
   ];
 
   environment.systemPackages = with pkgs; [
