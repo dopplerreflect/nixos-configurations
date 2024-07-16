@@ -18,6 +18,7 @@
         specialArgs = attrs;
         modules = [
           nixos-hardware.nixosModules.raspberry-pi-4
+          ./hosts/common.nix
           ./hosts/pi
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -30,6 +31,7 @@
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [
+          ./hosts/common.nix
           ./hosts/thinkpad
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;

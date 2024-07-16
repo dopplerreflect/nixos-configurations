@@ -3,11 +3,6 @@
 {
   security.sudo.wheelNeedsPassword = false;
 
-  imports = [
-    ../common
-    # ./bluetooth.nix
-  ];
-
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
@@ -41,8 +36,6 @@
     extraHosts = "192.168.12.11 GW2000X ecowitt\n192.168.12.10 thinkpad";
     firewall = {
       enable = false;
-      # allowedTCPPorts = [ 22 80 3000 ];
-      # extraCommands = "iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport 80 -j REDIRECT --to-port 3000";
     };
   };
 
