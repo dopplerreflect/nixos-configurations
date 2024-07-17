@@ -22,19 +22,9 @@
 
   networking = {
     hostName = "thinkpad";
-    networkmanager.enable = true;
     extraHosts = "192.168.12.1 pi\n192.168.12.11 ecowitt ecowitt.local GW2000x";
     nameservers = [ "8.8.8.8" ];
     firewall.enable = false;
-  };
-
-  time.timeZone = "America/Chicago";
-  i18n.defaultLocale = "en_US.utf8";
-  console = {
-    earlySetup = true;
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-124n.psf.gz";
-    packages = with pkgs; [ terminus_font ];
-    keyMap = "dvorak";
   };
 
   services = {

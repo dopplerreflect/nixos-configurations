@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  security.sudo.wheelNeedsPassword = false;
-
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
@@ -64,14 +62,6 @@
     };
   };
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    earlySetup = true;
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-124n.psf.gz";
-    packages = with pkgs; [ terminus_font ];
-    keyMap = "dvorak";
-  };
-
   environment.systemPackages = with pkgs; [ 
     bun
     linux-wifi-hotspot
@@ -84,7 +74,6 @@
     mutableUsers = false;
     users.doppler = {
       isNormalUser = true;
-      password = "bb";
       extraGroups = [ "wheel" "networkmanager" ];
       shell = pkgs.zsh;
     };
