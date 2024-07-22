@@ -12,7 +12,7 @@
   console = {
     earlySetup = true;
     font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
-    packages = with pkgs; [ terminus_font ];
+    packages = with pkgs; [ powerline-fonts ];
     keyMap = "dvorak";
   };
 
