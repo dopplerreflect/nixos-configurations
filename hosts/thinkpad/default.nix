@@ -37,13 +37,6 @@
     displayManager.sessionPackages = [ pkgs.sway ];
     xserver = {
       enable = true;
-      # displayManager = {
-      #   gdm = {
-      #     enable = true;
-      #     wayland =true;
-      #   };
-      # };
-      # desktopManager.gnome.enable = true;
       xkb = {
         layout = "us";
         variant = "dvorak";
@@ -52,8 +45,6 @@
       excludePackages = with pkgs; [ xterm ];
     };
   };
-  # services.gnome.gnome-browser-connector.enable = true;
-  # services.getty.autologinUser = "doppler";
 
 
   environment = {
