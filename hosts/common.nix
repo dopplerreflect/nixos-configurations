@@ -11,8 +11,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     earlySetup = true;
-    # font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
-    font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v32n.psf.gz";
+    font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
     packages = with pkgs; [ terminus_font ];
     keyMap = "dvorak";
   };
