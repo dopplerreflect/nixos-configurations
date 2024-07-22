@@ -86,7 +86,10 @@
     };
   };
 
-  programs.dconf.enable = true;
+  programs = {
+    dconf.enable = true;
+    hyprland.enable = true;
+  };
 
   users.users.doppler = {
     isNormalUser = true;
