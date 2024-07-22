@@ -18,6 +18,10 @@ format="$title.str(max_w:50) |"
 block = "battery"
 
 [[block]]
+block = "backlight"
+invert_icons = true
+
+[[block]]
 block = "disk_space"
 path = "/"
 info_type = "available"
