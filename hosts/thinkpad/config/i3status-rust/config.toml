@@ -18,6 +18,9 @@ format="$title.str(max_w:50) |"
 block = "battery"
 
 [[block]]
+block = "sound"
+
+[[block]]
 block = "backlight"
 invert_icons = true
 
@@ -37,9 +40,6 @@ device = "wlp0s20f3"
 [[block.click]]
 button = "left"
 cmd = "alacritty -e nmtui"
-
-[[block]]
-block = "sound"
 
 [[block]]
 block = "time"
