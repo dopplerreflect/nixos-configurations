@@ -24,6 +24,7 @@
     gnome3.gnome-tweaks
     googleearth-pro
     gqrx
+    grimblast
     heroku
     i3status-rust
     imagemagick
@@ -57,6 +58,7 @@
     virt-viewer
     vscode
     wavemon
+    waybar
     wget
     wl-clipboard
     wlroots
