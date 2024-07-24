@@ -34,7 +34,7 @@
     };
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
-    displayManager.sessionPackages = [ pkgs.sway ];
+    displayManager.sessionPackages = [ pkgs.sway pkgs.hyprland ];
     xserver = {
       enable = true;
       xkb = {

@@ -70,6 +70,7 @@
   
   home.file = {
     ".config/alacritty/alacritty.toml".text = builtins.readFile ./config/alacritty/alacritty.toml;
+    ".config/swayidle/config".text = builtins.readFile ./config/swayidle/config;
   };
 
   wayland.windowManager = {
