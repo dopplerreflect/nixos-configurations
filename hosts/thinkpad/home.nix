@@ -5,7 +5,6 @@
   home.homeDirectory = "/home/doppler";
 
   home.packages = with pkgs; [
-    alacritty
     bc
     bitwarden
     brave
@@ -31,6 +30,7 @@
     imv
     inkscape
     jq
+    libnotify
     mako
     miller # miller text parser thing https://miller.readthedocs.io/en/latest/
     morewaita-icon-theme
@@ -69,8 +69,26 @@
   ];
   
   home.file = {
-    ".config/alacritty/alacritty.toml".text = builtins.readFile ./config/alacritty/alacritty.toml;
-    ".config/swayidle/config".text = builtins.readFile ./config/swayidle/config;
+    ".config/swayidle/config".source = ./config/swayidle/config;
+    ".config/i3status-rust/config.toml".source = ./config/i3status-rust/config.toml;
+    ".config/mako/config".source = ./config/mako/config;
+  };
+
+  programs = {
+    alacritty = {
+      enable = true;
+      settings = {
+        keyboard.bindings = [
+          {
+            key = "F";
+            mods = "Command|Control";
+            action = "ToggleFullScreen";
+          }
+        ];
+        font.size = 16;
+        window.opacity = 0.8;
+      };
+    };
   };
 
   wayland.windowManager = {

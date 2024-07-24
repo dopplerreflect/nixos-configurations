@@ -1,10 +1,16 @@
-font=SauceCodePro Nerd Font 12
+output=DP-1
+
+anchor=bottom-center
+
+font=Source Code Pro Semibold 16
 background-color=#001122A0
 text-color=#FFBF00FF
 border-color=#0080ff80
-border-radius=2
+border-radius=10
 
 default-timeout=10000
+
+icons=1
 
 history=1
 max-history=20
