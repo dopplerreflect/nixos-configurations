@@ -53,6 +53,7 @@
     swaybg
     swayidle
     swaylock
+    swww
     unzip
     virt-manager
     virt-viewer
@@ -71,13 +72,19 @@
     ".config/alacritty/alacritty.toml".text = builtins.readFile ./config/alacritty/alacritty.toml;
   };
 
-  wayland.windowManager.sway = {
-    enable = true;
-    config = null;
-    checkConfig = false;
-    systemd.xdgAutostart = true;
-    wrapperFeatures.gtk = true;
-    extraConfig = lib.fileContents ./config/sway/config;
+  wayland.windowManager = {
+    sway = {
+      enable = true;
+      config = null;
+      checkConfig = false;
+      systemd.xdgAutostart = true;
+      wrapperFeatures.gtk = true;
+      extraConfig = lib.fileContents ./config/sway/config;
+    };
+    hyprland = {
+      enable = true;
+      extraConfig = lib.fileContents ./config/hypr/hyprland.conf;
+    };
   };
  
   # tried this from https://www.reddit.com/r/NixOS/comments/18hdool/how_do_i_set_a_global_dark_theme_and_configure_gtk/

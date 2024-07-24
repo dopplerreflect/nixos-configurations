@@ -88,7 +88,6 @@
 
   programs = {
     dconf.enable = true;
-    hyprland.enable = true;
   };
 
   users.users.doppler = {
