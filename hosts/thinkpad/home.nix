@@ -89,6 +89,8 @@
         ];
         font.size = 16;
         window.opacity = 0.8;
+        window.padding.x = 3;
+        window.padding.y = 3;
       };
     };
   };
