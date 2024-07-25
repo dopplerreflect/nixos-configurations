@@ -46,10 +46,8 @@
     };
   };
 
-
   environment = {
-    systemPackages = [
-      pkgs.adwaita-icon-theme
+    systemPackages = with pkgs; [
     ];
     loginShellInit = ''
       [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session sway
