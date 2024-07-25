@@ -48,6 +48,9 @@
 
 
   environment = {
+    systemPackages = [
+      pkgs.adwaita-icon-theme
+    ];
     loginShellInit = ''
       [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session sway
     '';

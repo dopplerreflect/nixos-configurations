@@ -5,6 +5,7 @@
   home.homeDirectory = "/home/doppler";
 
   home.packages = with pkgs; [
+    adwaita-qt
     bc
     bitwarden
     brave
@@ -64,6 +65,7 @@
     wl-clipboard
     wlroots
     wofi
+    xdg-desktop-portal-hyprland
     yarn
     zstd
   ];
@@ -114,6 +116,10 @@
     theme = {
       name = "Adwaita-dark";
       package = pkgs.gnome.gnome-themes-extra;
+    };
+    iconTheme = {
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
     };
   };
 
