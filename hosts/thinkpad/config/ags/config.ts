@@ -1,26 +1,40 @@
 const hyprland = await Service.import("hyprland");
 const audio = await Service.import("audio");
-
-const time = Variable("", {
-  poll: [1000, 'date "+%a %b %d %H:%M:%S"'],
-});
+const network = await Service.import("network");
 
 type WorkspaceList = Map<number, string | null>[];
-const workspaceList: WorkspaceList = [
-  new Map([
-    [1, ""],
-    [3, ""],
-  ]),
-  new Map([
-    [2, ""],
-    [4, ""],
-    [5, ""],
-    [6, null],
-    [7, null],
-    [8, null],
-    [10, null],
-  ]),
-];
+const workspaceList: WorkspaceList =
+  hyprland.monitors.length === 2
+    ? [
+        new Map([
+          [1, ""],
+          [3, ""],
+        ]),
+        new Map([
+          [2, ""],
+          [4, ""],
+          [5, ""],
+          [6, null],
+          [7, null],
+          [8, null],
+          [9, null],
+          [10, null],
+        ]),
+      ]
+    : [
+        new Map([
+          [1, ""],
+          [2, ""],
+          [3, ""],
+          [4, ""],
+          [5, ""],
+          [6, null],
+          [7, null],
+          [8, null],
+          [9, null],
+          [10, null],
+        ]),
+      ];
 
 function Workspaces(monitor: number) {
   const activeId = hyprland.active.workspace.bind("id");
@@ -44,6 +58,10 @@ function ClientTitle() {
     label: hyprland.active.client.bind("title"),
   });
 }
+
+const time = Variable("", {
+  poll: [1000, 'date "+%a %b %d %H:%M:%S"'],
+});
 
 function Clock() {
   return Widget.Label({
@@ -76,7 +94,7 @@ function Volume() {
 
   const label = Widget.Label().hook(audio.speaker, self => {
     const vol = Math.round(audio.speaker.volume * 100);
-    self.label = ` ${vol}%`;
+    self.label = `${vol}%`;
   });
 
   return Widget.Box({
@@ -84,6 +102,21 @@ function Volume() {
     children: [icon, label],
   });
 }
+
+function Wifi() {
+  return Widget.Box({
+    class_name: "wifi",
+    children: [
+      Widget.Icon({
+        icon: network.wifi.bind("icon_name"),
+      }),
+      Widget.Label({
+        label: network.wifi.bind("ssid").as(ssid => ssid || "Unknow"),
+      }),
+    ],
+  });
+}
+
 function Left(monitor: number) {
   return Widget.Box({
     class_name: "left",
@@ -104,7 +137,7 @@ function Right() {
     hpack: "end",
     class_name: "right",
     spacing: 8,
-    children: [Volume(), Clock()],
+    children: [Volume(), Wifi(), Clock()],
   });
 }
 
@@ -131,7 +164,7 @@ Utils.monitorFile(css, function () {
 
 App.config({
   style: "./style.css",
-  windows: [Bar(0), Bar(1)],
+  windows: hyprland.monitors.length === 2 ? [Bar(0), Bar(1)] : [Bar(0)],
 });
 
 export {};
