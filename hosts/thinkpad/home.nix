@@ -6,7 +6,7 @@
 
   home.packages = with pkgs; [
     adwaita-qt
-    ags
+    # ags # this is in nix profile instead due to broken upstream build
     bc
     bitwarden
     brave

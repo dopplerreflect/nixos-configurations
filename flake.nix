@@ -8,7 +8,6 @@
       url = "github:nix-community/home-manager?ref=release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ags.url = "github:Aylur/ags";
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
