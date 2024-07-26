@@ -5,17 +5,32 @@ const time = Variable("", {
   poll: [1000, 'date "+%a %b %d %H:%M:%S"'],
 });
 
-function Workspaces(monitor?: number) {
+type WorkspaceList = Map<number, string | null>[];
+const workspaceList: WorkspaceList = [
+  new Map([
+    [1, ""],
+    [3, ""],
+  ]),
+  new Map([
+    [2, ""],
+    [4, ""],
+    [5, ""],
+    [6, null],
+    [7, null],
+    [8, null],
+    [10, null],
+  ]),
+];
+
+function Workspaces(monitor: number) {
   const activeId = hyprland.active.workspace.bind("id");
-  const workspaces = [...Array(10).keys()]
-    .map(k => k + 1)
-    .map(id =>
-      Widget.Button({
-        on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-        child: Widget.Label(`${id}`),
-        class_name: activeId.as(i => `${i === id ? "focused" : ""}`),
-      }),
-    );
+  const workspaces = [...workspaceList[monitor]].map(([id, label]) => {
+    return Widget.Button({
+      on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
+      child: Widget.Label(label ? ` ${id}:${label}` : `${id}`),
+      class_name: activeId.as(i => `${i === id ? "focused" : ""}`),
+    });
+  });
 
   return Widget.Box({
     class_name: "workspaces",
@@ -59,21 +74,21 @@ function Volume() {
     icon: Utils.watch(getIcon(), audio.speaker, getIcon),
   });
 
+  const label = Widget.Label().hook(audio.speaker, self => {
+    const vol = Math.round(audio.speaker.volume * 100);
+    self.label = ` ${vol}%`;
+  });
+
   return Widget.Box({
     class_name: "volume",
-    children: [
-      icon,
-      Widget.Label({
-        label: ` ${audio.speaker.volume} % `,
-      }),
-    ],
+    children: [icon, label],
   });
 }
-function Left() {
+function Left(monitor: number) {
   return Widget.Box({
     class_name: "left",
     spacing: 8,
-    children: [Workspaces()],
+    children: [Workspaces(monitor)],
   });
 }
 
@@ -101,22 +116,22 @@ const Bar = (monitor: number) =>
     margins: [0, 10, 5, 10],
     exclusivity: "exclusive",
     child: Widget.CenterBox({
-      start_widget: Left(),
+      start_widget: Left(monitor),
       center_widget: Center(),
       end_widget: Right(),
     }),
   });
-
-App.config({
-  style: "./style.css",
-  windows: [Bar(1)],
-});
 
 let css = `${App.configDir}/style.css`;
 
 Utils.monitorFile(css, function () {
   App.resetCss();
   App.applyCss(css);
+});
+
+App.config({
+  style: "./style.css",
+  windows: [Bar(0), Bar(1)],
 });
 
 export {};

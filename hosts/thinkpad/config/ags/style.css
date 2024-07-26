@@ -1,11 +1,11 @@
 window {
   font-family: FiraCode Nerd Font, monospace;
-  font-size: 16;
+  font-size: 18px;
+  font-weight: bold;
   border-radius: 10px;
-  border: 1px solid white;
-  /* background-color: rgba(32, 0, 64, 0.85); */
-  background-color: @theme_bg_color;
-  color: @theme_fg_color;
+  border: 1px solid rgba(128, 0, 255, 0.85);
+  background-color: rgba(32, 0, 64, 0.85);
+  color: white;
 }
 .workspaces {
   padding-left: 10px;
@@ -15,10 +15,9 @@ window {
 }
 button {
   background: none;
-  padding: 0;
+  padding: 5;
   margin: 0;
   border: none;
-  /* color: rgba(190, 190, 190, 1); */
 }
 button.focused {
   color: rgba(0, 255, 255, 1);
