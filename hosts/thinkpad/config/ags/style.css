@@ -3,8 +3,29 @@ window {
   font-size: 16;
   border-radius: 10px;
   border: 1px solid white;
-  background-color: rgba(32, 0, 64, 0.85);
+  /* background-color: rgba(32, 0, 64, 0.85); */
+  background-color: @theme_bg_color;
+  color: @theme_fg_color;
+}
+.workspaces {
+  padding-left: 10px;
+}
+.clock {
+  padding-right: 10px;
+}
+button {
+  background: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  /* color: rgba(190, 190, 190, 1); */
+}
+button.focused {
+  color: rgba(0, 255, 255, 1);
 }
 label#start {
   padding-left: 10px;
+}
+label#end {
+  padding-right: 10px;
 }
