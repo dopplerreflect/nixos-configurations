@@ -8,14 +8,15 @@
       url = "github:nix-community/home-manager?ref=release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ags.url = "github:Aylur/ags";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@attrs: {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
 
     nixosConfigurations = {
       pi = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        specialArgs = attrs;
+        specialArgs = inputs;
         modules = [
           nixos-hardware.nixosModules.raspberry-pi-4
           ./hosts/common.nix
@@ -29,7 +30,7 @@
       };
       thinkpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = attrs;
+        specialArgs = inputs;
         modules = [
           ./hosts/common.nix
           ./hosts/thinkpad

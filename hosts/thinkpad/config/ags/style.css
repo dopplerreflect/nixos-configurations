@@ -1,0 +1,10 @@
+window {
+  font-family: FiraCode Nerd Font, monospace;
+  font-size: 16;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: rgba(32, 0, 64, 0.85);
+}
+label#start {
+  padding-left: 10px;
+}

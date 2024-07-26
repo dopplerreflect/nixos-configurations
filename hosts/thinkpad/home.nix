@@ -6,6 +6,7 @@
 
   home.packages = with pkgs; [
     adwaita-qt
+    ags
     bc
     bitwarden
     brave
