@@ -32,6 +32,7 @@
     imv
     inkscape
     jq
+    kitty
     libnotify
     mako
     miller # miller text parser thing https://miller.readthedocs.io/en/latest/
@@ -68,13 +69,14 @@
     wofi
     xdg-desktop-portal-hyprland
     yarn
+    yazi
     zstd
   ];
   
   home.file = {
-    ".config/swayidle/config".source = ./config/swayidle/config;
-    ".config/i3status-rust/config.toml".source = ./config/i3status-rust/config.toml;
-    ".config/mako/config".source = ./config/mako/config;
+    ".config/swayidle/config".source = ./.config/swayidle/config;
+    ".config/i3status-rust/config.toml".source = ./.config/i3status-rust/config.toml;
+    ".config/mako/config".source = ./.config/mako/config;
   };
 
   programs = {
@@ -103,14 +105,18 @@
       checkConfig = false;
       systemd.xdgAutostart = true;
       wrapperFeatures.gtk = true;
-      extraConfig = lib.fileContents ./config/sway/config;
+      extraConfig = lib.fileContents ./.config/sway/config;
     };
     hyprland = {
       enable = true;
-      extraConfig = lib.fileContents ./config/hypr/hyprland.conf;
+      extraConfig = lib.fileContents ./.config/hypr/hyprland.conf;
     };
   };
  
+  home.shellAliases = {
+    ssh = "kitten ssh";
+  };
+
   # tried this from https://www.reddit.com/r/NixOS/comments/18hdool/how_do_i_set_a_global_dark_theme_and_configure_gtk/
   # trying to get dark theme and all icons
   # don't think it helped.
