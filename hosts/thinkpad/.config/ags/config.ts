@@ -150,7 +150,14 @@ const systemButtons = [
     child: Widget.Label("  "),
     onClicked: () => execSystemCommand(Utils.exec("systemctl poweroff")),
   },
-];
+].map(({ child, onClicked }) =>
+  Widget.Button({
+    child,
+    onClicked,
+    onHover: self => (self.class_name = "focused"),
+    onHoverLost: self => (self.class_name = ""),
+  }),
+);
 
 export const systemWindow = Widget.Window({
   name: "system-controls",
@@ -163,15 +170,7 @@ export const systemWindow = Widget.Window({
     spacing: 10,
     hpack: "center",
     vpack: "center",
-    vexpand: false,
-    children: systemButtons.map(({ child, onClicked }) =>
-      Widget.Button({
-        child,
-        onClicked,
-        on_hover: self => (self.class_name = "focused"),
-        on_hover_lost: self => (self.class_name = ""),
-      }),
-    ),
+    children: systemButtons,
   }),
   visible: false,
 }).keybind("Escape", self => {
