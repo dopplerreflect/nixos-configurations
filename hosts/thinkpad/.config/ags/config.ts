@@ -1,5 +1,3 @@
-import { Hyprland } from "types/service/hyprland";
-
 const hyprland = await Service.import("hyprland");
 const audio = await Service.import("audio");
 const network = await Service.import("network");
@@ -126,6 +124,34 @@ const PowerButton = () =>
     class_name: "power-button",
   });
 
+const systemButtons = [
+  {
+    child: Widget.Label(" 󰍁 "),
+    onClicked: () =>
+      execSystemCommand(
+        Utils.exec(
+          "swaylock -f -c 002266 -i /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png",
+        ),
+      ),
+  },
+  {
+    child: Widget.Label(" ⏾ "),
+    onClicked: () => execSystemCommand(Utils.exec("systemctl suspend")),
+  },
+  {
+    child: Widget.Label(" 󰿅 "),
+    onClicked: () => execSystemCommand(hyprland.messageAsync("dispatch exit")),
+  },
+  {
+    child: Widget.Label("  "),
+    onClicked: () => execSystemCommand(Utils.exec("systemctl reboot")),
+  },
+  {
+    child: Widget.Label("  "),
+    onClicked: () => execSystemCommand(Utils.exec("systemctl poweroff")),
+  },
+];
+
 export const systemWindow = Widget.Window({
   name: "system-controls",
   layer: "overlay",
@@ -138,34 +164,14 @@ export const systemWindow = Widget.Window({
     hpack: "center",
     vpack: "center",
     vexpand: false,
-    children: [
+    children: systemButtons.map(({ child, onClicked }) =>
       Widget.Button({
-        child: Widget.Label("󰍁"),
-        onClicked: () =>
-          execSystemCommand(
-            Utils.exec(
-              "swaylock -f -c 002266 -i /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png",
-            ),
-          ),
+        child,
+        onClicked,
+        on_hover: self => (self.class_name = "focused"),
+        on_hover_lost: self => (self.class_name = ""),
       }),
-      Widget.Button({
-        child: Widget.Label("⏾"),
-        onClicked: () => execSystemCommand(Utils.exec("systemctl suspend")),
-      }),
-      Widget.Button({
-        child: Widget.Label("󰿅"),
-        onClicked: () =>
-          execSystemCommand(hyprland.messageAsync("dispatch exit")),
-      }),
-      Widget.Button({
-        child: Widget.Label(""),
-        onClicked: () => execSystemCommand(Utils.exec("systemctl reboot")),
-      }),
-      Widget.Button({
-        child: Widget.Label(""),
-        onClicked: () => execSystemCommand(Utils.exec("systemctl poweroff")),
-      }),
-    ],
+    ),
   }),
   visible: false,
 }).keybind("Escape", self => {
