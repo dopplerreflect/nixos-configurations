@@ -1,11 +1,18 @@
 window {
-  font-family: FiraCode Nerd Font, monospace;
+  font-family: FiraCode Nerd Font Mono, monospace;
   font-size: 18px;
   font-weight: bold;
   border-radius: 10px;
   border: 1px solid rgba(0, 152, 255, 0.85);
   background-color: rgba(8, 0, 16, 0.85);
   color: white;
+}
+window#system-controls {
+  border: none;
+}
+window#system-controls button {
+  font-size: 48px;
+  border: 1px solid white;
 }
 .left {
   padding-left: 10px;
