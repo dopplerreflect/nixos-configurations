@@ -7,10 +7,10 @@ window {
   background-color: rgba(8, 0, 16, 0.85);
   color: white;
 }
-.workspaces {
+.left {
   padding-left: 10px;
 }
-.clock {
+.right {
   padding-right: 10px;
 }
 button {

@@ -117,6 +117,16 @@ function Wifi() {
   });
 }
 
+const Power = () =>
+  Widget.Button({
+    on_clicked: () =>
+      Utils.exec(
+        "swaylock -f -c 002266 -i /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png",
+      ),
+    child: Widget.Label("⏻"),
+    class_name: "power-button",
+  });
+
 function Left(monitor: number) {
   return Widget.Box({
     class_name: "left",
@@ -137,7 +147,7 @@ function Right() {
     hpack: "end",
     class_name: "right",
     spacing: 8,
-    children: [Volume(), Wifi(), Clock()],
+    children: [Volume(), Wifi(), Clock(), Power()],
   });
 }
 
