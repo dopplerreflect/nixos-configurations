@@ -21,6 +21,8 @@
     freefilesync
     gimp
     gnome.dconf-editor
+    gnome.gnome-characters
+    gnome.gucharmap
     gnome.nautilus
     gnome3.gnome-tweaks
     googleearth-pro
