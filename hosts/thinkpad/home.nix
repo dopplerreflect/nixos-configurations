@@ -79,6 +79,7 @@
     ".config/swayidle/config".source = ./.config/swayidle/config;
     ".config/i3status-rust/config.toml".source = ./.config/i3status-rust/config.toml;
     ".config/mako/config".source = ./.config/mako/config;
+    ".local/bin/cycle-desktop-backgrounds.ts".source = ./.local/bin/cycle-desktop-backgrounds.ts;
   };
 
   programs = {
