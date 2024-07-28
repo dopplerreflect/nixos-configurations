@@ -41,7 +41,7 @@ function Workspaces(monitor: number) {
   const workspaces = [...workspaceList[monitor]].map(([id, label]) => {
     return Widget.Button({
       on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-      child: Widget.Label(label ? ` ${id}:${label}` : `${id}`),
+      child: Widget.Label(label ? `${id}:${label}` : `${id}`),
       class_name: activeId.as(i => `${i === id ? "focused" : ""}`),
     });
   });
