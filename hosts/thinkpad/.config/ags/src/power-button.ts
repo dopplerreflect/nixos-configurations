@@ -1,3 +1,5 @@
+import { openSystemControls } from "./system-controls";
+
 const PowerButton = () =>
   Widget.Button({
     on_clicked: () => openSystemControls(),

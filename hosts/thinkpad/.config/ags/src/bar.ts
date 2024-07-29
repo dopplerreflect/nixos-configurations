@@ -33,6 +33,7 @@ const Bar = (monitor: number) =>
   Widget.Window({
     monitor,
     name: `bar${monitor}`,
+    class_name: "bar",
     anchor: ["bottom", "left", "right"],
     margins: [0, 10, 5, 10],
     exclusivity: "exclusive",

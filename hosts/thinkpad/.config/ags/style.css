@@ -7,6 +7,15 @@ window {
   background-color: rgba(8, 0, 16, 0.85);
   color: white;
 }
+button {
+  background: none;
+  padding: 5px;
+  margin: 0px;
+  border: none;
+}
+button.focused {
+  color: rgba(0, 152, 255, 0.85);
+}
 window#system-controls {
   border: none;
 }
@@ -25,18 +34,6 @@ window#system-controls button:focus {
 .right {
   padding-right: 10px;
 }
-button {
-  background: none;
-  padding: 5;
-  margin: 0;
-  border: none;
-}
-button.focused {
-  color: rgba(0, 152, 255, 0.85);
-}
-label#start {
-  padding-left: 10px;
-}
-label#end {
-  padding-right: 10px;
+.bar button:hover {
+  color: rgba(0, 192, 255, 0.85);
 }

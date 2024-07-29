@@ -1,6 +1,6 @@
 import { network } from "./services";
-const Wifi = () =>
-  Widget.Box({
+const Wifi = () => {
+  const wifiBox = Widget.Box({
     class_name: "wifi",
     children: [
       Widget.Icon({
@@ -12,4 +12,9 @@ const Wifi = () =>
     ],
   });
 
+  return Widget.Button({
+    child: wifiBox,
+    onClicked: () => Utils.exec("kitty -e nmtui"),
+  });
+};
 export default Wifi;

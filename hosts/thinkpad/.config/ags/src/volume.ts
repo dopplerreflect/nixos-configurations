@@ -27,9 +27,14 @@ const Volume = () => {
     self.label = `${vol}%`;
   });
 
-  return Widget.Box({
+  const speakerBox = Widget.Box({
     class_name: "volume",
     children: [icon, label],
+  });
+
+  return Widget.Button({
+    child: speakerBox,
+    onClicked: () => (audio.speaker.is_muted = !audio.speaker.is_muted),
   });
 };
 
