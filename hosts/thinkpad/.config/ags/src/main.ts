@@ -1,4 +1,4 @@
-const hyprland = await Service.import("hyprland");
+import { hyprland } from "./services";
 import SystemControls from "./system-controls";
 import Bar from "./bar";
 
