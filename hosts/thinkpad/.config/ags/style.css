@@ -15,7 +15,7 @@ window#system-controls button {
   border: 1px solid white;
   border-radius: 10px;
 }
-window#system-controls button.focused {
+window#system-controls button:focus {
   color: rgb(0, 152, 255);
   border-color: rgb(0, 152, 255);
 }

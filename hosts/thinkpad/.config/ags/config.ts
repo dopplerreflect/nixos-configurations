@@ -1,3 +1,6 @@
+import { collapseTextChangeRangesAcrossMultipleVersions } from "node_modules/typescript/lib/typescript";
+import { Event, EventKey } from "types/@girs/gdk-3.0/gdk-3.0.cjs";
+
 const hyprland = await Service.import("hyprland");
 const audio = await Service.import("audio");
 const network = await Service.import("network");
@@ -51,6 +54,67 @@ function Workspaces(monitor: number) {
     children: workspaces,
   });
 }
+
+const systemButtons = [
+  {
+    name: "button-lock",
+    child: Widget.Label(" 󰍁 "),
+    onClicked: () =>
+      execSystemCommand(
+        Utils.exec(
+          "swaylock -f -c 002266 -i /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png",
+        ),
+      ),
+  },
+  {
+    name: "button-suspend",
+    child: Widget.Label(" ⏾ "),
+    onClicked: () => execSystemCommand(Utils.exec("systemctl suspend")),
+  },
+  {
+    name: "button-logout",
+    child: Widget.Label(" 󰿅 "),
+    onClicked: () => execSystemCommand(hyprland.messageAsync("dispatch exit")),
+  },
+  {
+    name: "button restart",
+    child: Widget.Label("  "),
+    onClicked: () => execSystemCommand(Utils.exec("systemctl reboot")),
+  },
+  {
+    name: "button-poweroff",
+    child: Widget.Label("  "),
+    onClicked: () => execSystemCommand(Utils.exec("systemctl poweroff")),
+  },
+].map(({ name, child, onClicked }) =>
+  Widget.Button({
+    name,
+    child,
+    onClicked,
+    onHover: self => self.grab_focus(),
+  }),
+);
+
+const systemWindow = Widget.Window({
+  name: "system-controls",
+  layer: "overlay",
+  exclusivity: "ignore",
+  keymode: "exclusive",
+  anchor: ["top", "bottom", "left", "right"],
+  visible: false,
+  child: Widget.Box({
+    name: "system-box",
+    spacing: 10,
+    hpack: "center",
+    vpack: "center",
+    children: systemButtons,
+  }),
+}).keybind("Escape", () => App.closeWindow("system-controls"));
+
+const execSystemCommand = cmd => {
+  App.closeWindow("system-controls");
+  cmd();
+};
 
 function ClientTitle() {
   return Widget.Label({
@@ -111,80 +175,26 @@ function Wifi() {
         icon: network.wifi.bind("icon_name"),
       }),
       Widget.Label({
-        label: network.wifi.bind("ssid").as(ssid => ssid || "Unknow"),
+        label: network.wifi.bind("ssid").as(ssid => ssid || "Unknown"),
       }),
     ],
   });
 }
 
+export const openSystemControls = () => {
+  App.openWindow("system-controls");
+  systemButtons[0].grab_focus();
+  let focusedButton = systemButtons.find(b => b.has_focus);
+  if (focusedButton) focusedButton.class_name = "focused";
+};
+globalThis.openSystemControls = openSystemControls;
+
 const PowerButton = () =>
   Widget.Button({
-    on_clicked: () => (systemWindow.visible = !systemWindow.visible),
+    on_clicked: () => openSystemControls(),
     child: Widget.Label("⏻"),
     class_name: "power-button",
   });
-
-const systemButtons = [
-  {
-    child: Widget.Label(" 󰍁 "),
-    onClicked: () =>
-      execSystemCommand(
-        Utils.exec(
-          "swaylock -f -c 002266 -i /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png",
-        ),
-      ),
-  },
-  {
-    child: Widget.Label(" ⏾ "),
-    onClicked: () => execSystemCommand(Utils.exec("systemctl suspend")),
-  },
-  {
-    child: Widget.Label(" 󰿅 "),
-    onClicked: () => execSystemCommand(hyprland.messageAsync("dispatch exit")),
-  },
-  {
-    child: Widget.Label("  "),
-    onClicked: () => execSystemCommand(Utils.exec("systemctl reboot")),
-  },
-  {
-    child: Widget.Label("  "),
-    onClicked: () => execSystemCommand(Utils.exec("systemctl poweroff")),
-  },
-].map(({ child, onClicked }) =>
-  Widget.Button({
-    child,
-    onClicked,
-    onHover: self => (self.class_name = "focused"),
-    onHoverLost: self => (self.class_name = ""),
-  }),
-);
-
-export const systemWindow = Widget.Window({
-  name: "system-controls",
-  layer: "overlay",
-  exclusivity: "ignore",
-  keymode: "exclusive",
-  anchor: ["top", "bottom", "left", "right"],
-  child: Widget.Box({
-    class_name: "system-box",
-    spacing: 10,
-    hpack: "center",
-    vpack: "center",
-    children: systemButtons,
-  }),
-  visible: false,
-}).keybind("Escape", self => {
-  self.visible = false;
-});
-
-const execSystemCommand = cmd => {
-  systemWindow.visible = false;
-  cmd();
-};
-// so we can target this with "ags -r systemWindow.visible = true"
-globalThis.systemWindow = systemWindow;
-
-const System = () => systemWindow;
 
 function Left(monitor: number) {
   return Widget.Box({
@@ -233,10 +243,9 @@ Utils.monitorFile(css, function () {
 
 App.config({
   style: "./style.css",
-  windows:
-    hyprland.monitors.length === 2
-      ? [Bar(0), Bar(1), System()]
-      : [Bar(0), System()],
+  windows: hyprland.monitors.length === 2 ? [Bar(0), Bar(1)] : [Bar(0)],
 });
+
+App.addWindow(systemWindow);
 
 export {};
