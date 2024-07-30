@@ -47,7 +47,7 @@
     pavucontrol
     pulseaudioFull
     python3
-    realvnc-vnc-viewer
+    # realvnc-vnc-viewer
     ripgrep
     rpi-imager
     rtl_433
