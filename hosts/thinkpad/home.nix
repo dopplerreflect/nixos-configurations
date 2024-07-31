@@ -5,13 +5,14 @@
   home.homeDirectory = "/home/doppler";
 
   home.packages = with pkgs; [
-    adwaita-qt
     # ags # this is in nix profile instead due to broken upstream build
+    adwaita-qt
     bc
     bitwarden
     brave
     brightnessctl
     btop
+    dconf-editor
     easyeffects
     fastfetch # like neofetch
     ffmpeg
@@ -20,14 +21,12 @@
     firefox
     freefilesync
     gimp
-    gnome.dconf-editor
     gnome.gnome-characters
-    gnome.gucharmap
-    gnome.nautilus
-    gnome3.gnome-tweaks
+    gnome-tweaks
     googleearth-pro
     gqrx
     grimblast
+    gucharmap
     heroku
     i3status-rust
     imagemagick
@@ -40,6 +39,7 @@
     miller # miller text parser thing https://miller.readthedocs.io/en/latest/
     morewaita-icon-theme
     mpv
+    nautilus
     nmap
     nodejs
     nwg-bar
@@ -47,11 +47,10 @@
     pavucontrol
     pulseaudioFull
     python3
-    # realvnc-vnc-viewer
     ripgrep
     rpi-imager
-    rtl_433
     rtl-sdr
+    rtl_433
     slurp
     sqlite-interactive
     sway-contrib.grimshot
@@ -127,10 +126,10 @@
     enable = true;
     theme = {
       name = "Adwaita-dark";
-      package = pkgs.gnome.gnome-themes-extra;
+      package = pkgs.gnome-themes-extra;
     };
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
+      package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
     };
   };

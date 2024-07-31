@@ -67,7 +67,7 @@
     pam.services.swaylock.text = ''auth include login'';
   };
 
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
@@ -110,7 +110,7 @@
     source-serif-pro
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.4.8248" ];
+  nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.6.9796" ];
 
   nix = {
     package = pkgs.nixFlakes;
