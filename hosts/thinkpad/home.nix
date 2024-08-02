@@ -117,6 +117,7 @@
  
   home.shellAliases = {
     ssh = "kitten ssh";
+    pi = "ssh pi";
   };
 
   # tried this from https://www.reddit.com/r/NixOS/comments/18hdool/how_do_i_set_a_global_dark_theme_and_configure_gtk/
