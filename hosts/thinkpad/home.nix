@@ -78,6 +78,7 @@
     ".config/swayidle/config".source = ./.config/swayidle/config;
     ".config/i3status-rust/config.toml".source = ./.config/i3status-rust/config.toml;
     ".config/mako/config".source = ./.config/mako/config;
+    ".config/kitty/kitty.conf".source = ./.config/kitty/kitty.conf;
     ".local/bin/cycle-desktop-backgrounds.ts".source = ./.local/bin/cycle-desktop-backgrounds.ts;
   };
 
@@ -115,11 +116,6 @@
     };
   };
  
-  home.shellAliases = {
-    ssh = "kitten ssh";
-    pi = "ssh pi";
-  };
-
   # tried this from https://www.reddit.com/r/NixOS/comments/18hdool/how_do_i_set_a_global_dark_theme_and_configure_gtk/
   # trying to get dark theme and all icons
   # don't think it helped.

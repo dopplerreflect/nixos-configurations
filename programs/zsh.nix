@@ -9,5 +9,9 @@
       plugins = [ "git" ];
       theme = "agnoster";
     };
+    shellAliases = {
+      ssh = "kitten ssh";
+      pi = "ssh pi";
+    };
   };
 }
