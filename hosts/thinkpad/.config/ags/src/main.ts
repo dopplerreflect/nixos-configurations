@@ -2,6 +2,7 @@ import { hyprland } from "./services";
 import Bar from "./bar";
 import SystemControls from "./system-controls";
 import AppLauncher from "./app-launcher";
+import Notifications from "./notifications";
 
 let css = `${App.configDir}/style.css`;
 
@@ -17,5 +18,5 @@ App.config({
 
 App.addWindow(SystemControls);
 App.addWindow(AppLauncher);
-
+App.addWindow(Notifications(0));
 export {};

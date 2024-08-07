@@ -37,7 +37,7 @@
     jq
     kitty
     libnotify
-    mako
+    # mako # notification-daemon. using ags instead, at least on hyprland
     miller # miller text parser thing https://miller.readthedocs.io/en/latest/
     morewaita-icon-theme
     mpv
