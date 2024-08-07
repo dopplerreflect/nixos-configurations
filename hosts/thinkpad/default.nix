@@ -48,6 +48,8 @@
 
   environment = {
     systemPackages = with pkgs; [
+      # https://github.com/NixOS/nixpkgs/issues/328909 failing to build as of 2024-08-07
+      # linuxKernel.packages.linux_zen.ddcci-driver # for controlling brightness of external monitor. 
     ];
     loginShellInit = ''
       [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session sway
