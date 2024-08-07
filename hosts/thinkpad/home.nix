@@ -28,6 +28,8 @@
     grimblast
     gucharmap
     heroku
+    hypridle
+    hyprlock
     i3status-rust
     imagemagick
     imv
