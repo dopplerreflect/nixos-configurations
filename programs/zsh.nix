@@ -7,7 +7,7 @@
     ohMyZsh = {
       enable = true;
       plugins = [ "git" ];
-      theme = "agnoster";
+      theme = if config.networking.hostName == "thinkpad" then "half-life" else "jreese";
     };
   };
 }
