@@ -65,7 +65,7 @@
 
   imports = [
     ./hyprland.nix
-    ./sway.nix
+    # ./sway.nix
   ];
 
   gtk = {

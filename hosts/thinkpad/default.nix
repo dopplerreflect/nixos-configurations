@@ -36,7 +36,7 @@
     gnome.gnome-keyring.enable = true;
     displayManager = {
       defaultSession = "hyprland";
-      sessionPackages = [ pkgs.hyprland pkgs.sway ];
+      sessionPackages = [ pkgs.hyprland ];
       autoLogin = {
         enable = true;
         user = "doppler";
