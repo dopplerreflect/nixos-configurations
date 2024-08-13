@@ -1,0 +1,48 @@
+building the system configuration...
+[K[Kthese 35 derivations will be built:
+  /nix/store/hbln1c60za6ba11ry8cc360l9hmj3dm5-nixos-rebuild.drv
+  /nix/store/j8m0xihvk8mikx6shs74g1hj53z2n1rk-nixos-version.drv
+  /nix/store/d6p0p002zbmrjmyyjqwvsa0jdgnhq3si-nixos-help.drv
+  /nix/store/llp0pynkp4pw7lv6xrk6arxrnzxx55ci-nixos-help.drv
+  /nix/store/xlpm9a5pg5p2sv520kh5qm81xf4xj8i0-system-path.drv
+  /nix/store/068mw2jx0dfia8ld0wp4i69x3dy8qbxn-unit-accounts-daemon.service.drv
+  /nix/store/s0zhhaqrgp19npljqb8db27h9xymcbg4-X-Restart-Triggers-polkit.drv
+  /nix/store/0lmlv20fv1s4kqcfrwhwp5g0r7kxczag-unit-polkit.service.drv
+  /nix/store/1kg0lj7xjss6zyy38lxhffmxzz3z6nfp-X-Restart-Triggers-systemd-udevd.drv
+  /nix/store/fsx809jay1vvcq8ns4jbmbr4zghd7v57-unit-systemd-udevd.service.drv
+  /nix/store/cdcqvnd3mhg8phiq4v5m5lk2n56yarkp-dbus-1.drv
+  /nix/store/a3njkg9svznp2jvayn6kpaimrkj0kbwg-X-Restart-Triggers-dbus.drv
+  /nix/store/pnhq3d91b2b8kww73kdhyf8shpv4db4j-unit-dbus.service.drv
+  /nix/store/rzi67q79z821py6dhzbqg7j6kwgd85r0-etc-os-release.drv
+  /nix/store/20jlpymqdkwh1a132lkflgsw47nihv6p-shutdown-ramfs-contents.json.drv
+  /nix/store/y91701kzqgiay0z2bagwawrlwn2f1nff-unit-generate-shutdown-ramfs.service.drv
+  /nix/store/3wwckqa9cp7aiwxa1d1d70dk7ssmiz1p-home-manager-path.drv
+  /nix/store/9s0lmaq6maid59qj7qh0lhvar154apck-hm_fontconfigconf.d10hmfonts.conf.drv
+  /nix/store/3b4q3mhc8kpjgx1l1alzi76ddia6hh9r-home-manager-files.drv
+  /nix/store/viwrxh0b8mpkfck7116wzfm2c7s9fmal-home-manager-generation.drv
+  /nix/store/zhd0sxc1s75sq6pdy45g3dgyj9zpwqxi-unit-home-manager-doppler.service.drv
+  /nix/store/01mflqmy5h6hnz0kk9n28wmmjm3kd05q-system-units.drv
+  /nix/store/0g0x0j6mdw74v64r5bqwvh2sigfd5jd0-etc-nix-registry.json.drv
+  /nix/store/y9c08lcks4pmsqqc6k5xi01m8sln5b69-unit-dbus.service.drv
+  /nix/store/8v8w8ds9bf6hydxcci594fa0ln8s42hl-user-units.drv
+  /nix/store/9b5hiaim4a52dvvkjr83ky8ijljf0l77-system-shutdown.drv
+  /nix/store/cb2lw1b3dss0wp5q0n4jkabwlrb5gy8m-system-generators.drv
+  /nix/store/giw1vra0hxir0s3ghlb43r5mcczryqqv-udev-rules.drv
+  /nix/store/hpfkdh19i5aday8nzvl3b33ksh4awq9y-user-generators.drv
+  /nix/store/pkvinfr1g198zibfs1f29g23d7q45bxl-hwdb.bin.drv
+  /nix/store/wfwqza60na7pjxzmzapi26myjj31b2gj-user-environment.drv
+  /nix/store/zpdcwma5c0lz15r793dx8cy2823kff4c-issue.drv
+  /nix/store/6rip34j3vi3rvx427l0v18g38xixyz3y-etc.drv
+  /nix/store/b4wp8vbp99bbjpqwdhgfng5xsl46jxsg-boot.json.drv
+  /nix/store/hcsnz3p226mrlqcdbqcn89b1xcrrph0v-nixos-system-thinkpad-24.11.20240811.a58bc8a.drv
+these 10 paths will be fetched (224.36 MiB download, 847.57 MiB unpacked):
+  /nix/store/5k0dp2ys9d07mzzvbmadg47vg1nqanyz-bitwarden-desktop-2024.6.4
+  /nix/store/ivxkx2gyf4m3p3sxnw6zv6nxwdpsl2mi-brave-1.68.137
+  /nix/store/55msi0929vyi6p813bvq0fbkssl3kxfy-electron-29.4.5
+  /nix/store/c4mx5qszczyyx496by3fkxsvcpgaspdh-electron-unwrapped-29.4.5
+  /nix/store/hqwmzadzfgyc2y7hgnsc1vqa9pmp9rnq-gnome-shell-46.4
+  /nix/store/sqr24v190cwnb6g4ash8i3xyksh1cnm2-gnome-tweaks-46.1
+  /nix/store/r16x4a0bw2r5k6jg5y8ypbzciz8z803g-mutter-46.4
+  /nix/store/qkb316g736xyf1amjbbm2vl88d4q2764-nixos-configuration-reference-manpage
+  /nix/store/wf92x3h6clp7rnlyg1z0j8abgf68ysb2-nixos-manual-html
+  /nix/store/hqvik83m9916rscw22n6gqgajfbq2jlg-wpa_supplicant-2.11

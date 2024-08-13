@@ -11,8 +11,10 @@
     bitwarden
     brave
     btop
+    bat
     dconf-editor
     # easyeffects # php requirement was failing test on nixos-unstable 7/31/2024
+    eza
     fastfetch # like neofetch
     ffmpeg
     ffmpegthumbnailer

@@ -12,6 +12,8 @@
     shellAliases = {
       ssh = "kitten ssh";
       pi = "ssh pi";
+      ls = "eza";
+      cat = "bat";
     };
   };
 }
