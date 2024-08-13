@@ -40,6 +40,7 @@
     pavucontrol
     pulseaudioFull
     python3
+    pywal
     ripgrep
     rpi-imager
     rtl-sdr
