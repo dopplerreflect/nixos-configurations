@@ -10,8 +10,8 @@
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    earlySetup = true;
-    font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
+    # earlySetup = true;
+    font = "ter-powerline-v28b";
     packages = with pkgs; [ powerline-fonts ];
     keyMap = "dvorak";
   };

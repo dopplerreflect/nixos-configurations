@@ -34,9 +34,17 @@
     };
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
-    displayManager.sessionPackages = [ pkgs.sway pkgs.hyprland ];
+    displayManager = {
+      defaultSession = "hyprland";
+      sessionPackages = [ pkgs.hyprland pkgs.sway ];
+      autoLogin = {
+        enable = true;
+        user = "doppler";
+      };
+    };
     xserver = {
       enable = true;
+      autorun = false;
       xkb = {
         layout = "us";
         variant = "dvorak";
@@ -51,9 +59,9 @@
       # https://github.com/NixOS/nixpkgs/issues/328909 failing to build as of 2024-08-07
       # linuxKernel.packages.linux_zen.ddcci-driver # for controlling brightness of external monitor. 
     ];
-    loginShellInit = ''
-      [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session sway
-    '';
+    # loginShellInit = ''
+    #   [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session hyprland
+    # '';
     variables = {
       UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
     };
@@ -103,13 +111,14 @@
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     corefonts
-    terminus_font
-    inconsolata
     dejavu_fonts
     font-awesome
+    inconsolata
+    powerline-fonts
     source-code-pro
     source-sans-pro
     source-serif-pro
+    terminus_font
   ];
 
   nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.6.9796" ];
