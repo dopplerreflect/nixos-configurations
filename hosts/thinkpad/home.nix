@@ -51,6 +51,10 @@
     vscode
     wavemon
     wget
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.tumbler
+    xfce.xfconf
     yarn
     yazi
   ];
