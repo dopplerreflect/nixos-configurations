@@ -21,6 +21,7 @@
     file
     firefox
     freefilesync
+    fzf
     gimp
     gnome.gnome-characters
     gnome-tweaks
@@ -60,6 +61,7 @@
     xfce.xfconf
     yarn
     yazi
+    zoxide
   ];
   
   home.file = {
