@@ -66,6 +66,8 @@
   
   home.file = {
     ".config/kitty/kitty.conf".source = ./.config/kitty/kitty.conf;
+    ".zprofile".source = ./.zprofile;
+    ".zshrc".source = ./.zshrc;
   };
 
   imports = [
