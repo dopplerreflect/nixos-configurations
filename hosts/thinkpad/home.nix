@@ -68,6 +68,10 @@
     ".config/kitty/kitty.conf".source = ./.config/kitty/kitty.conf;
     ".zprofile".source = ./.zprofile;
     ".zshrc".source = ./.zshrc;
+    "./.local/share/applications" = {
+      source = ./.local/share/applications;
+      recursive = true;
+    };
   };
 
   imports = [
