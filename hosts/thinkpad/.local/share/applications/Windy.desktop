@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Windy.com
+Exec=brave --app="https://www.windy.com/29.365/-95.463?radar,29.083,-95.471,9"
+Icon=brave-ghgkkaekfgmdmfamkfkimimjihnnmbnh-Default
+StartupWMClass=crx_ghgkkaekfgmdmfamkfkimimjihnnmbnh
