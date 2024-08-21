@@ -53,6 +53,7 @@
     virt-manager
     virt-viewer
     vscode
+    warp-terminal
     wavemon
     wget
     xfce.thunar
