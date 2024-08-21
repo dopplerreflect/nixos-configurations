@@ -6,7 +6,7 @@
 
   home.packages = with pkgs; [
     # ags # this is in nix profile instead due to broken upstream build
-    adwaita-qt
+    # adwaita-qt
     bc
     bitwarden
     brave
@@ -61,7 +61,7 @@
     xfce.xfconf
     yarn
     yazi
-    zoxide
+    zoxide # cd replacement, with cdi
   ];
   
   home.file = {
@@ -82,12 +82,12 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
+      package = pkgs.andromeda-gtk-theme;
+      name = "Andromeda";
     };
     iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.beauty-line-icon-theme;
+      name = "BeautyLine";
     };
   };
 
