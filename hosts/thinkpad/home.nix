@@ -52,7 +52,8 @@
     unzip
     virt-manager
     virt-viewer
-    vscode
+    # vscode
+    vscodium
     warp-terminal
     wavemon
     wget
