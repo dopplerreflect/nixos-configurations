@@ -73,6 +73,10 @@
       source = ./.local/share/applications;
       recursive = true;
     };
+    "./.local/bin" = {
+      source = ./.local/bin;
+      recursive = true;
+    };
   };
 
   imports = [

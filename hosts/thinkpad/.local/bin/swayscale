@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+if [ -n "$1" ]; then
+	Y=$(echo "1080 / $1" | bc)
+	echo $Y
+	swaymsg output DP-1 scale $1
+	swaymsg output eDP-1 scale $1
+	swaymsg output eDP-1 position \'0,$Y\'
+else
+	swaymsg output DP-1 scale 0
+	swaymsg output eDP-1 scale 0
+	swaymsg output eDP-1 position \'0,1080\'
+fi
+

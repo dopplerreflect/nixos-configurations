@@ -20,8 +20,4 @@
     wlroots
     xdg-desktop-portal-hyprland
   ];
-
-  home.file = {
-    ".local/bin/cycle-desktop-backgrounds.ts".source = ./.local/bin/cycle-desktop-backgrounds.ts;
-  };
 }
