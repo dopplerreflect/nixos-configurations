@@ -20,4 +20,11 @@
     wlroots
     xdg-desktop-portal-hyprland
   ];
+
+  home.file = {
+    "./.config/hypr" = {
+      source = ./.config/hypr;
+      recursive = true;
+    };
+  };
 }
