@@ -101,8 +101,10 @@
     dconf.enable = true;
   };
 
+  users.mutableUsers = false;
   users.users.doppler = {
     isNormalUser = true;
+    hashedPassword = "$y$j9T$L4WXXG1W0rCNHzFrg8Q3D0$l7NOkrjD5B/VKUrHAjmfile5hDECM1yr6SJno71/xg1";
     description = "doppler";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "plugdev" ];
     shell = pkgs.zsh;
