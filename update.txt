@@ -1,0 +1,20 @@
+building the system configuration...
+warning: Git tree '/home/doppler/.config/nixos-configurations' is dirty
+these 17 derivations will be built:
+  /nix/store/pp69ygrl6nxp8rxfkjrh85viy5vjzhw6-options.json.drv
+  /nix/store/6b09c7m7nkhdjs9vsc4ip72frkhcljyn-home-configuration-reference-manpage.drv
+  /nix/store/1508g66chnayyjj4dmlkn18xh62bzgyk-home-manager-path.drv
+  /nix/store/mwd6dd10g8rdv3dydb8fkgli04sp8jsf-hm-modules-messages.drv
+  /nix/store/1w301cpm3ah6m0wr3hj0g4jizhzm4mn5-link.drv
+  /nix/store/2gp139gxrlva3vv2a47ahwyrw34sxqpl-cleanup.drv
+  /nix/store/is46kg6znlmn54kdldb1gb50w41f4xvk-check-link-targets.sh.drv
+  /nix/store/n7kz156dmigsnma7miasaw8b48nkakp1-dconf-cleanup.drv
+  /nix/store/igfwczyll3qilv0rj2l8zyc214bncnpr-activation-script.drv
+  /nix/store/s5hsqyqx7drsg496xrfb9vw2qhmjbi6d-hm_fontconfigconf.d10hmfonts.conf.drv
+  /nix/store/smqhycsvnzm3dxl397axq0a9w70ciap1-home-manager-files.drv
+  /nix/store/cad7anqw51azg5brzq5fll9xd8i242cj-home-manager-generation.drv
+  /nix/store/b6p140v6aw63n63b5cjfgw2nss6s4cg7-unit-home-manager-doppler.service.drv
+  /nix/store/fffcijyvyb18qrzmxwgivc74srp3y6fg-user-environment.drv
+  /nix/store/yh5zbas9kmrwr6cx83raxnl3ykpxrzxz-system-units.drv
+  /nix/store/m9swaf07hhmxcwml67kvsvd3q9nbvbkq-etc.drv
+  /nix/store/igpis3jivah5x7wv5p94svc6gy1m5ycx-nixos-system-thinkpad-24.11.20240821.c374d94.drv
