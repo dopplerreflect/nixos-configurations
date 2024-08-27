@@ -40,6 +40,19 @@
           }
         ];
       };
+      nixos-qemu = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = inputs;
+        modules = [
+          ./hosts/common.nix
+          ./hosts/nixos-qemu
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.doppler = import ./hosts/nixos-qemu/home.nix;
+          }
+        ];
+      };
     };
     
   };
