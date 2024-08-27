@@ -18,13 +18,5 @@
         ci = "commit";
       };
     };
-  #   userName = "David Rose";
-  #   userEmail = "doppler@gmail.com";
-  #   aliases = {
-  #     co = "checkout";
-  #     st = "status";
-  #     br = "branch";
-  #     ci = "commit";
-  #   };
   };
 }

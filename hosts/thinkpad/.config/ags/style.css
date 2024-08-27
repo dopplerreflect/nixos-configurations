@@ -4,13 +4,15 @@ window {
   font-weight: bold;
   border-radius: 10px;
   border: 1px solid rgba(0, 152, 255, 0.85);
-  /* background-color: rgba(8, 0, 16, 0.85); */
+  background-color: rgba(8, 0, 16, 0.85);
+  /*
   background-image: linear-gradient(
     90deg,
     rgba(8, 0, 16, 0.85),
     rgba(32, 0, 64, 0.5),
     rgba(8, 0, 16, 0.85)
   );
+  */
   color: white;
 }
 button {
@@ -34,6 +36,12 @@ window#system-controls button:focus {
   color: rgb(0, 152, 255);
   border-color: rgb(0, 152, 255);
 }
+window#clock-window {
+  font-size: 8em;
+}
+window#clock-window .clock {
+  margin: 50px;
+}
 .left {
   padding-left: 10px;
 }
@@ -43,3 +51,63 @@ window#system-controls button:focus {
 .bar button:hover {
   color: rgba(0, 192, 255, 0.85);
 }
+/** notifications **/
+window.notification-popups box.notifications {
+  padding: 1px;
+}
+
+.icon {
+  min-width: 68px;
+  min-height: 68px;
+  margin-right: 1em;
+}
+
+/** TAKEN FROM ags' notifications example **/
+.icon image {
+  font-size: 58px;
+  /* to center the icon */
+  margin: 5px;
+  color: @theme_fg_color;
+}
+
+.icon box {
+  min-width: 68px;
+  min-height: 68px;
+  border-radius: 7px;
+}
+
+.notification {
+  min-width: 350px;
+  border-radius: 11px;
+  padding: 1em;
+  margin: 0.5em;
+  border: 1px solid @wm_borders_edge;
+  background-color: @theme_bg_color;
+}
+
+.notification.critical {
+  border: 1px solid lightcoral;
+}
+
+.title {
+  color: @theme_fg_color;
+  font-size: 1.4em;
+}
+
+.body {
+  color: @theme_unfocused_fg_color;
+}
+
+.actions .action-button {
+  margin: 0 0.4em;
+  margin-top: 0.8em;
+}
+
+.actions .action-button:first-child {
+  margin-left: 0;
+}
+
+.actions .action-button:last-child {
+  margin-right: 0;
+}
+/** end TAKEN FROM ags' notifications example **/

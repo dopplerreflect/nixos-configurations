@@ -60,7 +60,7 @@ const Applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
     // filter out the list
     on_change: ({ text }) =>
       applications.forEach(item => {
-        item.visible = item.attribute.app.match(text ?? "");
+        item.visible = item.attribute.app.name.toLowerCase().match(text ?? "");
       }),
   });
 

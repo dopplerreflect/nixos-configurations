@@ -4,7 +4,7 @@ hide_edge_borders both
 
 mouse_warping container
 
-set $term alacritty
+set $term kitty
 
 set $menu exec nwggrid --class=launcher -d /etc/profiles/per-user/doppler/share/applications:/home/doppler/.local/share/applications
 # set $menu exec onagre -s 2

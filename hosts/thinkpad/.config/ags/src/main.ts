@@ -2,6 +2,8 @@ import { hyprland } from "./services";
 import Bar from "./bar";
 import SystemControls from "./system-controls";
 import AppLauncher from "./app-launcher";
+import Notifications from "./notifications";
+import { ClockWindow } from "./clock";
 
 let css = `${App.configDir}/style.css`;
 
@@ -15,7 +17,8 @@ App.config({
   windows: hyprland.monitors.length === 2 ? [Bar(0), Bar(1)] : [Bar(0)],
 });
 
+App.addWindow(ClockWindow);
 App.addWindow(SystemControls);
 App.addWindow(AppLauncher);
-
+App.addWindow(Notifications(0));
 export {};
