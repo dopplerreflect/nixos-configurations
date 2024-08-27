@@ -21,16 +21,25 @@
   users.users.doppler = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
     ];
   };
 
+  environment.etc."nextcloud-admin-pass".text = "Para-Dongle-1";
+  
   services = {
+    nextcloud = {
+      enable = true;
+      package = pkgs.nextcloud29;
+      hostName = "nixos-qemu";
+      config.adminpassFile = "/etc/nextcloud-admin-pass";
+    };
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
     displayManager = {
-      defaultSession = "hyprland";
-      sessionPackages = [ pkgs.hyprland ];
+      defaultSession = "xfce";
+      # sessionPackages = [ pkgs.hyprland ];  
       autoLogin = {
         enable = true;
         user = "doppler";
@@ -38,13 +47,20 @@
     };
     xserver = {
       enable = true;
-      autorun = false;
+      desktopManager.xfce.enable = true;
       xkb = {
         layout = "us";
         variant = "dvorak";
         options = "ctrl:nocaps";
       };
       excludePackages = with pkgs; [ xterm ];
+    };
+    picom = {
+      enable = true;
+      fade = true;
+      inactiveOpacity = 0.8;
+      shadow = true;
+      fadeDelta = 4;
     };
   };
 
