@@ -22,7 +22,7 @@
 
   networking = {
     hostName = "thinkpad";
-    extraHosts = "192.168.12.1 pi\n192.168.12.11 ecowitt ecowitt.local GW2000x";
+    extraHosts = "192.168.12.1 pi\n192.168.12.11 ecowitt ecowitt.local GW2000x\n192.168.122.173 nixos-qemu";
     nameservers = [ "8.8.8.8" ];
     firewall.enable = false;
   };

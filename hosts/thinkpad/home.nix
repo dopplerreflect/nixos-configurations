@@ -23,7 +23,7 @@
     freefilesync
     fzf
     gimp
-    gnome.gnome-characters
+    gnome-characters
     gnome-tweaks
     googleearth-pro
     gqrx
@@ -38,6 +38,7 @@
     morewaita-icon-theme
     mpv
     nautilus
+    nextcloud-client
     nmap
     nodejs
     pavucontrol
