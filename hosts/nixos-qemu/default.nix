@@ -9,12 +9,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-qemu";
-  networking.networkmanager.enable = true;
-
-  time.timeZone = "America/Chicago";
-
-  i18n.defaultLocale = "en_US.UTF-8";
+  networking = {
+    hostName = "nixos-qemu";
+    networkmanager.enable = true;
+    firewall.allowedTCPPorts = [ 22 80 ];
+  };
 
   programs.dconf.enable = true;
 
@@ -35,6 +34,7 @@
       hostName = "nixos-qemu";
       config.adminpassFile = "/etc/nextcloud-admin-pass";
     };
+    nginx.virtualHosts."localhost".listen = [ { addr = "0.0.0.0"; } ];
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
     displayManager = {
