@@ -13,6 +13,7 @@
       cat = "bat";
       code = "codium";
       ls = "eza";
+      ns = "nmcli device wifi list --rescan yes"
       pi = "ssh pi";
       ssh = "kitten ssh";
     };
