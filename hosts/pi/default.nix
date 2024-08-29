@@ -71,7 +71,6 @@
   ];
 
   users = {
-    mutableUsers = false;
     users.doppler = {
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" ];
