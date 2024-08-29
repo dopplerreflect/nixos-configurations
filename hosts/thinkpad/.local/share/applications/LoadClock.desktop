@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Load Clock
+Exec=brave --app=https://houstonclock.skydivespaceland.com/
+Icon=brave-fhndgjphicgdlodikegejijmhegkhhdc-Default
+StartupWMClass=loadclock

@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Messages
+Exec=brave --app=https://messages.google.com/web/conversations
+Icon=brave-hpfldicfbfomlpcikngkocigghgafkph-Default
+StartupWMClass=crx_hpfldicfbfomlpcikngkocigghgafkph
