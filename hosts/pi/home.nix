@@ -5,7 +5,9 @@
   home.homeDirectory = "/home/doppler";
 
   home.packages = with pkgs; [
+    bat
     btop
+    eza
   ];
 
   home.file = {
