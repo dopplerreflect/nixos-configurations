@@ -32,7 +32,6 @@
   };
 
   imports = [
-    ./hyprland.nix
   ];
 
   gtk = {
