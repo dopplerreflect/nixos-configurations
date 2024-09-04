@@ -3,38 +3,44 @@ import { hyprland } from "./services";
 const systemButtons = [
   {
     name: "button-lock",
+    tooltipText: "Lock",
     child: Widget.Label(" 󰍁 "),
     onClicked: () =>
       execSystemCommand(
         Utils.exec(
-          "hyprlock"
+          "hyprlock",
           //"swaylock -f -c 002266 -i /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png",
         ),
       ),
   },
   {
     name: "button-suspend",
+    tooltipText: "Suspend",
     child: Widget.Label(" ⏾ "),
     onClicked: () => execSystemCommand(Utils.exec("systemctl suspend")),
   },
   {
     name: "button-logout",
+    tooltipText: "Log Out",
     child: Widget.Label(" 󰿅 "),
     onClicked: () => execSystemCommand(hyprland.messageAsync("dispatch exit")),
   },
   {
     name: "button restart",
+    tooltipText: "Restart",
     child: Widget.Label("  "),
     onClicked: () => execSystemCommand(Utils.exec("systemctl reboot")),
   },
   {
     name: "button-poweroff",
+    tooltipText: "Power Off",
     child: Widget.Label("  "),
     onClicked: () => execSystemCommand(Utils.exec("systemctl poweroff")),
   },
-].map(({ name, child, onClicked }) =>
+].map(({ name, tooltipText, child, onClicked }) =>
   Widget.Button({
     name,
+    tooltipText,
     child,
     onClicked,
     onHover: self => self.grab_focus(),
