@@ -42,6 +42,7 @@
     nmap
     nodejs
     pavucontrol
+    pnpm
     pulseaudioFull
     python3
     pywal

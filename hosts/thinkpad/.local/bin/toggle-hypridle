@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+if [[ $(systemctl --user status hypridle.service | grep "Active: inactive") ]]; then
+  echo "hypridle.service inactive. enabling."
+  systemctl --user enable --now hypridle.service
+else
+  echo "hypridle.service active. disabling."
+  systemctl --user disable --now hypridle.service
+fi
+
+systemctl --user status hypridle.service
+

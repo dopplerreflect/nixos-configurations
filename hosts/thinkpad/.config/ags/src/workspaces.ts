@@ -5,13 +5,13 @@ const workspaceList: WorkspaceList =
   hyprland.monitors.length === 2
     ? [
         new Map([
-          [1, ""],
-          [3, ""],
+          [1, null],
+          [3, null],
         ]),
         new Map([
-          [2, ""],
-          [4, ""],
-          [5, ""],
+          [2, null],
+          [4, null],
+          [5, null],
           [6, null],
           [7, null],
           [8, null],
@@ -21,11 +21,11 @@ const workspaceList: WorkspaceList =
       ]
     : [
         new Map([
-          [1, ""],
-          [2, ""],
-          [3, ""],
-          [4, ""],
-          [5, ""],
+          [1, null],
+          [2, null],
+          [3, null],
+          [4, null],
+          [5, null],
           [6, null],
           [7, null],
           [8, null],
