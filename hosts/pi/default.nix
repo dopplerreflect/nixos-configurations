@@ -58,7 +58,7 @@
       INTERNET_IFACE = "wlp1s0u1u2";
       WIFI_IFACE = "wlan0";
       SSID = "pi";
-      PASSPHRASE = "wifipass";
+      PASSPHRASE = "anewpass";
     };
   };
 
