@@ -112,15 +112,15 @@
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    corefonts
+    # corefonts
     dejavu_fonts
     font-awesome
-    inconsolata
-    powerline-fonts
-    source-code-pro
-    source-sans-pro
-    source-serif-pro
-    terminus_font
+    # inconsolata
+    # powerline-fonts
+    # source-code-pro
+    # source-sans-pro
+    # source-serif-pro
+    # terminus_font
   ];
 
   nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.6.9796" ];
