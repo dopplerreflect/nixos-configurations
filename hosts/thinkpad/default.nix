@@ -35,12 +35,12 @@
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
     displayManager = {
-      defaultSession = "hyprland";
-      sessionPackages = [ pkgs.hyprland ];
-      autoLogin = {
-        enable = true;
-        user = "doppler";
-      };
+      # defaultSession = "hyprland";
+      # sessionPackages = [ pkgs.hyprland ];
+      # autoLogin = {
+      #   enable = true;
+      #   user = "doppler";
+      # };
       preStart = ''
         # Enable full RGB in HDMI driver
         # https://www.onetransistor.eu/2021/08/hdmi-picture-quantization-range-linux.html
@@ -64,9 +64,9 @@
       # https://github.com/NixOS/nixpkgs/issues/328909 failing to build as of 2024-08-07
       # linuxKernel.packages.linux_zen.ddcci-driver # for controlling brightness of external monitor. 
     ];
-    # loginShellInit = ''
-    #   [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session hyprland
-    # '';
+    loginShellInit = ''
+      [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session hyprland
+    '';
     variables = {
       UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
     };
