@@ -41,6 +41,11 @@
         enable = true;
         user = "doppler";
       };
+      preStart = ''
+        # Enable full RGB in HDMI driver
+        # https://www.onetransistor.eu/2021/08/hdmi-picture-quantization-range-linux.html
+        ${pkgs.libdrm}/bin/proptest -M i915 -D /dev/dri/card1 107 connector 103 1
+      '';
     };
     xserver = {
       enable = true;
