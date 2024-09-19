@@ -35,8 +35,10 @@ const Bar = (monitor: number) =>
     name: `bar${monitor}`,
     class_name: "bar",
     anchor: ["bottom", "left", "right"],
-    margins: [0, 5, 0, 5],
-    exclusivity: "exclusive",
+    margins: [0, 0, 0, 0],
+    layer: "top",
+    exclusivity: "ignore",
+    visible: false,
     child: Widget.CenterBox({
       start_widget: Left(monitor),
       center_widget: Center(),

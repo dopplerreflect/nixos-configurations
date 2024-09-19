@@ -15,6 +15,10 @@ window {
   */
   color: white;
 }
+window.bar {
+  border: none;
+  border-radius: 0px;
+}
 button {
   background: none;
   padding: 5px;
