@@ -1,12 +1,14 @@
 #!/usr/bin/env sh
 
 if [ -n "$1" ]; then
+  X=$(echo "1920 / $1" | bc)
 	Y=$(echo "1080 / $1" | bc)
-	echo $Y
-        hyprctl keyword monitor "DP-1,1920x1080,0x0,$1"
-        hyprctl keyword monitor "eDP-1,1920x1080,0x$Y,$1"
+  echo $X x $Y
+  hyprctl -q keyword monitor "DP-1,1920x1080,0x0,$1"
+  hyprctl -q keyword monitor "eDP-1,1920x1080,0x$Y,$1"
 else
-        hyprctl keyword monitor "DP-1,1920x1080,0x0,1"
-        hyprctl keyword monitor "eDP-1,1920x1080,0x1080,1"
+  echo 1920 x 1080
+  hyprctl -q keyword monitor "DP-1,1920x1080,0x0,1"
+  hyprctl -q keyword monitor "eDP-1,1920x1080,0x1080,1"
 fi
 

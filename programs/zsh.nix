@@ -12,6 +12,7 @@
     shellAliases = {
       cat = "bat";
       code = "codium";
+      hs = "hyprscale";
       ls = "eza";
       nms = "nmcli device wifi list --rescan yes";
       nmc = "nmcli device wifi connect";
