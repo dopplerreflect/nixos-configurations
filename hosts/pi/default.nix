@@ -31,7 +31,7 @@
 
   networking = {
     hostName = "pi";
-    extraHosts = "192.168.12.11 GW2000X ecowitt\n192.168.12.10 thinkpad";
+    # extraHosts = "192.168.12.11 GW2000X ecowitt\n192.168.12.10 thinkpad";
     firewall = {
       enable = false;
     };
