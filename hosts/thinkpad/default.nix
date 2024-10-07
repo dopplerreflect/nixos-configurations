@@ -14,7 +14,7 @@
     blacklistedKernelModules = [ "i2c_i801" ];
     kernel = {
       sysctl = {
-        "net.ipv6.conf.wlp0s20f3.hop_limit" = 66;
+        "net.ipv6.conf.wifi.hop_limit" = 66;
         "net.ipv4.ip_default_ttl" = 66;
       };
     };
@@ -25,6 +25,21 @@
     # extraHosts = "192.168.12.1 pi\n192.168.12.11 ecowitt ecowitt.local GW2000x\n192.168.122.173 nixos-qemu";
     nameservers = [ "8.8.8.8" ];
     firewall.enable = false;
+  };
+
+  systemd.network.links = {
+    "10-internet" = {
+      matchConfig.PermanentMACAddress = "a0:ce:c8:de:a0:43";
+      linkConfig.Name = "eth0";
+    };
+    "11-internet" = {
+      matchConfig.PermanentMACAddress = "54:05:db:a6:f2:9c";
+      linkConfig.Name = "eth1";
+    };
+    "12-internet" = {
+      matchConfig.PermanentMACAddress = "3c:9c:0f:fc:0c:51";
+      linkConfig.Name = "wifi";
+    };
   };
 
   services = {

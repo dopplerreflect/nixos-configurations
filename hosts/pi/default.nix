@@ -15,7 +15,7 @@
     };
     kernel = {
       sysctl = {
-        "net.ipv6.conf.wlp1s0u1u2.hop_limit" = 65;
+        "net.ipv6.conf.extwifi.hop_limit" = 65;
         "net.ipv4.ip_default_ttl" = 65;
       };
     };
@@ -34,6 +34,17 @@
     # extraHosts = "192.168.12.11 GW2000X ecowitt\n192.168.12.10 thinkpad";
     firewall = {
       enable = false;
+    };
+  };
+  
+  systemd.network.links = {
+    "10-internet" = {
+      matchConfig.PermanentMACAddress = "60:fb:00:62:b2:72";
+      linkConfig.Name = "extwifi";
+    };
+    "11-internet" = {
+      matchConfig.PermanentMACAddress = "dc:a6:32:b9:34:63";
+      linkConfig.Name = "intwifi";
     };
   };
 
@@ -55,8 +66,8 @@
       ETC_HOSTS=1;
       DHCP_HOSTS = "thinkpad GW2000X";
       DHCP_DNS = "192.168.12.1,8.8.8.8,8.8.4.4,1.1.1.1";
-      INTERNET_IFACE = "wlp1s0u1u2";
-      WIFI_IFACE = "wlan0";
+      INTERNET_IFACE = "extwifi";
+      WIFI_IFACE = "intwifi";
       SSID = "pi";
       PASSPHRASE = "anewpass";
     };

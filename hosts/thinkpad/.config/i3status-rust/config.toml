@@ -36,7 +36,7 @@ format = " $icon / $available.eng(w:2) "
 
 [[block]]
 block = "net"
-device = "wlp0s20f3"
+device = "wifi"
 [[block.click]]
 button = "left"
 cmd = "alacritty -e nmtui"
