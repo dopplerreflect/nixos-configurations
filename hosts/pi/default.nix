@@ -4,6 +4,7 @@
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+    initrd.systemd.tpm2.enable = false; # https://github.com/NixOS/nixos-hardware/issues/858
     blacklistedKernelModules = [ "rtl8xxxu" ];
     kernelModules = [ "88x2bu" ];
     extraModulePackages = [
