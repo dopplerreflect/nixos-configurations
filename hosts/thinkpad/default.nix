@@ -72,6 +72,7 @@
       };
       excludePackages = with pkgs; [ xterm ];
     };
+    fwupd.enable = true;
   };
 
   environment = {
