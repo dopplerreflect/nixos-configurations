@@ -27,4 +27,18 @@ export const ClockWindow = Widget.Window({
   }),
 }).keybind("Escape", () => App.closeWindow("clock-window"));
 
+export const SmallClockWindow = Widget.Window({
+  name: "small-clock-window",
+  layer: "overlay",
+  visible: true,
+  anchor: ["bottom", "right"],
+  child: Widget.Button({
+    child: Widget.Label({
+      class_name: "clock",
+      label: time.bind(),
+    }),
+    onClicked: () => App.toggleWindow("clock-window"),
+  }),
+});
+
 export default Clock;

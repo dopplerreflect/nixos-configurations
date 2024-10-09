@@ -51,6 +51,16 @@ window#clock-window .clock {
 .bar button:hover {
   color: rgba(0, 192, 255, 0.85);
 }
+
+#small-clock-window {
+  border: 1px solid rgba(192, 160, 0, 0.75);
+  background-color: rgba(64, 32, 0, 0.75);
+}
+#small-clock-window .clock {
+  color: rgba(255, 192, 0, 0.5);
+  font-size: 24px;
+  padding: 5px 20px;
+}
 /** notifications **/
 window.notification-popups box.notifications {
   padding: 1px;

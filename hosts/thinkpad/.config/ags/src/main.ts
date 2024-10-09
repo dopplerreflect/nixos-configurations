@@ -3,7 +3,7 @@ import Bar from "./bar";
 import SystemControls from "./system-controls";
 import AppLauncher from "./app-launcher";
 import Notifications from "./notifications";
-import { ClockWindow } from "./clock";
+import { ClockWindow, SmallClockWindow } from "./clock";
 
 let css = `${App.configDir}/style.css`;
 
@@ -18,6 +18,7 @@ App.config({
 });
 
 App.addWindow(ClockWindow);
+App.addWindow(SmallClockWindow);
 App.addWindow(SystemControls);
 App.addWindow(AppLauncher);
 App.addWindow(Notifications(0));
