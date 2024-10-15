@@ -10,11 +10,11 @@
 
   home.packages = with pkgs; [
     brightnessctl
-    grimblast
     hypridle
     hyprlock
+    hyprshot
     libnotify
-    slurp
+    swaynotificationcenter
     swww
     wl-clipboard
     wlroots
