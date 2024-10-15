@@ -80,11 +80,12 @@
       # https://github.com/NixOS/nixpkgs/issues/328909 failing to build as of 2024-08-07
       # linuxKernel.packages.linux_zen.ddcci-driver # for controlling brightness of external monitor. 
     ];
-    loginShellInit = ''
-      [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session hyprland
-    '';
+    # loginShellInit = ''
+    #   [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session hyprland
+    # '';
     variables = {
-      UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
+      # someone said this was fixed in kernel 6.9.3: https://github.com/nodejs/node/issues/53051#issuecomment-2143606729
+      # UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
     };
     sessionVariables = rec {
       GTK_THEME = "Adwaita:dark";
