@@ -26,7 +26,7 @@
     gnome-characters
     gnome-tweaks
     googleearth-pro
-    gqrx
+    # gqrx
     gucharmap
     heroku
     imagemagick
