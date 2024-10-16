@@ -1,18 +1,10 @@
 window {
   font-family: FiraCode Nerd Font, monospace;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
   border-radius: 10px;
   border: 1px solid rgba(0, 152, 255, 0.85);
   background-color: rgba(8, 0, 16, 0.85);
-  /*
-  background-image: linear-gradient(
-    90deg,
-    rgba(8, 0, 16, 0.85),
-    rgba(32, 0, 64, 0.5),
-    rgba(8, 0, 16, 0.85)
-  );
-  */
   color: white;
 }
 button {
@@ -23,6 +15,20 @@ button {
 }
 button.focused {
   color: rgba(0, 152, 255, 0.85);
+}
+window#bar {
+  border: 1px solid rgba(192, 160, 0, 0.75);
+  background-color: rgba(64, 32, 0, 0.75);
+  padding: 5px 20px;
+}
+window#bar .box {
+  padding: 5px 13px;
+}
+window#bar .box button {
+  color: rgba(255, 192, 0, 0.5);
+}
+window#bar .box button:hover {
+  color: rgba(0, 192, 255, 0.85);
 }
 window#system-controls {
   border: none;
@@ -41,23 +47,4 @@ window#clock-window {
 }
 window#clock-window .clock {
   margin: 50px;
-}
-.left {
-  padding-left: 10px;
-}
-.right {
-  padding-right: 10px;
-}
-.bar button:hover {
-  color: rgba(0, 192, 255, 0.85);
-}
-
-#small-clock-window {
-  border: 1px solid rgba(192, 160, 0, 0.75);
-  background-color: rgba(64, 32, 0, 0.75);
-}
-#small-clock-window .clock {
-  color: rgba(255, 192, 0, 0.5);
-  font-size: 24px;
-  padding: 5px 20px;
 }
