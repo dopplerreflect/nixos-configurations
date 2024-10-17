@@ -12,10 +12,11 @@
         email = "doppler@gmail.com";
       };
       alias = {
-        co = "checkout";
-        st = "status";
         br = "branch";
         ci = "commit";
+        co = "checkout";
+        st = "status";
+        sw = "switch";
       };
     };
   };
