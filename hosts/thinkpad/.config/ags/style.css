@@ -48,3 +48,7 @@ window#clock-window {
 window#clock-window .clock {
   margin: 50px;
 }
+window#VolumePopup box {
+  font-size: 48px;
+  padding: 10px 20px;
+}
