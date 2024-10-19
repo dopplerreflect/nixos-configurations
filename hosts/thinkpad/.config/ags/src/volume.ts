@@ -43,7 +43,9 @@ export default Volume;
 export const VolumePopup = Widget.Window({
   name: "VolumePopup",
   visible: false,
+  layer: "overlay",
   child: Widget.Box({
+    spacing: 36,
     children: [
       Widget.Icon({
         icon: Utils.watch(getIcon(), audio.speaker, getIcon),
@@ -56,7 +58,6 @@ export const VolumePopup = Widget.Window({
   }),
 });
 
-let timeout;
 export const openVolumePopup = () => {
   const window = App.getWindow("VolumePopup");
   if (window && !window.visible) {
