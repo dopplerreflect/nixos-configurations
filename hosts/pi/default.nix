@@ -44,7 +44,7 @@
       linkConfig.Name = "extwifi";
     };
     "11-internet" = {
-      matchConfig.PermanentMACAddress = "dc:a6:32:b9:34:63";
+      matchConfig.PermanentMACAddress = "dc:a6:32:bd:9b:4c";
       linkConfig.Name = "intwifi";
     };
   };
