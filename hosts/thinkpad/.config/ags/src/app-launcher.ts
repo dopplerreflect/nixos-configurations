@@ -102,8 +102,8 @@ const AppLauncher = Widget.Window({
   keymode: "exclusive",
   child: Applauncher({
     width: 500,
-    height: 809,
-    spacing: 12,
+    height: 500,
+    spacing: 8,
   }),
 });
 
