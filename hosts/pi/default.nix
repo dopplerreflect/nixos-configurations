@@ -60,27 +60,39 @@
     });
   }) ];
 
-  services.create_ap = {
-    enable = true;
-    settings = {
-      CHANNEL=3;
-      ETC_HOSTS=1;
-      DHCP_HOSTS = "thinkpad GW2000X";
-      DHCP_DNS = "192.168.12.1,8.8.8.8,8.8.4.4,1.1.1.1";
-      INTERNET_IFACE = "extwifi";
-      WIFI_IFACE = "intwifi";
-      SSID = "pi";
-      PASSPHRASE = "anewpass";
+  services = {
+    create_ap = {
+      enable = true;
+      settings = {
+        CHANNEL=3;
+        ETC_HOSTS=1;
+        DHCP_HOSTS = "thinkpad GW2000X";
+        DHCP_DNS = "192.168.12.1,8.8.8.8,8.8.4.4,1.1.1.1";
+        INTERNET_IFACE = "extwifi";
+        WIFI_IFACE = "intwifi";
+        SSID = "pi";
+        PASSPHRASE = "anewpass";
+      };
     };
+    nextcloud = {
+      enable = true;
+      package = pkgs.nextcloud30;
+      hostName = "pi";
+      config.adminpassFile = "/etc/nextcloud-admin-pass";
+    };
+    nginx.virtualHosts."localhost".listen = [ { addr = "0.0.0.0"; } ];
   };
 
-  environment.systemPackages = with pkgs; [ 
-    bun
-    linux-wifi-hotspot
-    nodejs
-    wavemon
-    yarn
-  ];
+  environment = {
+    etc."nextcloud-admin-pass".text = "Para-Dongle-1";
+    systemPackages = with pkgs; [ 
+      bun
+      linux-wifi-hotspot
+      nodejs
+      wavemon
+      yarn
+    ];
+  };
 
   users = {
     users.doppler = {
