@@ -1,13 +1,19 @@
 import { network } from "./services";
+
 const Wifi = () => {
+  const isEthernetConnected = network.wired.internet === "connected";
   const wifiBox = Widget.Box({
     class_name: "wifi",
     children: [
       Widget.Icon({
-        icon: network.wifi.bind("icon_name"),
+        icon: isEthernetConnected
+          ? network.wired.bind("icon_name")
+          : network.wifi.bind("icon_name"),
       }),
       Widget.Label({
-        label: network.wifi.bind("ssid").as(ssid => ssid || "Unknown"),
+        label: isEthernetConnected
+          ? "Wired"
+          : network.wifi.bind("ssid").as(ssid => ssid || "Unknown"),
       }),
     ],
   });
