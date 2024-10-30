@@ -4,7 +4,7 @@
   wayland.windowManager = {
     hyprland = {
       enable = true;
-      extraConfig = lib.fileContents ./.config/hypr/hyprland.conf;
+      extraConfig = lib.fileContents ./hyprland.conf;
     };
   };
 
@@ -21,10 +21,8 @@
     xdg-desktop-portal-hyprland
   ];
 
-  home.file = {
-    "./.config/hypr" = {
-      source = ./.config/hypr;
-      recursive = true;
-    };
+  xdg.configFile = {
+    "hypr/hypridle.conf".source = ./hypridle.conf;
+    "hypr/hyprlock.conf".source = ./hyprlock.conf;
   };
 }
