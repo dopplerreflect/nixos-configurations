@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ...}:
 
 {
   home.username = "doppler";
@@ -6,7 +6,6 @@
 
   home.packages = with pkgs; [
     # ags # this is in nix profile instead due to broken upstream build
-    # adwaita-qt
     bc
     bitwarden
     brave

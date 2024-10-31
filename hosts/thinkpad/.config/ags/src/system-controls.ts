@@ -5,13 +5,7 @@ const systemButtons = [
     name: "button-lock",
     tooltipText: "Lock",
     child: Widget.Label(" 󰍁 "),
-    onClicked: () =>
-      execSystemCommand(
-        Utils.exec(
-          "hyprlock",
-          //"swaylock -f -c 002266 -i /home/doppler/Pictures/PETALS-2023-09-28T03_11_47.373Z.png",
-        ),
-      ),
+    onClicked: () => execSystemCommand(Utils.exec("hyprlock")),
   },
   {
     name: "button-suspend",

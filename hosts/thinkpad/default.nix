@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -22,7 +22,6 @@
 
   networking = {
     hostName = "thinkpad";
-    # extraHosts = "192.168.12.1 pi\n192.168.12.11 ecowitt ecowitt.local GW2000x\n192.168.122.173 nixos-qemu";
     nameservers = [ "8.8.8.8" ];
     firewall.enable = false;
   };
@@ -56,11 +55,6 @@
         enable = true;
         user = "doppler";
       };
-      # preStart = ''
-      #   # Enable full RGB in HDMI driver
-      #   # https://www.onetransistor.eu/2021/08/hdmi-picture-quantization-range-linux.html
-      #   ${pkgs.libdrm}/bin/proptest -M i915 -D /dev/dri/card1 107 connector 103 1
-      # '';
     };
     xserver = {
       enable = true;
@@ -76,17 +70,6 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      # https://github.com/NixOS/nixpkgs/issues/328909 failing to build as of 2024-08-07
-      # linuxKernel.packages.linux_zen.ddcci-driver # for controlling brightness of external monitor. 
-    ];
-    # loginShellInit = ''
-    #   [[ "$(tty)" == /dev/tty1 ]] && dbus-run-session hyprland
-    # '';
-    variables = {
-      # someone said this was fixed in kernel 6.9.3: https://github.com/nodejs/node/issues/53051#issuecomment-2143606729
-      # UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
-    };
     sessionVariables = rec {
       GTK_THEME = "Adwaita:dark";
       PATH = [ "$HOME/.local/bin" ];
@@ -98,7 +81,6 @@
     polkit.enable = true;
   };
 
-  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
@@ -133,15 +115,8 @@
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    # corefonts
     dejavu_fonts
     font-awesome
-    # inconsolata
-    # powerline-fonts
-    # source-code-pro
-    # source-sans-pro
-    # source-serif-pro
-    # terminus_font
   ];
 
   nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.6.9796" ];
