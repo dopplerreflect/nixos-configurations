@@ -30,7 +30,7 @@
   services = {
     nextcloud = {
       enable = true;
-      package = pkgs.nextcloud29;
+      package = pkgs.nextcloud30;
       hostName = "nixos-qemu";
       config.adminpassFile = "/etc/nextcloud-admin-pass";
     };

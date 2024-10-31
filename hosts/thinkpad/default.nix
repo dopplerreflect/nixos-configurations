@@ -6,18 +6,20 @@
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-    loader.efi.efiSysMountPoint = "/boot/efi";
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
-    blacklistedKernelModules = [ "i2c_i801" ];
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      efi.efiSysMountPoint = "/boot/efi";
+    };
     kernel = {
       sysctl = {
         "net.ipv6.conf.wifi.hop_limit" = 66;
         "net.ipv4.ip_default_ttl" = 66;
       };
     };
+    kernelPackages = pkgs.linuxPackages_zen;
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    blacklistedKernelModules = [ "i2c_i801" ];
   };
 
   networking = {
@@ -42,12 +44,6 @@
   };
 
   services = {
-    udisks2 = {
-      enable = true;
-      mountOnMedia = true;
-    };
-    gvfs.enable = true;
-    gnome.gnome-keyring.enable = true;
     displayManager = {
       defaultSession = "hyprland";
       sessionPackages = [ pkgs.hyprland ];
@@ -55,6 +51,19 @@
         enable = true;
         user = "doppler";
       };
+    };
+    fwupd.enable = true;
+    gnome.gnome-keyring.enable = true;
+    gvfs.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    udisks2 = {
+      enable = true;
+      mountOnMedia = true;
     };
     xserver = {
       enable = true;
@@ -66,7 +75,6 @@
       };
       excludePackages = with pkgs; [ xterm ];
     };
-    fwupd.enable = true;
   };
 
   environment = {
@@ -81,22 +89,19 @@
     polkit.enable = true;
   };
 
-  hardware.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  hardware = {
+    pulseaudio.enable = false;
+    rtl-sdr.enable = true;
   };
 
-  hardware.rtl-sdr.enable = true;
-
-  virtualisation.libvirtd.enable = true;
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
+  virtualisation = {
+    libvirtd.enable = true;
+    docker = {
       enable = true;
-      setSocketVariable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
     };
   };
 
@@ -104,13 +109,15 @@
     dconf.enable = true;
   };
 
-  users.mutableUsers = false;
-  users.users.doppler = {
-    isNormalUser = true;
-    hashedPassword = "$y$j9T$L4WXXG1W0rCNHzFrg8Q3D0$l7NOkrjD5B/VKUrHAjmfile5hDECM1yr6SJno71/xg1";
-    description = "doppler";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "plugdev" ];
-    shell = pkgs.zsh;
+  users = {
+    mutableUsers = false;
+    users.doppler = {
+      isNormalUser = true;
+      hashedPassword = "$y$j9T$L4WXXG1W0rCNHzFrg8Q3D0$l7NOkrjD5B/VKUrHAjmfile5hDECM1yr6SJno71/xg1";
+      description = "doppler";
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "plugdev" ];
+      shell = pkgs.zsh;
+    };
   };
 
   fonts.packages = with pkgs; [

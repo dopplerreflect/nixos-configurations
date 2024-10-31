@@ -1,38 +1,31 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.username = "doppler";
-  home.homeDirectory = "/home/doppler";
-
-  home.packages = with pkgs; [
-    brave
-    bat
-    eza
-    fastfetch # like neofetch
-    fzf
-    kitty
-    nautilus
-    pulseaudioFull
-    vscodium
-    xfce.thunar
-    xfce.thunar-volman
-    xfce.tumbler
-    xfce.xfconf
-    yazi
-    zoxide # cd replacement, with cdi
-  ];
-  
-  home.file = {
-    ".config/kitty/kitty.conf".source = ../thinkpad/.config/kitty/kitty.conf;
-    ".zshrc".source = ../thinkpad/.zshrc;
-    "./.local/bin" = {
-      source = ./.local/bin;
-      recursive = true;
+  home = {
+    username = "doppler";
+    homeDirectory = "/home/doppler";
+    packages = with pkgs; [
+      brave
+      fzf
+      kitty
+      nautilus
+      pulseaudioFull
+      vscodium
+      xfce.thunar
+      xfce.thunar-volman
+      xfce.tumbler
+      xfce.xfconf
+      yazi
+    ];
+    file = {
+      ".config/kitty/kitty.conf".source = ../thinkpad/.config/kitty/kitty.conf;
+      "./.local/bin" = {
+        source = ./.local/bin;
+        recursive = true;
+      };
     };
+    stateVersion = "24.11";
   };
-
-  imports = [
-  ];
 
   gtk = {
     enable = true;
@@ -45,7 +38,4 @@
       name = "BeautyLine";
     };
   };
-
-  home.stateVersion = "24.11";
-
 }
