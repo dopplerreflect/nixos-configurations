@@ -10,11 +10,8 @@
     bitwarden
     brave
     btop
-    bat
     dconf-editor
     # easyeffects # php requirement was failing test on nixos-unstable 7/31/2024
-    eza
-    fastfetch # like neofetch
     ffmpeg
     ffmpegthumbnailer
     file
@@ -62,13 +59,10 @@
     xfce.xfconf
     yarn
     yazi
-    zoxide # cd replacement, with cdi
   ];
   
   home.file = {
     ".config/kitty/kitty.conf".source = ./.config/kitty/kitty.conf;
-    ".zprofile".source = ./.zprofile;
-    ".zshrc".source = ./.zshrc;
     "./.local/share/applications" = {
       source = ./.local/share/applications;
       recursive = true;
