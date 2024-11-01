@@ -16,6 +16,7 @@
       nautilus
       nextcloud-client
       nodejs
+      pavucontrol
       pnpm
       virt-manager
       virt-viewer
