@@ -31,8 +31,16 @@
         # append /usr/bin/env
         # )
         # '';
-        # shellAliases = {
-        # };
+        shellAliases = {
+          cat = "bat";
+          ll = "ls -l";
+          la = "ls -a";
+          lla = "ls -la";
+          code = "codium";
+          hs = "hyprscale";
+          pi = "ssh pi";
+          ssh = "kitten ssh";
+        };
     };  
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
