@@ -45,6 +45,7 @@
   
   imports = [
     ./hyprland
+    ../../programs/nushell
   ];
 
   gtk = {
