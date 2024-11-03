@@ -25,21 +25,11 @@
     ];
   };
 
-  environment.etc."nextcloud-admin-pass".text = "Para-Dongle-1";
-  
   services = {
-    nextcloud = {
-      enable = true;
-      package = pkgs.nextcloud30;
-      hostName = "nixos-qemu";
-      config.adminpassFile = "/etc/nextcloud-admin-pass";
-    };
-    nginx.virtualHosts."localhost".listen = [ { addr = "0.0.0.0"; } ];
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
     displayManager = {
       defaultSession = "xfce";
-      # sessionPackages = [ pkgs.hyprland ];  
       autoLogin = {
         enable = true;
         user = "doppler";
@@ -65,11 +55,6 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [
-    ];
-    variables = {
-      UV_USE_IO_URING = 0; # workaround for https://github.com/nodejs/node/issues/53051
-    };
     sessionVariables = rec {
       GTK_THEME = "Adwaita:dark";
       PATH = [ "$HOME/.local/bin" ];
@@ -81,7 +66,6 @@
     polkit.enable = true;
   };
 
-  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
