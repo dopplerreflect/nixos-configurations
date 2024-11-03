@@ -26,6 +26,8 @@ in {
     };
     shellAliases = {
       cat = "bat";
+      la = "ls -lAh --git";
+      ll = "ls -lh --git";
       ls = "eza";
       nms = "nmcli device wifi list --rescan yes";
       nmc = "nmcli device wifi connect";
