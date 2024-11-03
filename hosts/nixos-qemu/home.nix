@@ -19,10 +19,6 @@
     ];
     file = {
       ".config/kitty/kitty.conf".source = ../thinkpad/.config/kitty/kitty.conf;
-      "./.local/bin" = {
-        source = ./.local/bin;
-        recursive = true;
-      };
     };
     stateVersion = "24.11";
   };
