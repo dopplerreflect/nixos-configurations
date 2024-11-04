@@ -90,7 +90,7 @@
   };
 
   hardware = {
-    pulseaudio.enable = false;
+    # pulseaudio.enable = false;
     rtl-sdr.enable = true;
   };
 
