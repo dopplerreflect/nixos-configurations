@@ -5,6 +5,7 @@
     username = "doppler";
     homeDirectory = "/home/doppler";
     packages = with pkgs; [
+      authenticator
       # ags # this is in nix profile instead due to broken upstream build
       bitwarden
       brave
