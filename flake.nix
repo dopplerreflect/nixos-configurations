@@ -2,8 +2,8 @@
   description = "NixOS Configurations";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs.url = "/home/doppler/Code/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable"; #&ref=807e9154dcb16384b1b765ebe9cd2bba2ac287fd";
+    # nixpkgs.url = "/home/doppler/Code/nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
