@@ -75,7 +75,8 @@
       };
     };
     fwupd.enable = true;
-    gnome.gnome-keyring.enable = true;
+    # 2024-11-08 do we need this?
+    # gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     pipewire = {
       enable = true;
@@ -108,6 +109,8 @@
 
   security = {
     rtkit.enable = true;
+    # 2024-11-08 to keep brave from asking for user password
+    pam.services.lightdm.enableKwallet = true;
     polkit.enable = true;
   };
 
