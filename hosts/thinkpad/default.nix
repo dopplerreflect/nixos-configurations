@@ -76,7 +76,8 @@
     };
     fwupd.enable = true;
     # 2024-11-08 do we need this?
-    # gnome.gnome-keyring.enable = true;
+    # yep, for Authenicator, apparently
+    gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     pipewire = {
       enable = true;

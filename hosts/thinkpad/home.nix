@@ -10,6 +10,7 @@
       bitwarden
       brave
       btop
+      gh
       # gqrx
       imv
       kitty
