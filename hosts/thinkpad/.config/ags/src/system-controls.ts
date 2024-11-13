@@ -2,16 +2,16 @@ import { hyprland } from "./services";
 
 const systemButtons = [
   {
-    name: "button-lock",
-    tooltipText: "Lock",
-    child: Widget.Label(" 󰍁 "),
-    onClicked: () => execSystemCommand(Utils.exec("hyprlock")),
-  },
-  {
     name: "button-suspend",
     tooltipText: "Suspend",
     child: Widget.Label(" ⏾ "),
     onClicked: () => execSystemCommand(Utils.exec("systemctl suspend")),
+  },
+  {
+    name: "button-lock",
+    tooltipText: "Lock",
+    child: Widget.Label(" 󰍁 "),
+    onClicked: () => execSystemCommand(Utils.exec("hyprlock")),
   },
   {
     name: "button-logout",
