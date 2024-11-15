@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-small.url = "github:nixos/nixpkgs?ref=nixos-unstable-small";
     # nixpkgs.url = "/home/doppler/Code/nixpkgs";
+    # nixpkgs-small.url = "github:nixos/nixpkgs?ref=nixos-unstable-small";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -12,7 +12,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-small, nixos-hardware, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
 
     nixosConfigurations = {
       pi = nixpkgs.lib.nixosSystem {
@@ -33,11 +33,11 @@
         system = "x86_64-linux";
         specialArgs = inputs;
         modules = [
-          {
-            nixpkgs.overlays = [(final: prev: {
-              unstable-small = nixpkgs-small.legacyPackages.${prev.system};
-            })];
-          }
+          # {
+          #   nixpkgs.overlays = [(final: prev: {
+          #     unstable-small = nixpkgs-small.legacyPackages.${prev.system};
+          #   })];
+          # }
           ./hosts/common.nix
           ./hosts/thinkpad
           home-manager.nixosModules.home-manager {
