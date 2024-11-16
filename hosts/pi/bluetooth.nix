@@ -1,11 +1,12 @@
 # bluetooth.nix
-
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.hardware.raspberry-pi."4".bluetooth;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.hardware.raspberry-pi."4".bluetooth;
+in {
   options.hardware = {
     raspberry-pi."4".bluetooth = {
       enable = lib.mkEnableOption ''
@@ -26,10 +27,10 @@ in
           dtsText = ''
             /dts-v1/;
             /plugin/;
-            
+
             / {
                 compatible = "brcm,bcm2711";
-            
+
                 fragment@0 {
                     target = <&uart0_pins>;
                     __overlay__ {

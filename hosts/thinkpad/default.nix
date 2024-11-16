@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -19,13 +17,13 @@
       };
     };
     kernelPackages = pkgs.linuxPackages_zen;
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    binfmt.emulatedSystems = ["aarch64-linux"];
     plymouth = {
       enable = true;
       theme = "rings";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
+          selected_themes = ["rings"];
         })
       ];
     };
@@ -41,12 +39,12 @@
       "udev.log_priority=3"
     ];
     # suppress "i801_smbus 0000:00:1f.4: SMBus is busy, can't use it!"
-    blacklistedKernelModules = [ "i2c_i801" ];
+    blacklistedKernelModules = ["i2c_i801"];
   };
 
   networking = {
     hostName = "thinkpad";
-    nameservers = [ "8.8.8.8" ];
+    nameservers = ["8.8.8.8"];
     firewall.enable = false;
   };
 
@@ -68,7 +66,7 @@
   services = {
     displayManager = {
       defaultSession = "hyprland";
-      sessionPackages = [ pkgs.hyprland ];
+      sessionPackages = [pkgs.hyprland];
       autoLogin = {
         enable = true;
         user = "doppler";
@@ -97,14 +95,14 @@
         variant = "dvorak";
         options = "ctrl:nocaps";
       };
-      excludePackages = with pkgs; [ xterm ];
+      excludePackages = with pkgs; [xterm];
     };
   };
 
   environment = {
     sessionVariables = rec {
       GTK_THEME = "Adwaita:dark";
-      PATH = [ "$HOME/.local/bin" ];
+      PATH = ["$HOME/.local/bin"];
     };
   };
 
@@ -141,18 +139,18 @@
       isNormalUser = true;
       hashedPassword = "$y$j9T$L4WXXG1W0rCNHzFrg8Q3D0$l7NOkrjD5B/VKUrHAjmfile5hDECM1yr6SJno71/xg1";
       description = "doppler";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "plugdev" ];
+      extraGroups = ["networkmanager" "wheel" "libvirtd" "docker" "plugdev"];
       shell = pkgs.zsh;
     };
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    (nerdfonts.override {fonts = ["FiraCode"];})
     dejavu_fonts
     font-awesome
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.6.9796" ];
+  nixpkgs.config.permittedInsecurePackages = ["googleearth-pro-7.3.6.9796"];
 
   nix = {
     package = pkgs.nixVersions.stable;

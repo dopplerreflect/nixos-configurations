@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   wayland.windowManager = {
     hyprland = {
       # package = pkgs.unstable-small.hyprland;

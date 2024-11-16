@@ -1,10 +1,12 @@
-{ config, lib, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot = {
     loader = {
@@ -17,7 +19,7 @@
       theme = "rings";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
+          selected_themes = ["rings"];
         })
       ];
     };
@@ -37,14 +39,14 @@
   networking = {
     hostName = "nixos-qemu";
     networkmanager.enable = true;
-    firewall.allowedTCPPorts = [ 22 80 ];
+    firewall.allowedTCPPorts = [22 80];
   };
 
   programs.dconf.enable = true;
 
   users.users.doppler = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = ["wheel" "networkmanager"];
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];
@@ -68,7 +70,7 @@
         variant = "dvorak";
         options = "ctrl:nocaps";
       };
-      excludePackages = with pkgs; [ xterm ];
+      excludePackages = with pkgs; [xterm];
     };
     picom = {
       enable = true;
@@ -82,7 +84,7 @@
   environment = {
     sessionVariables = rec {
       GTK_THEME = "Adwaita:dark";
-      PATH = [ "$HOME/.local/bin" ];
+      PATH = ["$HOME/.local/bin"];
     };
   };
 
@@ -102,7 +104,7 @@
   hardware.rtl-sdr.enable = true;
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    (nerdfonts.override {fonts = ["FiraCode"];})
     corefonts
     dejavu_fonts
     terminus_font
@@ -114,5 +116,4 @@
   };
 
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }

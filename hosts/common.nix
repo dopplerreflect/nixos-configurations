@@ -1,6 +1,10 @@
-{ config, lib, pkgs, security, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  security,
+  ...
+}: {
   imports = [
     ../programs/git.nix
     ../programs/neovim.nix
@@ -12,7 +16,7 @@
   console = {
     earlySetup = true;
     font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
-    packages = with pkgs; [ powerline-fonts ];
+    packages = with pkgs; [powerline-fonts];
     keyMap = "dvorak";
   };
 
@@ -36,6 +40,4 @@
   services.openssh.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-
 }
-

@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.username = "doppler";
   home.homeDirectory = "/home/doppler";
 
@@ -16,4 +18,3 @@
 
   home.stateVersion = "24.05";
 }
-

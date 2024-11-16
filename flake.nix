@@ -12,8 +12,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
-
+  outputs = {
+    self,
+    nixpkgs,
+    nixos-hardware,
+    home-manager,
+    ...
+  } @ inputs: {
     nixosConfigurations = {
       pi = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
@@ -22,7 +27,8 @@
           nixos-hardware.nixosModules.raspberry-pi-4
           ./hosts/common.nix
           ./hosts/pi
-          home-manager.nixosModules.home-manager {
+          home-manager.nixosModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.doppler = import ./hosts/pi/home.nix;
@@ -40,7 +46,8 @@
           # }
           ./hosts/common.nix
           ./hosts/thinkpad
-          home-manager.nixosModules.home-manager {
+          home-manager.nixosModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.doppler = import ./hosts/thinkpad/home.nix;
@@ -53,7 +60,8 @@
         modules = [
           ./hosts/common.nix
           ./hosts/nixos-qemu
-          home-manager.nixosModules.home-manager {
+          home-manager.nixosModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.doppler = import ./hosts/nixos-qemu/home.nix;
@@ -63,7 +71,11 @@
       x86_64-iso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ({ pkgs, modulesPath, ...}: {
+          ({
+            pkgs,
+            modulesPath,
+            ...
+          }: {
             imports = [
               (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")
               ./programs/git.nix
@@ -75,7 +87,7 @@
             console = {
               earlySetup = true;
               font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
-              packages = with pkgs; [ powerline-fonts ];
+              packages = with pkgs; [powerline-fonts];
               keyMap = "dvorak";
             };
             nix = {
