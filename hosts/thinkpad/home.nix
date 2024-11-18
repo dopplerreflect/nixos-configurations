@@ -64,4 +64,23 @@
       name = "Bibata-Modern-Ice";
     };
   };
+
+  systemd.user.services = {
+    cycle-desktop-background = {
+      Unit = {
+        Description = "Cycle Desktop Backgrounds";
+        PartOf = ["graphical-session.target"];
+        After = ["graphical-session.target"];
+        ConditionEnvironment = "WAYLAND_DISPLAY";
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = "/home/doppler/.local/bin/cycle-desktop-backgrounds.ts";
+        Restart = "on-failure";
+      };
+      Install = {
+        WantedBy = ["graphical-session.target"];
+      };
+    };
+  };
 }
