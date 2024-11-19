@@ -11,6 +11,7 @@
       btop
       gh
       # gqrx
+      helix # text editor added 2024-11-18
       imv
       kitty
       mpv
