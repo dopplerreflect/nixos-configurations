@@ -1,7 +1,20 @@
 #!/usr/bin/env bun
 
+import { parseArgs } from "node:util";
 import { readdir } from "node:fs/promises";
 import { $ } from "bun";
+
+const { values } = parseArgs({
+  args: Bun.argv,
+  options: {
+    frequency: {
+      type: "string",
+      short: "f",
+    },
+  },
+  strict: true,
+  allowPositionals: true,
+});
 
 type Monitor = {
   name: string;
@@ -27,11 +40,12 @@ const swapImages = async (): Promise<void> => {
     let monitors = await getMonitors();
     monitors.forEach(async monitor => {
       let path = getRandomPath();
-      console.info(monitor.name, path);
       await $`swww img -o ${monitor.name} ${path}`;
     });
   } catch (e) {}
 };
 
-setInterval(swapImages, 1000 * 60 * 5);
+if (values.frequency)
+  setInterval(swapImages, Number(values.frequency) || 1000 * 60 * 5);
+
 swapImages();

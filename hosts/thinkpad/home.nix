@@ -76,7 +76,7 @@
       };
       Service = {
         Type = "simple";
-        ExecStart = "/home/doppler/.local/bin/cycle-desktop-backgrounds.ts";
+        ExecStart = "/home/doppler/.local/bin/cycle-desktop-backgrounds.ts --frequency 60000";
         Restart = "on-failure";
       };
       Install = {
