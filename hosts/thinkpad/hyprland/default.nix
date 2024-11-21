@@ -8,6 +8,7 @@
       # package = pkgs.unstable-small.hyprland;
       enable = true;
       extraConfig = lib.fileContents ./hyprland.conf;
+      xwayland.enable = false;
     };
   };
 

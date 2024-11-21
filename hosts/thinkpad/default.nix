@@ -101,6 +101,7 @@
 
   environment = {
     sessionVariables = rec {
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       PATH = ["$HOME/.local/bin"];
     };
   };
