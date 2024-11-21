@@ -101,7 +101,6 @@
 
   environment = {
     sessionVariables = rec {
-      GTK_THEME = "Adwaita:dark";
       PATH = ["$HOME/.local/bin"];
     };
   };
