@@ -59,5 +59,9 @@
       package = pkgs.beauty-line-icon-theme;
       name = "BeautyLine";
     };
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+    };
   };
 }
