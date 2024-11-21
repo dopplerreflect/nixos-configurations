@@ -7,6 +7,7 @@ const Bar = () =>
     monitor: 0,
     name: "bar",
     className: "bar",
+    visible: false,
     anchor: ["top", "right"],
     child: Widget.Box({
       className: "box",
