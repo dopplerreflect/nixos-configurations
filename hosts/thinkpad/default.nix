@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
+    # ./boot-plymouth.nix
   ];
 
   boot = {
@@ -8,7 +9,6 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot/efi";
-      timeout = 0;
     };
     kernel = {
       sysctl = {
@@ -18,26 +18,6 @@
     };
     kernelPackages = pkgs.linuxPackages_zen;
     binfmt.emulatedSystems = ["aarch64-linux"];
-    plymouth = {
-      enable = true;
-      theme = "rings";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = ["rings"];
-        })
-      ];
-    };
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      "splash"
-      "boot.shell_on_fail"
-      "loglevel=3"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-    ];
     # suppress "i801_smbus 0000:00:1f.4: SMBus is busy, can't use it!"
     blacklistedKernelModules = ["i2c_i801"];
   };
