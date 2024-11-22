@@ -20,6 +20,7 @@
       nodejs
       pavucontrol
       pnpm
+      unzip
       virt-manager
       virt-viewer
       vscodium
