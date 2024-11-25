@@ -48,6 +48,7 @@
 
   imports = [
     ./hyprland
+    ../../programs/nh
     ../../programs/nushell
   ];
 
