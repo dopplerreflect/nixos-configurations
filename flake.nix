@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     # nixpkgs.url = "/home/doppler/Code/nixpkgs";
     nixpkgs-small.url = "github:nixos/nixpkgs?ref=nixos-unstable-small";
+    nixos-24-11.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -16,6 +17,7 @@
     self,
     nixpkgs,
     nixpkgs-small,
+    nixos-24-11,
     nixos-hardware,
     home-manager,
     ...
@@ -44,6 +46,7 @@
             nixpkgs.overlays = [
               (final: prev: {
                 unstable-small = nixpkgs-small.legacyPackages.${prev.system};
+                nixos-24-11 = nixos-24-11.legacyPackages.${prev.system};
               })
             ];
           }

@@ -63,7 +63,7 @@
       name = "BeautyLine";
     };
     cursorTheme = {
-      package = pkgs.bibata-cursors;
+      package = pkgs.nixos-24-11.bibata-cursors;
       name = "Bibata-Modern-Ice";
     };
   };
