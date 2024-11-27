@@ -121,8 +121,11 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  hardware.bluetooth.enable = true;
-  hardware.raspberry-pi."4".bluetooth.enable = true;
+  hardware = {
+    bluetooth.enable = true;
+    raspberry-pi."4".bluetooth.enable = true;
+    enableRedistributableFirmware = true;
+  };
 
   #  systemd.services.btattach = {
   #    before = [ "bluetooth.service" ];
@@ -133,6 +136,5 @@
   #    };
   #  };
 
-  hardware.enableRedistributableFirmware = true;
   system.stateVersion = "23.11";
 }

@@ -31,9 +31,11 @@
           ./hosts/pi
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.doppler = import ./hosts/pi/home.nix;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.doppler = import ./hosts/pi/home.nix;
+            };
           }
         ];
       };
@@ -53,9 +55,11 @@
           ./hosts/thinkpad
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.doppler = import ./hosts/thinkpad/home.nix;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.doppler = import ./hosts/thinkpad/home.nix;
+            };
           }
         ];
       };
@@ -67,9 +71,11 @@
           ./hosts/nixos-qemu
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.doppler = import ./hosts/nixos-qemu/home.nix;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.doppler = import ./hosts/nixos-qemu/home.nix;
+            };
           }
         ];
       };
