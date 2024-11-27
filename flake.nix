@@ -14,7 +14,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     nixpkgs-small,
     nixos-24-11,
@@ -44,7 +43,7 @@
         modules = [
           {
             nixpkgs.overlays = [
-              (final: prev: {
+              (_: prev: {
                 unstable-small = nixpkgs-small.legacyPackages.${prev.system};
                 nixos-24-11 = nixos-24-11.legacyPackages.${prev.system};
               })

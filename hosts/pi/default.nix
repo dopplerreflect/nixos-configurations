@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }: {
   boot = {
@@ -53,8 +52,8 @@
   };
 
   nixpkgs.overlays = [
-    (final: prev: {
-      linux-wifi-hotspot = prev.linux-wifi-hotspot.overrideAttrs (old: {
+    (_: prev: {
+      linux-wifi-hotspot = prev.linux-wifi-hotspot.overrideAttrs (_: {
         src = prev.fetchFromGitHub {
           owner = "dopplerreflect";
           repo = "linux-wifi-hotspot";
