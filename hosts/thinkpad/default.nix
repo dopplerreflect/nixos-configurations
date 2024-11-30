@@ -125,9 +125,9 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["FiraCode"];})
     dejavu_fonts
     font-awesome
+    nerd-fonts.fira-code
   ];
 
   nixpkgs.config.permittedInsecurePackages = ["googleearth-pro-7.3.6.9796"];

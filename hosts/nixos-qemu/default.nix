@@ -99,9 +99,9 @@
   hardware.rtl-sdr.enable = true;
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["FiraCode"];})
     corefonts
     dejavu_fonts
+    nerd-fonts.fira-code
     terminus_font
   ];
 
