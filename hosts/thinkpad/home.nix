@@ -3,7 +3,7 @@
     username = "doppler";
     homeDirectory = "/home/doppler";
     packages = with pkgs; [
-      alejandra # nix file formatter. use vscode plugin, too.
+      # alejandra # nix file formatter. use vscode plugin, too.
       authenticator
       # ags # this is in nix profile instead due to broken upstream build
       bitwarden
