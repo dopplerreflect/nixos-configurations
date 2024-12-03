@@ -45,7 +45,10 @@
 
   services = {
     desktopManager.cosmic.enable = true;
-    displayManager.cosmic-greeter.enable = true;
+    displayManager = {
+      cosmic-greeter.enable = true;
+      sessionPackages = [ pkgs.hyprland pkgs.cosmic-session ];
+    };
     flatpak.enable = true;
     # displayManager = {
     #   defaultSession = "hyprland";

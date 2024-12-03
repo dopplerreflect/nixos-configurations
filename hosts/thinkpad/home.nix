@@ -47,7 +47,7 @@
   };
 
   imports = [
-    # ./hyprland
+    ./hyprland
     ../../programs/nh
     ../../programs/nushell
   ];
