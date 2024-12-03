@@ -44,14 +44,17 @@
   };
 
   services = {
-    displayManager = {
-      defaultSession = "hyprland";
-      sessionPackages = [pkgs.hyprland];
-      autoLogin = {
-        enable = true;
-        user = "doppler";
-      };
-    };
+    desktopManager.cosmic.enable = true;
+    displayManager.cosmic-greeter.enable = true;
+    flatpak.enable = true;
+    # displayManager = {
+    #   defaultSession = "hyprland";
+    #   sessionPackages = [pkgs.hyprland];
+    #   autoLogin = {
+    #     enable = true;
+    #     user = "doppler";
+    #   };
+    # };
     fwupd.enable = true;
     # 2024-11-08 do we need this?
     # yep, for Authenicator, apparently

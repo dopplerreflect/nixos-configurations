@@ -10,6 +10,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Cosmic Desktop
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
   };
 
   outputs = {
@@ -17,6 +20,8 @@
     nixos-24-11,
     nixos-hardware,
     home-manager,
+    # Cosmic Desktop
+    nixos-cosmic,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -47,8 +52,15 @@
                 nixos-24-11 = nixos-24-11.legacyPackages.${prev.system};
               })
             ];
+            # Cosmic Desktop
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
           }
+          # Cosmic Desktop
           ./hosts/common.nix
+          nixos-cosmic.nixosModules.default
           ./hosts/thinkpad
           home-manager.nixosModules.home-manager
           {
