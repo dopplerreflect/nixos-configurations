@@ -24,7 +24,7 @@
 
   networking = {
     hostName = "thinkpad";
-    nameservers = ["8.8.8.8"];
+    nameservers = ["1.1.1.1"];
     firewall.enable = false;
   };
 

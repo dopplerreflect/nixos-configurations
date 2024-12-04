@@ -71,7 +71,7 @@
         CHANNEL = 3;
         ETC_HOSTS = 1;
         DHCP_HOSTS = "thinkpad GW2000X";
-        DHCP_DNS = "192.168.12.1,8.8.8.8,8.8.4.4,1.1.1.1";
+        DHCP_DNS = "1.1.1.1,192.168.12.1";
         INTERNET_IFACE = "extwifi";
         WIFI_IFACE = "intwifi";
         SSID = "pi";
