@@ -85,6 +85,7 @@
       config.adminpassFile = "/etc/nextcloud-admin-pass";
     };
     nginx.virtualHosts."localhost".listen = [{addr = "0.0.0.0";}];
+    tailscale.enable = true;
   };
 
   environment = {

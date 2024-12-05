@@ -69,6 +69,7 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    tailscale.enable = true;
     udisks2 = {
       enable = true;
       mountOnMedia = true;
