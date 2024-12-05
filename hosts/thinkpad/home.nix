@@ -13,7 +13,6 @@
       # gqrx
       helix # text editor added 2024-11-18
       imv
-      kitty
       mpv
       nautilus
       nextcloud-client
@@ -33,7 +32,6 @@
       yazi
     ];
     file = {
-      ".config/kitty/kitty.conf".source = ./.config/kitty/kitty.conf;
       "./.local/share/applications" = {
         source = ./.local/share/applications;
         recursive = true;
@@ -48,6 +46,7 @@
 
   imports = [
     ./hyprland
+    ../../programs/kitty
     ../../programs/nh
     ../../programs/nushell
   ];

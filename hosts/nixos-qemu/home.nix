@@ -5,7 +5,6 @@
     packages = with pkgs; [
       brave
       fzf
-      kitty
       nautilus
       pulseaudioFull
       vscodium
@@ -15,11 +14,12 @@
       xfce.xfconf
       yazi
     ];
-    file = {
-      ".config/kitty/kitty.conf".source = ../thinkpad/.config/kitty/kitty.conf;
-    };
     stateVersion = "24.11";
   };
+
+  imports = [
+    ../../programs/kitty
+  ];
 
   gtk = {
     enable = true;
