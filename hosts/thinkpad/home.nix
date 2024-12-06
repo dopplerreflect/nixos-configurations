@@ -17,6 +17,7 @@
       nautilus
       nextcloud-client
       nodejs
+      ollama
       pavucontrol
       pnpm
       unzip
