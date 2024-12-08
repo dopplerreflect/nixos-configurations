@@ -14,6 +14,7 @@
       helix # text editor added 2024-11-18
       homebank # finance app
       imv
+      jujutsu # git-like thing
       mpv
       nautilus
       nextcloud-client
