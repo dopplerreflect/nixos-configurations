@@ -13,6 +13,10 @@
     # Cosmic Desktop
     nixpkgs.follows = "nixos-cosmic/nixpkgs";
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -22,6 +26,8 @@
     home-manager,
     # Cosmic Desktop
     nixos-cosmic,
+    # Lix
+    lix-module,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -70,6 +76,8 @@
               users.doppler = import ./hosts/thinkpad/home.nix;
             };
           }
+          # Lix
+          lix-module.nixosModules.default
         ];
       };
       nixos-qemu = nixpkgs.lib.nixosSystem {
