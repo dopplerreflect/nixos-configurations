@@ -13,7 +13,6 @@
 
   home = {
     packages = with pkgs; [
-      bc
       brightnessctl
       bun
       hypridle
@@ -26,10 +25,11 @@
       wlroots
       xdg-desktop-portal-hyprland
     ];
-    file = {
-      "./.local/bin/hyprscale".source = ./hyprscale;
-    };
   };
+
+  imports = [
+    ./hyprscale
+  ];
 
   xdg.configFile = {
     "hypr/hypridle.conf".source = ./hypridle.conf;
