@@ -11,5 +11,7 @@ HISTSIZE=5000
 SAVEHIST=5000
 # End of lines configured by zsh-newuser-install
 
+eval "$(direnv hook zsh)"
 eval "$(oh-my-posh init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+

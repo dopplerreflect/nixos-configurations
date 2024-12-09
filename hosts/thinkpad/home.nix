@@ -11,6 +11,7 @@
       btop
       gh
       # gqrx
+      file # for info about files
       helix # text editor added 2024-11-18
       homebank # finance app
       imv
@@ -45,6 +46,11 @@
       };
     };
     stateVersion = "24.05";
+  };
+
+  programs = {
+    direnv.enable = true;
+    direnv.enableZshIntegration = true;
   };
 
   imports = [
