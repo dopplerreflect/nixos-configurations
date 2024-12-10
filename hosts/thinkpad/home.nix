@@ -50,7 +50,7 @@
   };
 
   imports = [
-    ./hyprland
+    ../../wm/hyprland
     ../../programs/kitty
     ../../programs/nh
     ../../programs/nushell
