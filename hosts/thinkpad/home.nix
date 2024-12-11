@@ -16,7 +16,7 @@
       helix # text editor added 2024-11-18
       homebank # finance app
       imv
-      inkscape
+      # inkscape # did this break magick?
       jujutsu # git-like thing
       mpv
       nautilus
