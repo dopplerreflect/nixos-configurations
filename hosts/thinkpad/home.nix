@@ -12,9 +12,11 @@
       gh
       # gqrx
       file # for info about files
+      firefox
       helix # text editor added 2024-11-18
       homebank # finance app
       imv
+      inkscape
       jujutsu # git-like thing
       mpv
       nautilus
