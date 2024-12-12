@@ -47,8 +47,8 @@
   };
 
   programs = {
-    direnv.enable = true;
-    direnv.enableZshIntegration = true;
+    # direnv.enable = true;
+    # direnv.enableZshIntegration = true;
   };
 
   imports = [
