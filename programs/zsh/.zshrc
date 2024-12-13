@@ -4,6 +4,9 @@ zstyle :compinstall filename '/home/doppler/.zshrc'
 
 autoload -Uz compinit
 compinit
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
