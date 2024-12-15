@@ -2,6 +2,7 @@
   home = {
     packages = [pkgs.bun];
     file."./.local/bin/cycle-desktop-background".source = ./cycle-desktop-background;
+    file."./.local/bin/toggle-cycle-desktop-background".source = ./toggle-cycle-desktop-background;
   };
 
   systemd.user.services = {
