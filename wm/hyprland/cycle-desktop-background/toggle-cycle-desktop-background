@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-if [[ $(systemctl --user is-active cycle-desktop-background.service) ]]; then
+if [[ $(systemctl --user is-active cycle-desktop-background.service | grep "^inactive$" )  ]]; then
   echo "cycle-desktop-background.service inactive. enabling."
   systemctl --user start cycle-desktop-background.service
 else
