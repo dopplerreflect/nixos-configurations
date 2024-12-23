@@ -7,7 +7,7 @@
     hyprland = {
       enable = true;
       extraConfig = lib.fileContents ./hyprland.conf;
-      xwayland.enable = false; # this causes cache.nixos.org miss and thus has to build from source
+      # xwayland.enable = false; # this causes cache.nixos.org miss and thus has to build from source
     };
   };
 
