@@ -47,7 +47,7 @@
     desktopManager.cosmic.enable = true;
     displayManager = {
       cosmic-greeter.enable = true;
-      sessionPackages = [ pkgs.hyprland pkgs.cosmic-session ];
+      sessionPackages = [pkgs.hyprland pkgs.cosmic-session];
     };
     flatpak.enable = true;
     # displayManager = {
@@ -58,6 +58,7 @@
     #     user = "doppler";
     #   };
     # };
+    fprintd.enable = true;
     fwupd.enable = true;
     # 2024-11-08 do we need this?
     # yep, for Authenicator, apparently
@@ -96,7 +97,12 @@
   security = {
     rtkit.enable = true;
     # 2024-11-08 to keep brave from asking for user password
-    pam.services.lightdm.enableKwallet = true;
+    # pam.services.lightdm.enableKwallet = true;
+    pam.services.cosmic-greeter = {
+      enableGnomeKeyring = true;
+      enableKwallet = true;
+      fprintAuth = true;
+    };
     polkit.enable = true;
   };
 
