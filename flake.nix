@@ -13,9 +13,14 @@
     # Cosmic Desktop
     nixpkgs.follows = "nixos-cosmic/nixpkgs";
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    # Lix
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # Ghostty
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
     };
   };
 
@@ -28,6 +33,8 @@
     nixos-cosmic,
     # Lix
     lix-module,
+    # Ghostty
+    ghostty,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -60,8 +67,8 @@
             ];
             # Cosmic Desktop
             nix.settings = {
-              substituters = [ "https://cosmic.cachix.org/" ];
-              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+              substituters = ["https://cosmic.cachix.org/"];
+              trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
             };
           }
           # Cosmic Desktop
@@ -75,6 +82,9 @@
               useUserPackages = true;
               users.doppler = import ./hosts/thinkpad/home.nix;
             };
+            environment.systemPackages = [
+              ghostty.packages.x86_64-linux.default
+            ];
           }
           # Lix
           lix-module.nixosModules.default
