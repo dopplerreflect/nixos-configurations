@@ -19,9 +19,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Ghostty
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
+    # ghostty = {
+    #   url = "github:ghostty-org/ghostty";
+    # };
   };
 
   outputs = {
@@ -34,27 +34,10 @@
     # Lix
     lix-module,
     # Ghostty
-    ghostty,
+    # ghostty,
     ...
   } @ inputs: {
     nixosConfigurations = {
-      pi = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = inputs;
-        modules = [
-          nixos-hardware.nixosModules.raspberry-pi-4
-          ./hosts/common.nix
-          ./hosts/pi
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.doppler = import ./hosts/pi/home.nix;
-            };
-          }
-        ];
-      };
       thinkpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
@@ -82,12 +65,29 @@
               useUserPackages = true;
               users.doppler = import ./hosts/thinkpad/home.nix;
             };
-            environment.systemPackages = [
-              ghostty.packages.x86_64-linux.default
-            ];
+            # environment.systemPackages = [
+            #   ghostty.packages.x86_64-linux.default
+            # ];
           }
           # Lix
           lix-module.nixosModules.default
+        ];
+      };
+      pi = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = inputs;
+        modules = [
+          nixos-hardware.nixosModules.raspberry-pi-4
+          ./hosts/common.nix
+          ./hosts/pi
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.doppler = import ./hosts/pi/home.nix;
+            };
+          }
         ];
       };
       nixos-qemu = nixpkgs.lib.nixosSystem {

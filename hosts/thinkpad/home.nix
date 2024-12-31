@@ -13,6 +13,7 @@
       # gqrx
       file # for info about files
       firefox
+      ghostty
       gimp
       helix # text editor added 2024-11-18
       homebank # finance app
