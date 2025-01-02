@@ -45,6 +45,7 @@
 
   services = {
     desktopManager.cosmic.enable = true;
+    devmon.enable = true;
     displayManager = {
       cosmic-greeter.enable = true;
       sessionPackages = [pkgs.hyprland pkgs.cosmic-session];
@@ -58,7 +59,7 @@
     #     user = "doppler";
     #   };
     # };
-    fprintd.enable = true;
+    # fprintd.enable = true;
     fwupd.enable = true;
     # 2024-11-08 do we need this?
     # yep, for Authenicator, apparently
@@ -101,7 +102,7 @@
     pam.services.cosmic-greeter = {
       enableGnomeKeyring = true;
       enableKwallet = true;
-      fprintAuth = true;
+      # fprintAuth = true;
     };
     polkit.enable = true;
   };
