@@ -23,6 +23,7 @@
       mpv
       nautilus
       nextcloud-client
+      nixd
       nodejs
       ollama
       pavucontrol
