@@ -101,7 +101,7 @@
     # pam.services.lightdm.enableKwallet = true;
     pam.services.cosmic-greeter = {
       enableGnomeKeyring = true;
-      enableKwallet = true;
+      kwallet.enable = true;
       # fprintAuth = true;
     };
     polkit.enable = true;
