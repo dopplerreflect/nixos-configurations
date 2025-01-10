@@ -1,6 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home = {
-    packages = [pkgs.bun];
+    packages = [ pkgs.bun ];
     file."./.local/bin/cycle-desktop-background".source = ./cycle-desktop-background;
     file."./.local/bin/toggle-cycle-desktop-background".source = ./toggle-cycle-desktop-background;
   };
@@ -9,8 +10,8 @@
     cycle-desktop-background = {
       Unit = {
         Description = "Cycle Desktop Backgrounds";
-        PartOf = ["hyprland-session.target"];
-        After = ["hyprland-session.target"];
+        PartOf = [ "hyprland-session.target" ];
+        After = [ "hyprland-session.target" ];
         ConditionEnvironment = "WAYLAND_DISPLAY";
       };
       Service = {
@@ -19,7 +20,7 @@
         Restart = "on-failure";
       };
       Install = {
-        WantedBy = ["hyprland-session.target"];
+        WantedBy = [ "hyprland-session.target" ];
       };
     };
   };

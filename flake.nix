@@ -20,120 +20,123 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    nixos-24-11,
-    nixos-hardware,
-    home-manager,
-    # Cosmic Desktop
-    nixos-cosmic,
-    # Lix
-    lix-module,
-    ...
-  } @ inputs: {
-    nixosConfigurations = {
-      thinkpad = nixpkgs.lib.nixosSystem {
-        specialArgs = inputs;
-        modules = [
-          ./hosts/thinkpad/hardware-configuration.nix
+  outputs =
+    {
+      nixpkgs,
+      nixos-24-11,
+      nixos-hardware,
+      home-manager,
+      # Cosmic Desktop
+      nixos-cosmic,
+      # Lix
+      lix-module,
+      ...
+    }@inputs:
+    {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      nixosConfigurations = {
+        thinkpad = nixpkgs.lib.nixosSystem {
+          specialArgs = inputs;
+          modules = [
+            ./hosts/thinkpad/hardware-configuration.nix
 
-          {
-            nixpkgs = {
-              hostPlatform = "x86_64-linux";
-              overlays = [
-                (_: prev: {
-                  nixos-24-11 = nixos-24-11.legacyPackages.${prev.system};
-                })
-              ];
-            };
+            {
+              nixpkgs = {
+                hostPlatform = "x86_64-linux";
+                overlays = [
+                  (_: prev: {
+                    nixos-24-11 = nixos-24-11.legacyPackages.${prev.system};
+                  })
+                ];
+              };
+              # Cosmic Desktop
+              nix.settings = {
+                substituters = [ "https://cosmic.cachix.org/" ];
+                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+              };
+            }
+            ./hosts/common.nix
             # Cosmic Desktop
-            nix.settings = {
-              substituters = ["https://cosmic.cachix.org/"];
-              trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
-            };
-          }
-          ./hosts/common.nix
-          # Cosmic Desktop
-          nixos-cosmic.nixosModules.default
-          ./hosts/thinkpad
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.doppler = import ./hosts/thinkpad/home.nix;
-            };
-          }
-          # Lix
-          lix-module.nixosModules.default
-        ];
+            nixos-cosmic.nixosModules.default
+            ./hosts/thinkpad
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.doppler = import ./hosts/thinkpad/home.nix;
+              };
+            }
+            # Lix
+            lix-module.nixosModules.default
+          ];
+        };
+        pi = nixpkgs.lib.nixosSystem {
+          specialArgs = inputs;
+          modules = [
+            { nixpkgs.hostPlatform = "aarch64-linux"; }
+            nixos-hardware.nixosModules.raspberry-pi-4
+            ./hosts/common.nix
+            ./hosts/pi
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.doppler = import ./hosts/pi/home.nix;
+              };
+            }
+          ];
+        };
+        # nixos-qemu = nixpkgs.lib.nixosSystem {
+        #   system = "x86_64-linux";
+        #   specialArgs = inputs;
+        #   modules = [
+        #     ./hosts/common.nix
+        #     ./hosts/nixos-qemu
+        #     home-manager.nixosModules.home-manager
+        #     {
+        #       home-manager = {
+        #         useGlobalPkgs = true;
+        #         useUserPackages = true;
+        #         users.doppler = import ./hosts/nixos-qemu/home.nix;
+        #       };
+        #     }
+        #   ];
+        # };
+        # x86_64-iso = nixpkgs.lib.nixosSystem {
+        #   system = "x86_64-linux";
+        #   modules = [
+        #     ({
+        #       pkgs,
+        #       modulesPath,
+        #       ...
+        #     }: {
+        #       imports = [
+        #         (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")
+        #         ./programs/git.nix
+        #       ];
+        #       networking = {
+        #         wireless.enable = false;
+        #         networkmanager.enable = true;
+        #       };
+        #       console = {
+        #         earlySetup = true;
+        #         font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
+        #         packages = with pkgs; [powerline-fonts];
+        #         keyMap = "dvorak";
+        #       };
+        #       nix = {
+        #         package = pkgs.nixVersions.stable;
+        #         extraOptions = "experimental-features = nix-command flakes";
+        #       };
+        #       environment.systemPackages = with pkgs; [
+        #         tmux
+        #         vim
+        #       ];
+        #     })
+        #   ];
+        # };
       };
-      pi = nixpkgs.lib.nixosSystem {
-        specialArgs = inputs;
-        modules = [
-          {nixpkgs.hostPlatform = "aarch64-linux";}
-          nixos-hardware.nixosModules.raspberry-pi-4
-          ./hosts/common.nix
-          ./hosts/pi
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.doppler = import ./hosts/pi/home.nix;
-            };
-          }
-        ];
-      };
-      # nixos-qemu = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   specialArgs = inputs;
-      #   modules = [
-      #     ./hosts/common.nix
-      #     ./hosts/nixos-qemu
-      #     home-manager.nixosModules.home-manager
-      #     {
-      #       home-manager = {
-      #         useGlobalPkgs = true;
-      #         useUserPackages = true;
-      #         users.doppler = import ./hosts/nixos-qemu/home.nix;
-      #       };
-      #     }
-      #   ];
-      # };
-      # x86_64-iso = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   modules = [
-      #     ({
-      #       pkgs,
-      #       modulesPath,
-      #       ...
-      #     }: {
-      #       imports = [
-      #         (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")
-      #         ./programs/git.nix
-      #       ];
-      #       networking = {
-      #         wireless.enable = false;
-      #         networkmanager.enable = true;
-      #       };
-      #       console = {
-      #         earlySetup = true;
-      #         font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
-      #         packages = with pkgs; [powerline-fonts];
-      #         keyMap = "dvorak";
-      #       };
-      #       nix = {
-      #         package = pkgs.nixVersions.stable;
-      #         extraOptions = "experimental-features = nix-command flakes";
-      #       };
-      #       environment.systemPackages = with pkgs; [
-      #         tmux
-      #         vim
-      #       ];
-      #     })
-      #   ];
-      # };
     };
-  };
 }

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # imports = [
   #   ./hardware-configuration.nix
   #   # ./boot-plymouth.nix
@@ -17,14 +18,14 @@
       };
     };
     kernelPackages = pkgs.linuxPackages_zen;
-    binfmt.emulatedSystems = ["aarch64-linux"];
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
     # suppress "i801_smbus 0000:00:1f.4: SMBus is busy, can't use it!"
-    blacklistedKernelModules = ["i2c_i801"];
+    blacklistedKernelModules = [ "i2c_i801" ];
   };
 
   networking = {
     hostName = "thinkpad";
-    nameservers = ["1.1.1.1"];
+    nameservers = [ "1.1.1.1" ];
     firewall.enable = false;
   };
 
@@ -48,7 +49,10 @@
     devmon.enable = true;
     displayManager = {
       cosmic-greeter.enable = true;
-      sessionPackages = [pkgs.hyprland pkgs.cosmic-session];
+      sessionPackages = [
+        pkgs.hyprland
+        pkgs.cosmic-session
+      ];
     };
     flatpak.enable = true;
     # displayManager = {
@@ -84,14 +88,14 @@
         variant = "dvorak";
         options = "ctrl:nocaps";
       };
-      excludePackages = with pkgs; [xterm];
+      excludePackages = with pkgs; [ xterm ];
     };
   };
 
   environment = {
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-      PATH = ["$HOME/.local/bin"];
+      PATH = [ "$HOME/.local/bin" ];
     };
   };
 
@@ -133,7 +137,13 @@
       isNormalUser = true;
       hashedPassword = "$y$j9T$L4WXXG1W0rCNHzFrg8Q3D0$l7NOkrjD5B/VKUrHAjmfile5hDECM1yr6SJno71/xg1";
       description = "doppler";
-      extraGroups = ["networkmanager" "wheel" "libvirtd" "docker" "plugdev"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "libvirtd"
+        "docker"
+        "plugdev"
+      ];
       shell = pkgs.zsh;
     };
   };
@@ -144,7 +154,7 @@
     nerd-fonts.fira-code
   ];
 
-  nixpkgs.config.permittedInsecurePackages = ["googleearth-pro-7.3.6.9796"];
+  nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.6.9796" ];
 
   nix = {
     package = pkgs.nixVersions.stable;

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
   ];
@@ -14,7 +15,7 @@
       theme = "rings";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
-          selected_themes = ["rings"];
+          selected_themes = [ "rings" ];
         })
       ];
     };
@@ -34,14 +35,20 @@
   networking = {
     hostName = "nixos-qemu";
     networkmanager.enable = true;
-    firewall.allowedTCPPorts = [22 80];
+    firewall.allowedTCPPorts = [
+      22
+      80
+    ];
   };
 
   programs.dconf.enable = true;
 
   users.users.doppler = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];
@@ -65,7 +72,7 @@
         variant = "dvorak";
         options = "ctrl:nocaps";
       };
-      excludePackages = with pkgs; [xterm];
+      excludePackages = with pkgs; [ xterm ];
     };
     picom = {
       enable = true;
@@ -79,7 +86,7 @@
   environment = {
     sessionVariables = {
       GTK_THEME = "Adwaita:dark";
-      PATH = ["$HOME/.local/bin"];
+      PATH = [ "$HOME/.local/bin" ];
     };
   };
 

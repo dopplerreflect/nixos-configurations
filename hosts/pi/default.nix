@@ -2,13 +2,18 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
-    initrd.availableKernelModules = ["xhci_pci" "usbhid" "usb_storage"];
+    initrd.availableKernelModules = [
+      "xhci_pci"
+      "usbhid"
+      "usb_storage"
+    ];
     initrd.systemd.tpm2.enable = false; # https://github.com/NixOS/nixos-hardware/issues/858
-    blacklistedKernelModules = ["rtl8xxxu"];
-    kernelModules = ["88x2bu"];
+    blacklistedKernelModules = [ "rtl8xxxu" ];
+    kernelModules = [ "88x2bu" ];
     extraModulePackages = [
       config.boot.kernelPackages.rtl88x2bu
     ];
@@ -28,7 +33,7 @@
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
-      options = ["noatime"];
+      options = [ "noatime" ];
     };
   };
 
@@ -87,7 +92,7 @@
         dbtype = "sqlite";
       };
     };
-    nginx.virtualHosts."localhost".listen = [{addr = "0.0.0.0";}];
+    nginx.virtualHosts."localhost".listen = [ { addr = "0.0.0.0"; } ];
     tailscale.enable = true;
   };
 
@@ -105,15 +110,18 @@
   users = {
     users.doppler = {
       isNormalUser = true;
-      extraGroups = ["wheel" "networkmanager"];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+      ];
       shell = pkgs.zsh;
     };
   };
 
   systemd.services.ecowitt = {
     description = "Ecowitt Weather Thing";
-    wantedBy = ["multi-user.target"];
-    after = ["network.target"];
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
     serviceConfig = {
       Type = "forking";
       User = "doppler";
@@ -123,7 +131,10 @@
     };
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   hardware = {
     bluetooth.enable = true;

@@ -4,9 +4,11 @@
   pkgs,
   home-manager,
   ...
-}: let
+}:
+let
   isThinkpad = config.networking.hostName == "thinkpad";
-in {
+in
+{
   home-manager.users.doppler = {
     home = {
       packages = with pkgs; [
