@@ -33,15 +33,19 @@
   } @ inputs: {
     nixosConfigurations = {
       thinkpad = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = inputs;
         modules = [
+          ./hosts/thinkpad/hardware-configuration.nix
+
           {
-            nixpkgs.overlays = [
-              (_: prev: {
-                nixos-24-11 = nixos-24-11.legacyPackages.${prev.system};
-              })
-            ];
+            nixpkgs = {
+              hostPlatform = "x86_64-linux";
+              overlays = [
+                (_: prev: {
+                  nixos-24-11 = nixos-24-11.legacyPackages.${prev.system};
+                })
+              ];
+            };
             # Cosmic Desktop
             nix.settings = {
               substituters = ["https://cosmic.cachix.org/"];
@@ -65,9 +69,9 @@
         ];
       };
       pi = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
         specialArgs = inputs;
         modules = [
+          {nixpkgs.hostPlatform = "aarch64-linux";}
           nixos-hardware.nixosModules.raspberry-pi-4
           ./hosts/common.nix
           ./hosts/pi
@@ -81,55 +85,55 @@
           }
         ];
       };
-      nixos-qemu = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = inputs;
-        modules = [
-          ./hosts/common.nix
-          ./hosts/nixos-qemu
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.doppler = import ./hosts/nixos-qemu/home.nix;
-            };
-          }
-        ];
-      };
-      x86_64-iso = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ({
-            pkgs,
-            modulesPath,
-            ...
-          }: {
-            imports = [
-              (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")
-              ./programs/git.nix
-            ];
-            networking = {
-              wireless.enable = false;
-              networkmanager.enable = true;
-            };
-            console = {
-              earlySetup = true;
-              font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
-              packages = with pkgs; [powerline-fonts];
-              keyMap = "dvorak";
-            };
-            nix = {
-              package = pkgs.nixVersions.stable;
-              extraOptions = "experimental-features = nix-command flakes";
-            };
-            environment.systemPackages = with pkgs; [
-              tmux
-              vim
-            ];
-          })
-        ];
-      };
+      # nixos-qemu = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   specialArgs = inputs;
+      #   modules = [
+      #     ./hosts/common.nix
+      #     ./hosts/nixos-qemu
+      #     home-manager.nixosModules.home-manager
+      #     {
+      #       home-manager = {
+      #         useGlobalPkgs = true;
+      #         useUserPackages = true;
+      #         users.doppler = import ./hosts/nixos-qemu/home.nix;
+      #       };
+      #     }
+      #   ];
+      # };
+      # x86_64-iso = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [
+      #     ({
+      #       pkgs,
+      #       modulesPath,
+      #       ...
+      #     }: {
+      #       imports = [
+      #         (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")
+      #         ./programs/git.nix
+      #       ];
+      #       networking = {
+      #         wireless.enable = false;
+      #         networkmanager.enable = true;
+      #       };
+      #       console = {
+      #         earlySetup = true;
+      #         font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
+      #         packages = with pkgs; [powerline-fonts];
+      #         keyMap = "dvorak";
+      #       };
+      #       nix = {
+      #         package = pkgs.nixVersions.stable;
+      #         extraOptions = "experimental-features = nix-command flakes";
+      #       };
+      #       environment.systemPackages = with pkgs; [
+      #         tmux
+      #         vim
+      #       ];
+      #     })
+      #   ];
+      # };
     };
   };
 }

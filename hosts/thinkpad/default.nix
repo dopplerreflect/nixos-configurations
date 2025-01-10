@@ -1,8 +1,8 @@
 {pkgs, ...}: {
-  imports = [
-    ./hardware-configuration.nix
-    # ./boot-plymouth.nix
-  ];
+  # imports = [
+  #   ./hardware-configuration.nix
+  #   # ./boot-plymouth.nix
+  # ];
 
   boot = {
     loader = {
