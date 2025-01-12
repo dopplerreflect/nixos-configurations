@@ -18,6 +18,8 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # For getting the cachyos kernel
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs =
@@ -30,6 +32,8 @@
       nixos-cosmic,
       # Lix
       lix-module,
+      # Chaotic
+      chaotic,
       ...
     }@inputs:
     {
@@ -69,6 +73,8 @@
             }
             # Lix
             lix-module.nixosModules.default
+            # ? cachyos kernel ?
+            chaotic.nixosModules.default
           ];
         };
         pi = nixpkgs.lib.nixosSystem {
