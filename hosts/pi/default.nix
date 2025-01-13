@@ -115,6 +115,7 @@
         "networkmanager"
       ];
       shell = pkgs.zsh;
+      ignoreShellProgramCheck = true;
     };
   };
 
