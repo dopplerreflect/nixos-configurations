@@ -13,7 +13,8 @@
       gh
       # gqrx
       file # for info about files
-      firefox
+      # firefox
+      firefoxpwa
       ghostty
       gimp
       helix # text editor added 2024-11-18
@@ -52,6 +53,11 @@
   };
 
   programs = {
+    firefox = {
+      enable = true;
+      package = pkgs.firefox;
+      nativeMessagingHosts = [ pkgs.firefoxpwa ];
+    };
     # direnv.enable = true;
     # direnv.enableZshIntegration = true;
   };
