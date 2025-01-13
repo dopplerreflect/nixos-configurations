@@ -16,6 +16,9 @@ in
         fastfetch
         zoxide
       ];
+      file = {
+        ".zprofile".source = ./.zprofile;
+      };
     };
     programs = {
       oh-my-posh = {
@@ -53,6 +56,7 @@ in
       };
       zoxide = {
         enable = true;
+        options = [ "--cmd cd" ];
       };
     };
   };
