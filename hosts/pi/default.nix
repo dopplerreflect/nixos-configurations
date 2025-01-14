@@ -97,6 +97,7 @@
   };
 
   environment = {
+    pathsToLink = [ "/share/zsh" ];
     etc."nextcloud-admin-pass".text = "Para-Dongle-1";
     systemPackages = with pkgs; [
       bun
