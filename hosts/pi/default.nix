@@ -108,6 +108,10 @@
     ];
   };
 
+  imports = [
+    ../../programs/nh
+  ];
+
   users = {
     users.doppler = {
       isNormalUser = true;
