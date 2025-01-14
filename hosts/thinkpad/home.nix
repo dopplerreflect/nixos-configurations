@@ -4,24 +4,21 @@
     username = "doppler";
     homeDirectory = "/home/doppler";
     packages = with pkgs; [
-      # alejandra # nix file formatter. use vscode plugin, too.
       authenticator
-      # ags # this is in nix profile instead due to broken upstream build
       bitwarden
       brave
       btop
       gh
       # gqrx
-      file # for info about files
-      # firefox
+      file
       firefoxpwa
       ghostty
       gimp
-      helix # text editor added 2024-11-18
-      homebank # finance app
+      helix
+      homebank
       imv
-      # inkscape # did this break magick?
-      jujutsu # git-like thing
+      # inkscape
+      jujutsu
       mpv
       nautilus
       nextcloud-client
@@ -58,8 +55,6 @@
       package = pkgs.firefox;
       nativeMessagingHosts = [ pkgs.firefoxpwa ];
     };
-    # direnv.enable = true;
-    # direnv.enableZshIntegration = true;
   };
 
   imports = [

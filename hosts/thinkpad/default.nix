@@ -1,10 +1,5 @@
 { pkgs, ... }:
 {
-  # imports = [
-  #   ./hardware-configuration.nix
-  #   # ./boot-plymouth.nix
-  # ];
-
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -17,7 +12,6 @@
         "net.ipv4.ip_default_ttl" = 66;
       };
     };
-    # kernelPackages = pkgs.linuxPackages_zen;
     kernelPackages = pkgs.linuxPackages_cachyos;
     binfmt.emulatedSystems = [ "aarch64-linux" ];
     # suppress "i801_smbus 0000:00:1f.4: SMBus is busy, can't use it!"
@@ -55,19 +49,7 @@
         pkgs.cosmic-session
       ];
     };
-    flatpak.enable = true;
-    # displayManager = {
-    #   defaultSession = "hyprland";
-    #   sessionPackages = [pkgs.hyprland];
-    #   autoLogin = {
-    #     enable = true;
-    #     user = "doppler";
-    #   };
-    # };
-    # fprintd.enable = true;
     fwupd.enable = true;
-    # 2024-11-08 do we need this?
-    # yep, for Authenicator, apparently
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     pipewire = {
@@ -103,18 +85,14 @@
 
   security = {
     rtkit.enable = true;
-    # 2024-11-08 to keep brave from asking for user password
-    # pam.services.lightdm.enableKwallet = true;
     pam.services.cosmic-greeter = {
       enableGnomeKeyring = true;
       kwallet.enable = true;
-      # fprintAuth = true;
     };
     polkit.enable = true;
   };
 
   hardware = {
-    # pulseaudio.enable = false;
     rtl-sdr.enable = true;
   };
 
