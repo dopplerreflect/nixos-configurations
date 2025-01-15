@@ -40,6 +40,15 @@
   };
 
   services = {
+    kmscon = {
+      enable = true;
+      extraConfig = ''
+        font-size=18
+        xkb-layout=us
+        xkb-variant=dvorak
+        xkb-options=ctrl:nocaps
+      '';
+    };
     desktopManager.cosmic.enable = true;
     devmon.enable = true;
     displayManager = {
