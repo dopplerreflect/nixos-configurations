@@ -133,7 +133,7 @@
         "docker"
         "plugdev"
       ];
-      shell = pkgs.fish;
+      shell = pkgs.zsh;
       ignoreShellProgramCheck = true;
     };
   };
