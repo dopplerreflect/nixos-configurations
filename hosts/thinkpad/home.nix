@@ -12,6 +12,7 @@
       # gqrx
       file
       firefoxpwa
+      freefilesync
       ghostty
       gimp
       helix
