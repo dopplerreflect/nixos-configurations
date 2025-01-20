@@ -37,7 +37,9 @@ in
             "match_prev_cmd"
           ];
         };
-
+        initExtra = ''
+          setopt NO_CASE_GLOB
+        '';
         shellAliases =
           {
             cat = "bat";
