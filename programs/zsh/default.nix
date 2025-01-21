@@ -23,8 +23,9 @@ in
     programs = {
       oh-my-posh = {
         enable = true;
-        enableZshIntegration = true;
-        useTheme = "slim";
+        settings = builtins.fromJSON (
+          builtins.unsafeDiscardStringContext (builtins.readFile ./velvet-custom.omp.json)
+        );
       };
       zsh = {
         enable = true;

@@ -110,39 +110,44 @@
         #     }
         #   ];
         # };
-        # x86_64-iso = nixpkgs.lib.nixosSystem {
-        #   system = "x86_64-linux";
-        #   modules = [
-        #     ({
-        #       pkgs,
-        #       modulesPath,
-        #       ...
-        #     }: {
-        #       imports = [
-        #         (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")
-        #         ./programs/git.nix
-        #       ];
-        #       networking = {
-        #         wireless.enable = false;
-        #         networkmanager.enable = true;
-        #       };
-        #       console = {
-        #         earlySetup = true;
-        #         font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
-        #         packages = with pkgs; [powerline-fonts];
-        #         keyMap = "dvorak";
-        #       };
-        #       nix = {
-        #         package = pkgs.nixVersions.stable;
-        #         extraOptions = "experimental-features = nix-command flakes";
-        #       };
-        #       environment.systemPackages = with pkgs; [
-        #         tmux
-        #         vim
-        #       ];
-        #     })
-        #   ];
-        # };
+        x86_64-iso = nixpkgs.lib.nixosSystem {
+          specialArgs = inputs;
+          modules = [
+            { nixpkgs.hostPlatform = "x86_64-linux"; }
+            (
+              {
+                pkgs,
+                modulesPath,
+                ...
+              }:
+              {
+                imports = [
+                  (modulesPath + "/installer/cd-dvd/installation-cd-graphical-calamares-gnome.nix")
+                  ./programs/git.nix
+                ];
+                networking = {
+                  wireless.enable = false;
+                  networkmanager.enable = true;
+                };
+                console = {
+                  earlySetup = true;
+                  font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
+                  packages = with pkgs; [ powerline-fonts ];
+                  keyMap = "dvorak";
+                };
+                nix = {
+                  package = pkgs.nixVersions.stable;
+                  extraOptions = "experimental-features = nix-command flakes";
+                };
+                environment.systemPackages = with pkgs; [
+                  tmux
+                  vim
+                  git
+                ];
+              }
+            )
+          ];
+        };
       };
     };
 }
