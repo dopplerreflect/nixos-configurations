@@ -61,6 +61,12 @@
     fwupd.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
+    ollama = {
+      enable = true;
+    };
+    open-webui = {
+      enable = true;
+    };
     pipewire = {
       enable = true;
       alsa.enable = true;
