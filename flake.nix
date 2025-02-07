@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # For getting the cachyos kernel
-    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs =
@@ -33,7 +33,7 @@
       # Lix
       lix-module,
       # Chaotic
-      # chaotic,
+      chaotic,
       ...
     }@inputs:
     {
@@ -79,7 +79,7 @@
             # Lix
             lix-module.nixosModules.default
             # ? cachyos kernel ?
-            # chaotic.nixosModules.default
+            chaotic.nixosModules.default
           ];
         };
         pi = nixpkgs.lib.nixosSystem {
