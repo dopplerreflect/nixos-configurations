@@ -41,15 +41,15 @@
   };
 
   services = {
-    kmscon = {
-      enable = true;
-      extraConfig = ''
-        font-size=18
-        xkb-layout=us
-        xkb-variant=dvorak
-        xkb-options=ctrl:nocaps
-      '';
-    };
+    # kmscon = {
+    #   enable = true;
+    #   extraConfig = ''
+    #     font-size=18
+    #     xkb-layout=us
+    #     xkb-variant=dvorak
+    #     xkb-options=ctrl:nocaps
+    #   '';
+    # };
     desktopManager.cosmic.enable = true;
     devmon.enable = true;
     displayManager = {
@@ -62,12 +62,12 @@
     fwupd.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
-    ollama = {
-      enable = true;
-    };
-    open-webui = {
-      enable = true;
-    };
+    # ollama = {
+    #   enable = true;
+    # };
+    # open-webui = {
+    #   enable = true;
+    # };
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -100,12 +100,12 @@
   };
 
   security = {
-    rtkit.enable = true;
     pam.services.cosmic-greeter = {
       enableGnomeKeyring = true;
       kwallet.enable = true;
     };
     polkit.enable = true;
+    rtkit.enable = true;
   };
 
   hardware = {
@@ -113,7 +113,6 @@
   };
 
   virtualisation = {
-    libvirtd.enable = true;
     docker = {
       enable = true;
       rootless = {
@@ -121,6 +120,7 @@
         setSocketVariable = true;
       };
     };
+    libvirtd.enable = true;
   };
 
   programs = {

@@ -12,14 +12,14 @@
       # gqrx
       file
       firefoxpwa
-      freefilesync
-      ghostty
-      gimp
+      # freefilesync
+      # ghostty
+      # gimp
       helix
-      homebank
+      # homebank
       imv
       # inkscape
-      jujutsu
+      # jujutsu
       mpv
       nautilus
       nextcloud-client
@@ -33,11 +33,11 @@
       virt-manager
       virt-viewer
       vscodium
-      wavemon
-      xfce.thunar
-      xfce.thunar-volman
-      xfce.tumbler
-      xfce.xfconf
+      # wavemon
+      # xfce.thunar
+      # xfce.thunar-volman
+      # xfce.tumbler
+      # xfce.xfconf
       yarn
       yazi
     ];
@@ -62,7 +62,7 @@
     ../../wm/hyprland
     ../../programs/kitty
     ../../programs/nh
-    ../../programs/nushell
+    # ../../programs/nushell
   ];
 
   gtk = {
