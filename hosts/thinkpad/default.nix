@@ -50,13 +50,18 @@
     #     xkb-options=ctrl:nocaps
     #   '';
     # };
-    desktopManager.cosmic.enable = true;
+    # desktopManager.cosmic.enable = true;
     devmon.enable = true;
     displayManager = {
-      cosmic-greeter.enable = true;
+      autoLogin = {
+        enable = true;
+        user = "doppler";
+      };
+      # cosmic-greeter.enable = true;
+      defaultSession = "hyprland";
       sessionPackages = [
         pkgs.hyprland
-        pkgs.cosmic-session
+        # pkgs.cosmic-session
       ];
     };
     fwupd.enable = true;

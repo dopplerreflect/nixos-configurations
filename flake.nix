@@ -4,15 +4,15 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     # nixpkgs.url = "/home/doppler/Code/nixpkgs";
-    # nixos-24-11.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    nixos-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Cosmic Desktop
-    nixpkgs.follows = "nixos-cosmic/nixpkgs";
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    # nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     # Lix
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
@@ -25,11 +25,11 @@
   outputs =
     {
       nixpkgs,
-      # nixos-24-11,
+      nixos-stable,
       nixos-hardware,
       home-manager,
       # Cosmic Desktop
-      nixos-cosmic,
+      # nixos-cosmic,
       # Lix
       lix-module,
       # Chaotic
@@ -47,26 +47,26 @@
             {
               nixpkgs = {
                 hostPlatform = "x86_64-linux";
-                # overlays = [
-                #   (_: prev: {
-                #     nixos-24-11 = nixos-24-11.legacyPackages.${prev.system};
-                #   })
-                # ];
-              };
-              # Cosmic Desktop
-              nix.settings = {
-                substituters = [ "https://cosmic.cachix.org/" ];
-                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-                trusted-users = [
-                  "root"
-                  "doppler"
-                  "@wheel"
+                overlays = [
+                  (_: prev: {
+                    nixos-stable = nixos-stable.legacyPackages.${prev.system};
+                  })
                 ];
               };
+              # Cosmic Desktop
+              # nix.settings = {
+              #   substituters = [ "https://cosmic.cachix.org/" ];
+              #   trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+              #   trusted-users = [
+              #     "root"
+              #     "doppler"
+              #     "@wheel"
+              #   ];
+              # };
             }
             ./hosts/common.nix
             # Cosmic Desktop
-            nixos-cosmic.nixosModules.default
+            # nixos-cosmic.nixosModules.default
             ./hosts/thinkpad
             home-manager.nixosModules.home-manager
             {
