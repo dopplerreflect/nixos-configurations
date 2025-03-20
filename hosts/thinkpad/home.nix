@@ -11,7 +11,7 @@
       gh
       # gqrx
       file
-      firefoxpwa
+      firefox
       # freefilesync
       # ghostty
       # gimp
