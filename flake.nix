@@ -14,10 +14,10 @@
     # nixpkgs.follows = "nixos-cosmic/nixpkgs";
     # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     # Lix
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # lix-module = {
+    #   url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # For getting the cachyos kernel
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
@@ -31,7 +31,7 @@
       # Cosmic Desktop
       # nixos-cosmic,
       # Lix
-      lix-module,
+      # lix-module,
       # Chaotic
       chaotic,
       ...
@@ -77,7 +77,7 @@
               };
             }
             # Lix
-            lix-module.nixosModules.default
+            # lix-module.nixosModules.default
             # ? cachyos kernel ?
             chaotic.nixosModules.default
           ];
