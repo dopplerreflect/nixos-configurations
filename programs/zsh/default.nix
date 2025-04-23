@@ -38,7 +38,7 @@ in
             "match_prev_cmd"
           ];
         };
-        initExtra = ''
+        initContent = ''
           setopt NO_CASE_GLOB
         '';
         shellAliases =
