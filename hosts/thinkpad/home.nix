@@ -23,7 +23,8 @@
       mpv
       nautilus
       nextcloud-client
-      nixos-stable.nixd
+      # nixos-stable.nixd
+      nixd
       nixfmt-rfc-style
       nodejs
       ollama

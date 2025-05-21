@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     # nixpkgs.url = "/home/doppler/Code/nixpkgs";
-    nixos-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    # nixos-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -19,13 +19,13 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     # For getting the cachyos kernel
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs =
     {
       nixpkgs,
-      nixos-stable,
+      # nixos-stable,
       nixos-hardware,
       home-manager,
       # Cosmic Desktop
@@ -33,7 +33,7 @@
       # Lix
       # lix-module,
       # Chaotic
-      chaotic,
+      # chaotic,
       ...
     }@inputs:
     {
@@ -47,11 +47,11 @@
             {
               nixpkgs = {
                 hostPlatform = "x86_64-linux";
-                overlays = [
-                  (_: prev: {
-                    nixos-stable = nixos-stable.legacyPackages.${prev.system};
-                  })
-                ];
+                # overlays = [
+                #   (_: prev: {
+                #     nixos-stable = nixos-stable.legacyPackages.${prev.system};
+                #   })
+                # ];
               };
               # Cosmic Desktop
               # nix.settings = {
@@ -79,7 +79,7 @@
             # Lix
             # lix-module.nixosModules.default
             # ? cachyos kernel ?
-            chaotic.nixosModules.default
+            # chaotic.nixosModules.default
           ];
         };
         pi = nixpkgs.lib.nixosSystem {

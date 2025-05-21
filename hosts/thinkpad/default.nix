@@ -12,8 +12,8 @@
         "net.ipv4.ip_default_ttl" = 66;
       };
     };
-    # kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+    # kernelPackages = pkgs.linuxPackages_cachyos;
     binfmt.emulatedSystems = [ "aarch64-linux" ];
     # suppress "i801_smbus 0000:00:1f.4: SMBus is busy, can't use it!"
     blacklistedKernelModules = [ "i2c_i801" ];
@@ -167,7 +167,7 @@
   nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.6.9796" ];
 
   nix = {
-    package = pkgs.nixVersions.stable;
+    # package = pkgs.nixVersions.stable;
     extraOptions = "experimental-features = nix-command flakes";
   };
 
