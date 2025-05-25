@@ -164,7 +164,7 @@
     nerd-fonts.fira-code
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.6.9796" ];
+  nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.6.10201" ];
 
   nix = {
     # package = pkgs.nixVersions.stable;

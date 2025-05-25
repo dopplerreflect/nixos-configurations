@@ -9,6 +9,7 @@
       brave
       btop
       gh
+      googleearth-pro
       # gqrx
       file
       firefox
