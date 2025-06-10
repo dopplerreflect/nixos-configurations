@@ -147,6 +147,7 @@
       description = "doppler";
       extraGroups = [
         "docker"
+        "input"
         "libvirtd"
         "networkmanager"
         "nginx"
