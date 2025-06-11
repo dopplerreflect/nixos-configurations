@@ -21,6 +21,7 @@
       imv
       # inkscape
       # jujutsu
+      librsvg
       mpv
       nautilus
       nextcloud-client
