@@ -16,7 +16,7 @@
       # freefilesync
       # ghostty
       gimp
-      helix
+      # helix
       # homebank
       imv
       # inkscape
@@ -58,6 +58,13 @@
       enable = true;
       package = pkgs.firefox;
       nativeMessagingHosts = [ pkgs.firefoxpwa ];
+    };
+    helix = {
+      enable = true;
+      extraPackages = with pkgs; [
+        svelte-language-server
+        typescript-language-server
+      ];
     };
   };
 
