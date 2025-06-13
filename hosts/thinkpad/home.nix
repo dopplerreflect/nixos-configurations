@@ -20,7 +20,7 @@
       # homebank
       imv
       # inkscape
-      # jujutsu
+      jujutsu
       librsvg
       mpv
       nautilus
