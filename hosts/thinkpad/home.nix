@@ -32,6 +32,7 @@
       ollama
       pavucontrol
       pnpm
+      prettier
       unzip
       virt-manager
       virt-viewer
@@ -64,6 +65,12 @@
       extraPackages = with pkgs; [
         svelte-language-server
         typescript-language-server
+      ];
+    };
+    tmux = {
+      enable = true;
+      plugins = with pkgs; [
+        tmuxPlugins.tokyo-night-tmux
       ];
     };
   };
