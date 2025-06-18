@@ -60,13 +60,6 @@
       package = pkgs.firefox;
       nativeMessagingHosts = [ pkgs.firefoxpwa ];
     };
-    helix = {
-      enable = true;
-      extraPackages = with pkgs; [
-        svelte-language-server
-        typescript-language-server
-      ];
-    };
     tmux = {
       enable = true;
       plugins = with pkgs; [
@@ -77,6 +70,7 @@
 
   imports = [
     ../../wm/hyprland
+    ../../programs/helix
     ../../programs/kitty
     ../../programs/nh
     # ../../programs/nushell
