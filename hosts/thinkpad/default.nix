@@ -53,10 +53,10 @@
     desktopManager.cosmic.enable = true;
     devmon.enable = true;
     displayManager = {
-      autoLogin = {
-        enable = true;
-        user = "doppler";
-      };
+      # autoLogin = {
+      #   enable = true;
+      #   user = "doppler";
+      # };
       cosmic-greeter.enable = true;
       defaultSession = "hyprland";
       sessionPackages = [
