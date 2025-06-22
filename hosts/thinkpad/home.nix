@@ -8,8 +8,9 @@
       bitwarden
       brave
       btop
+      bun
       gh
-      googleearth-pro
+      # googleearth-pro
       # gqrx
       file
       firefox

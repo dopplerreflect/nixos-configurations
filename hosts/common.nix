@@ -19,11 +19,6 @@
     keyMap = "dvorak";
   };
 
-  environment.systemPackages = with pkgs; [
-    bun
-    tmux
-  ];
-
   security.sudo.wheelNeedsPassword = false;
   networking = {
     networkmanager.enable = true;
@@ -31,7 +26,6 @@
       192.168.12.1 pi
       192.168.12.10 thinkpad thinkpad.local
       192.168.12.11 ecowitt ecowitt.local GW2000x
-      192.168.122.173 nixos-qemu
     '';
   };
 

@@ -103,6 +103,7 @@
       bun
       linux-wifi-hotspot
       nodejs
+      tmux
       wavemon
       yarn
     ];
