@@ -127,7 +127,7 @@
               }:
               {
                 imports = [
-                  (modulesPath + "/installer/cd-dvd/installation-cd-graphical-calamares-gnome.nix")
+                  (modulesPath + "/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix")
                   ./programs/git.nix
                 ];
                 networking = {
