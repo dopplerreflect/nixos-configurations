@@ -107,7 +107,7 @@
     pathsToLink = [ "/share/zsh" ];
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-      PATH = [ "$HOME/.local/bin" ];
+      PATH = [ "$HOME/.local/bin" "$HOME/.yarn/bin" ];
     };
   };
 
