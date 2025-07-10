@@ -21,7 +21,7 @@
       };
       themes = {
         doppler = {
-          inherits = "autumn_night";
+          inherits = "flexoki_dark";
           "ui.background"= {};
         };
       };
