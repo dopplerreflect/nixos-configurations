@@ -16,7 +16,7 @@
       firefox
       # freefilesync
       # ghostty
-      gimp
+      gimp3
       # helix
       # homebank
       imv
