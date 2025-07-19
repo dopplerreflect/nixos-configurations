@@ -20,8 +20,9 @@
       # helix
       # homebank
       imv
-      # inkscape
+      inkscape
       jujutsu
+      krita
       librsvg
       mpv
       nautilus
