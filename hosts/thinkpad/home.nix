@@ -13,7 +13,7 @@
       # googleearth-pro
       # gqrx
       file
-      firefox
+      firefoxpwa
       # freefilesync
       # ghostty
       gimp3
