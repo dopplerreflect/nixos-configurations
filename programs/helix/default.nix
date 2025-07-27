@@ -28,18 +28,18 @@
       languages = {
         language-server.astro-ls = {
           command = "astro-ls";
+          args = [ "--stdio" ];
         };
         language-server.tailwind-ls = {
           command = "tailwindcss-language-server";
+          args = [ "--stdio" ];
         };
         language = [
           {
             name = "astro";
-            scope = "source.astro";
-            injection-regex = "astro";
             file-types = ["astro"];
             roots = ["package.json" "astro.config.mjs"];
-            language-servers = ["astro-ls" "tailwind-ls" "typescript-language-server"];
+            language-servers = ["astro-ls" "typescript-language-server"];
             formatter.command = "prettier";
             formatter.args = [ "--parser" "astro" ];
             auto-format = true;
