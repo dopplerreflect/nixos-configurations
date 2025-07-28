@@ -9,6 +9,7 @@
         svelte-language-server
         tailwindcss-language-server
         typescript-language-server
+        vscode-css-languageserver
       ];
       settings = {
         theme = "doppler";
