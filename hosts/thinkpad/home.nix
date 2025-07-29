@@ -21,7 +21,6 @@
       # homebank
       imv
       inkscape
-      jujutsu
       krita
       librsvg
       mpv
@@ -73,6 +72,7 @@
   imports = [
     ../../wm/hyprland
     ../../programs/helix
+    ../../programs/jujutsu
     ../../programs/kitty
     ../../programs/nh
     # ../../programs/nushell
