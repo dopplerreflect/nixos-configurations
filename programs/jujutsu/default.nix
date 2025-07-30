@@ -8,7 +8,7 @@
         name = "David Rose";
       };
       ui = {
-        default-command = [ "log" "--reversed" ];
+        # default-command = [ "log" "--reversed" ];
         editor = "${pkgs.helix}/bin/hx";
         paginate = "never";
       };
