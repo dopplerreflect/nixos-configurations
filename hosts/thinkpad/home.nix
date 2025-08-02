@@ -61,12 +61,6 @@
       package = pkgs.firefox;
       nativeMessagingHosts = [ pkgs.firefoxpwa ];
     };
-    tmux = {
-      enable = true;
-      plugins = with pkgs; [
-        tmuxPlugins.tokyo-night-tmux
-      ];
-    };
   };
 
   imports = [
@@ -76,6 +70,7 @@
     ../../programs/kitty
     ../../programs/nh
     # ../../programs/nushell
+    ../../programs/tmux
   ];
 
   gtk = {
