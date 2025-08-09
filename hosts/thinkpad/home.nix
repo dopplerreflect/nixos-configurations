@@ -65,12 +65,12 @@
 
   imports = [
     ../../wm/hyprland
-    ../../programs/helix
-    ../../programs/jujutsu
+    ../../programs/fzf.nix
+    ../../programs/helix.nix
+    ../../programs/jujutsu.nix
     ../../programs/kitty
-    ../../programs/nh
-    # ../../programs/nushell
-    ../../programs/tmux
+    ../../programs/nh.nix
+    ../../programs/tmux.nix
   ];
 
   gtk = {
