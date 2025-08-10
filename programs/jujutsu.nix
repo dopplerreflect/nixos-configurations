@@ -12,6 +12,10 @@
         editor = "${pkgs.helix}/bin/hx";
         paginate = "never";
       };
+      aliases = {
+        bmm = [ "bookmark" "move" "main" "--to=@-" ];
+        gp = [ "git" "push" ];
+      };
     };
   };
 }
