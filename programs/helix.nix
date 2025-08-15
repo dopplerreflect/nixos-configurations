@@ -22,7 +22,9 @@
       };
       themes = {
         doppler = {
-          inherits = "flexoki_dark";
+          inherits = "tokyonight";
+          function = { fg = "blue"; };
+          keyword = { fg = "purple"; };
           "ui.background"= {};
         };
       };
