@@ -110,7 +110,7 @@
   };
 
   imports = [
-    ../../programs/nh
+    ../../programs/nh.nix
   ];
 
   users = {
