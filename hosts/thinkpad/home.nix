@@ -61,6 +61,7 @@
       package = pkgs.firefox;
       nativeMessagingHosts = [ pkgs.firefoxpwa ];
     };
+    zen-browser.enable = true;
   };
 
   imports = [
