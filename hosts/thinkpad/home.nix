@@ -34,6 +34,7 @@
       pavucontrol
       pnpm
       prettier
+      ripgrep
       unzip
       virt-manager
       virt-viewer
