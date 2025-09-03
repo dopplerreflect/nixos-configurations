@@ -168,10 +168,9 @@
   nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.6.10201" ];
 
   nix = {
-    # package = pkgs.nixVersions.stable;
-    extraOptions = "experimental-features = nix-command flakes";
     settings = {
       auto-optimise-store = true;
+      experimental-features = "nix-command flakes";
     };
   };
 
