@@ -35,6 +35,7 @@
       pnpm
       prettier
       ripgrep
+      tor-browser
       unzip
       virt-manager
       virt-viewer
