@@ -9,6 +9,7 @@
       brave
       btop
       bun
+      gcc
       gh
       # googleearth-pro
       # gqrx
@@ -17,6 +18,7 @@
       # freefilesync
       # ghostty
       gimp3
+      gnumake
       # helix
       # homebank
       imv
@@ -34,6 +36,7 @@
       pavucontrol
       pnpm
       prettier
+      python3
       ripgrep
       tor-browser
       unzip
