@@ -16,8 +16,11 @@
         editor = {
           bufferline = "multiple";
         };
-        editor.file-picker = {
-          hidden = false;
+        editor = {
+          file-picker = {
+            follow-symlinks = false;
+            hidden = false;
+          };
         };
       };
       themes = {
