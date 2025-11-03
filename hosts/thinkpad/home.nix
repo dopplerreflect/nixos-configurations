@@ -5,7 +5,7 @@
     homeDirectory = "/home/doppler";
     packages = with pkgs; [
       authenticator
-      bitwarden
+      bitwarden-desktop
       brave
       btop
       bun
