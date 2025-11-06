@@ -54,7 +54,7 @@ in
             code = "codium";
             hs = "hyprscale";
             pi = "ssh pi";
-            ssh = "kitten ssh";
+            # ssh = "kitten ssh";
           };
       };
       zoxide = {
