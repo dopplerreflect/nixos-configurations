@@ -11,7 +11,7 @@
       bun
       gcc
       gh
-      # googleearth-pro
+      googleearth-pro
       # gqrx
       file
       firefoxpwa
