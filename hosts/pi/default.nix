@@ -85,7 +85,7 @@
     };
     nextcloud = {
       enable = true;
-      package = pkgs.nextcloud31;
+      package = pkgs.nextcloud32;
       hostName = "pi";
       config = {
         adminpassFile = "/etc/nextcloud-admin-pass";
