@@ -8,7 +8,8 @@ if [ -n "$1" ]; then
   hyprctl -q keyword monitor "eDP-1,1920x1080,0x$Y,$1"
 else
   echo 1920 x 1080
-  hyprctl -q keyword monitor "DP-1,1920x1080,0x0,1"
-  hyprctl -q keyword monitor "eDP-1,1920x1080,0x1080,1"
+  # hyprctl -q keyword monitor "DP-1,preferred,auto,1"
+  # hyprctl -q keyword monitor "eDP-1,preferred,auto-down,1"
+  hyprctl reload
 fi
 
