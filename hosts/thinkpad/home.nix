@@ -30,7 +30,7 @@
       nextcloud-client
       # nixos-stable.nixd
       nixd
-      nixfmt-rfc-style
+      nixfmt
       nodejs
       ollama
       pavucontrol
