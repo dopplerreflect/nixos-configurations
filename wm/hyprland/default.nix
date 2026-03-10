@@ -15,7 +15,7 @@
   home = {
     packages = with pkgs; [
       brightnessctl
-      hypridle
+      # hypridle
       hyprlock
       hyprshot
       libnotify
@@ -26,6 +26,8 @@
       xdg-desktop-portal-hyprland
     ];
   };
+
+  services.hypridle.enable = true;
 
   imports = [
     ./cycle-desktop-background
