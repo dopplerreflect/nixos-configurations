@@ -20,7 +20,7 @@
       hyprshot
       libnotify
       swaynotificationcenter
-      swww
+      awww
       wl-clipboard
       wlroots
       xdg-desktop-portal-hyprland

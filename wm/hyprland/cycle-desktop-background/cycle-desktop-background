@@ -23,7 +23,7 @@ type Monitor = {
 const DIR = "/home/doppler/Pictures/Desktop-Backgrounds";
 
 const files = await readdir(DIR);
-const paths = files.map(file => `${DIR}/${file}`);
+const paths = files.map((file) => `${DIR}/${file}`);
 
 const getRandomPath = (): string => {
   let path = paths[Math.floor(Math.random() * paths.length) + 1];
@@ -38,9 +38,9 @@ const getMonitors = async (): Promise<Monitor[]> => {
 const swapImages = async (): Promise<void> => {
   try {
     let monitors = await getMonitors();
-    monitors.forEach(async monitor => {
+    monitors.forEach(async (monitor) => {
       let path = getRandomPath();
-      await $`swww img -o ${monitor.name} ${path}`;
+      await $`awww img -o ${monitor.name} ${path}`;
     });
   } catch (e) {}
 };
