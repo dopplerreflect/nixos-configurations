@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home = {
     username = "doppler";
@@ -85,6 +85,7 @@
       package = pkgs.andromeda-gtk-theme;
       name = "Andromeda";
     };
+    gtk4.theme = config.gtk.theme;
     iconTheme = {
       package = pkgs.beauty-line-icon-theme;
       name = "BeautyLine";

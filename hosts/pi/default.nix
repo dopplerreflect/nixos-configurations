@@ -5,7 +5,7 @@
 }:
 {
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
+    # kernelPackages = pkgs.linuxPackages_rpi4;
     initrd.availableKernelModules = [
       "xhci_pci"
       "usbhid"
