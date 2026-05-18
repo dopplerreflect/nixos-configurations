@@ -7,6 +7,7 @@
   wayland.windowManager = {
     hyprland = {
       enable = true;
+      configType = "hyprlang";
       extraConfig = lib.fileContents ./hyprland.conf;
       # xwayland.enable = false; # this causes cache.nixos.org miss and thus has to build from source
     };
