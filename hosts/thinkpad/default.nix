@@ -58,7 +58,7 @@
       #   user = "doppler";
       # };
       cosmic-greeter.enable = true;
-      defaultSession = "hyprland";
+      defaultSession = "cosmic";
       sessionPackages = [
         pkgs.hyprland
         pkgs.cosmic-session

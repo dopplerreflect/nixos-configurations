@@ -48,6 +48,7 @@
       # xfce.thunar-volman
       # xfce.tumbler
       # xfce.xfconf
+      xdg-desktop-portal-cosmic
       yarn
       yazi
     ];
