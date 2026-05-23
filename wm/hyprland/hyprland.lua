@@ -101,5 +101,14 @@ for i = 1, 10 do
   hl.workspace_rule({ workspace = i, monitor = monitor, persistent = persistent })
 end
 
+hl.window_rule({
+  name = "inhibit-idle-on-browser-fullscreen",
+  match = {
+    class = "(brave-browser|firefox)"
+  },
+  workspace = 3,
+  idle_inhibit = "fullscreen",
+})
+
 -- hl.workspace_rule({ workspace = "1", monitor = "eDP-1", persistent = true })
 -- hl.workspace_rule({ workspace = "2", monitor = "eDP-1", persistent = true })
