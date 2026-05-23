@@ -7,8 +7,8 @@
   wayland.windowManager = {
     hyprland = {
       enable = true;
-      configType = "hyprlang";
-      extraConfig = lib.fileContents ./hyprland.conf;
+      configType = "lua";
+      extraConfig = lib.fileContents ./hyprland.lua;
       # xwayland.enable = false; # this causes cache.nixos.org miss and thus has to build from source
     };
   };
