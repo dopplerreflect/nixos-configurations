@@ -106,7 +106,6 @@ hl.window_rule({
   match = {
     class = "(brave-browser|firefox)"
   },
-  workspace = 3,
   idle_inhibit = "fullscreen",
 })
 
