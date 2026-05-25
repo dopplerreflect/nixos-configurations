@@ -109,5 +109,13 @@ hl.window_rule({
   idle_inhibit = "fullscreen",
 })
 
+hl.window_rule({
+  name = "fullscreen",
+  match = {
+    class = "(mpv|imv)"
+  },
+  fullscreen = true,
+})
+
 -- hl.workspace_rule({ workspace = "1", monitor = "eDP-1", persistent = true })
 -- hl.workspace_rule({ workspace = "2", monitor = "eDP-1", persistent = true })
