@@ -22,7 +22,6 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("dbus-update-activation-environment --systemd --all")
   hl.exec_cmd("systemctl --user restart hypridle.service")
   hl.exec_cmd("echo -n bb | gnome-keyring-daemon --replace --unlock")
-  hl.exec_cmd("systemctl --user restart hypridle.service")
   hl.exec_cmd("ags")
   -- hl.exec_cmd("swaync") # already running?
   hl.exec_cmd("awww-daemon")
