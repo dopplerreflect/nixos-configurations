@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   boot = {
     loader = {
@@ -165,7 +165,8 @@
     nerd-fonts.fira-code
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.6.10201" ];
+  # nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.7.1155" ];
+  nixpkgs.config.allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) [ "googleearth-pro" ];
 
   nix = {
     settings = {
