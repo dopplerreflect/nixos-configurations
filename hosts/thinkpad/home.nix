@@ -14,7 +14,7 @@
       googleearth-pro
       # gqrx
       file
-      firefoxpwa
+      # firefox
       # freefilesync
       # ghostty
       gimp3
@@ -65,7 +65,7 @@
     firefox = {
       enable = true;
       package = pkgs.firefox;
-      nativeMessagingHosts = [ pkgs.firefoxpwa ];
+      # nativeMessagingHosts = [ pkgs.firefoxpwa ];
       configPath = "${config.xdg.configHome}/mozilla/firefox";
     };
     # zen-browser.enable = true;
