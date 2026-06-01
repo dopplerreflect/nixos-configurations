@@ -80,6 +80,7 @@ hl.bind("SUPER + SHIFT + down",  hl.dsp.window.move({ direction = "down"}))
 
 hl.bind("XF86AudioLowerVolume",  hl.dsp.exec_cmd("ags -r 'openVolumePopup()' & wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true})
 hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd("ags -r 'openVolumePopup()' & wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true})
+hl.bind("XF86AudioMute",         hl.dsp.exec_cmd("ags -r 'openVolumePopup()' & wpctl set-mute   @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true})
 
 hl.bind("SUPER + PRINT", hl.dsp.exec_cmd("hyprshot -o " .. screenshotFolder .. " -m output -m active"))
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -o " .. screenshotFolder .. " -m region"))
