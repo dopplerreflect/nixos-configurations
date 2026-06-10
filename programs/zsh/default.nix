@@ -17,7 +17,7 @@ in
         zoxide
       ];
       file = {
-        ".zprofile".source = ./.zprofile;
+        # ".zprofile".source = ./.zprofile;
       };
     };
     programs = {
