@@ -9,21 +9,21 @@
       brave
       btop
       bun
-      gcc
-      gh
+      # gcc
+      # gh
       googleearth-pro
       # gqrx
-      file
+      # file
       # firefox
       # freefilesync
       # ghostty
       gimp3
-      gnumake
+      # gnumake
       # helix
       # homebank
       imv
-      inkscape
-      krita
+      # inkscape
+      # krita
       librsvg
       mpv
       nautilus
@@ -32,17 +32,17 @@
       nixd
       nixfmt
       nodejs
-      ollama
+      # ollama
       pavucontrol
-      pnpm
+      # pnpm
       prettier
-      python3
-      ripgrep
+      # python3
+      # ripgrep
       tor-browser
       unzip
       virt-manager
       virt-viewer
-      vscodium
+      # vscodium
       # wavemon
       # xfce.thunar
       # xfce.thunar-volman

@@ -14,7 +14,7 @@
     };
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
     # kernelPackages = pkgs.linuxPackages_cachyos;
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    # binfmt.emulatedSystems = [ "aarch64-linux" ];
     # suppress "i801_smbus 0000:00:1f.4: SMBus is busy, can't use it!"
     blacklistedKernelModules = [ "i2c_i801" ];
   };
@@ -67,12 +67,12 @@
     fwupd.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
-    nginx = {
-      enable = true;
-      virtualHosts."thinkpad" = {
-        root = "/var/www";
-      };
-    };
+    # nginx = {
+    #   enable = true;
+    #   virtualHosts."thinkpad" = {
+    #     root = "/var/www";
+    #   };
+    # };
     # ollama = {
     #   enable = true;
     # };
@@ -125,13 +125,13 @@
   };
 
   virtualisation = {
-    docker = {
-      enable = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-    };
+    # docker = {
+    #   enable = true;
+    #   rootless = {
+    #     enable = true;
+    #     setSocketVariable = true;
+    #   };
+    # };
     libvirtd.enable = true;
   };
 
@@ -146,11 +146,11 @@
       hashedPassword = "$y$j9T$L4WXXG1W0rCNHzFrg8Q3D0$l7NOkrjD5B/VKUrHAjmfile5hDECM1yr6SJno71/xg1";
       description = "doppler";
       extraGroups = [
-        "docker"
+        # "docker"
         "input"
         "libvirtd"
         "networkmanager"
-        "nginx"
+        # "nginx"
         "plugdev"
         "wheel"
       ];
