@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, inputs, ... }:
 {
   boot = {
     loader = {
@@ -137,6 +137,14 @@
 
   programs = {
     dconf.enable = true;
+    dms-shell = {
+      package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      enable = true;
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
+    };
   };
 
   users = {

@@ -63,7 +63,8 @@ hl.bind("SUPER + Q",             hl.dsp.window.close())
 hl.bind("SUPER + B",             hl.dsp.exec_cmd(browser))
 hl.bind("SUPER + Return",        hl.dsp.exec_cmd(terminal))
 hl.bind("SUPER + F",             hl.dsp.exec_cmd(filemanager))
-hl.bind("SUPER + SPACE",         hl.dsp.exec_cmd("ags -r \"App.openWindow('app-launcher')\""))
+-- hl.bind("SUPER + SPACE",         hl.dsp.exec_cmd("ags -r \"App.openWindow('app-launcher')\""))
+hl.bind("SUPER + SPACE",         hl.dsp.exec_cmd("dms ipc call spotlight toggle"))
 hl.bind("SUPER + SHIFT + L",     hl.dsp.exec_cmd("ags -r \"openSystemControls()\""))
 hl.bind("SUPER + SHIFT + B",     hl.dsp.exec_cmd("ags -t bar"))
 
@@ -78,13 +79,17 @@ hl.bind("SUPER + SHIFT + up",    hl.dsp.window.move({ direction = "up"}))
 hl.bind("SUPER + SHIFT + down",  hl.dsp.window.move({ direction = "down"}))
 
 
-hl.bind("XF86AudioLowerVolume",  hl.dsp.exec_cmd("ags -r 'openVolumePopup()' & wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true})
-hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd("ags -r 'openVolumePopup()' & wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true})
-hl.bind("XF86AudioMute",         hl.dsp.exec_cmd("ags -r 'openVolumePopup()' & wpctl set-mute   @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true})
+-- hl.bind("XF86AudioLowerVolume",  hl.dsp.exec_cmd("ags -r 'openVolumePopup()' & wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true})
+-- hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd("ags -r 'openVolumePopup()' & wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true})
+-- hl.bind("XF86AudioMute",         hl.dsp.exec_cmd("ags -r 'openVolumePopup()' & wpctl set-mute   @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true})
 
-hl.bind("SUPER + PRINT", hl.dsp.exec_cmd("hyprshot -o " .. screenshotFolder .. " -m output -m active"))
-hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -o " .. screenshotFolder .. " -m region"))
-hl.bind("PRINT",         hl.dsp.exec_cmd("hyprshot -o " .. screenshotFolder .. " -m window -m active"))
+hl.bind("XF86AudioLowerVolume",  hl.dsp.exec_cmd("dms ipc call audio decrement 5"), { locked = true, repeating = true})
+hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd("dms ipc call audio increment 5"), { locked = true, repeating = true})
+hl.bind("XF86AudioMute",         hl.dsp.exec_cmd("dms ipc call audio mute"), { locked = true, repeating = true})
+
+hl.bind("SUPER + PRINT", hl.dsp.exec_cmd("hyprshot -m output -m active -o " .. screenshotFolder))
+hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m region -o " .. screenshotFolder))
+hl.bind("PRINT",         hl.dsp.exec_cmd("hyprshot -m window -m active -o " .. screenshotFolder))
 
 hl.gesture({
   fingers   = 4,

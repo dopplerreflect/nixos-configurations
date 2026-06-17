@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # zen-browser = {
     #   url = "github:0xc000022070/zen-browser-flake";
     #   # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
@@ -27,7 +31,7 @@
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
       nixosConfigurations = {
         thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = inputs;
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/thinkpad/hardware-configuration.nix
 

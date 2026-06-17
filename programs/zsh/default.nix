@@ -23,9 +23,7 @@ in
     programs = {
       oh-my-posh = {
         enable = true;
-        settings = builtins.fromJSON (
-          builtins.unsafeDiscardStringContext (builtins.readFile ./velvet-custom.omp.json)
-        );
+        useTheme = "sonicboom_dark";
       };
       zsh = {
         enable = true;
