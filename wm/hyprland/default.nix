@@ -8,7 +8,8 @@
     hyprland = {
       enable = true;
       configType = "lua";
-      extraConfig = lib.fileContents ./hyprland.lua;
+      extraConfig = "require('dms.hyprland')";
+      # extraConfig = lib.fileContents ./hyprland.lua;
       # xwayland.enable = false; # this causes cache.nixos.org miss and thus has to build from source
     };
   };
