@@ -14,35 +14,34 @@
     };
   };
 
-  home = {
-    packages = with pkgs; [
-      brightnessctl
-      # hypridle
-      hyprlock
-      hyprshot
-      libnotify
-      swaynotificationcenter
-      awww
-      wl-clipboard
-      wlroots
-      xdg-desktop-portal-hyprland
-    ];
-  };
+  # home = {
+  #   packages = with pkgs; [
+  #     brightnessctl
+  #     hyprlock
+  #     hyprshot
+  #     libnotify
+  #     swaynotificationcenter
+  #     awww
+  #     wl-clipboard
+  #     wlroots
+  #     xdg-desktop-portal-hyprland
+  #   ];
+  # };
 
-  services.hypridle.enable = true;
+  # services.hypridle.enable = true;
 
-  imports = [
-    ./cycle-desktop-background
-    ./hyprscale
-    ./toggle-hypridle
-  ];
+  # imports = [
+  #   ./cycle-desktop-background
+  #   ./hyprscale
+  #   ./toggle-hypridle
+  # ];
 
-  xdg.configFile = {
-    "hypr/hypridle.conf".source = ./hypridle.conf;
-    "hypr/hyprlock.conf".source = ./hyprlock.conf;
-    "hypr/parts" = {
-      source = ./parts;
-      recursive = true;
-    };
-  };
+  # xdg.configFile = {
+  #   "hypr/hypridle.conf".source = ./hypridle.conf;
+  #   "hypr/hyprlock.conf".source = ./hyprlock.conf;
+  #   "hypr/parts" = {
+  #     source = ./parts;
+  #     recursive = true;
+  #   };
+  # };
 }
