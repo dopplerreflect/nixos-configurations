@@ -145,6 +145,10 @@
         restartIfChanged = true;
       };
     };
+    kdeconnect = {
+      enable = true;
+      package = pkgs.kdePackages.kdeconnect-kde;
+    };
   };
 
   users = {
