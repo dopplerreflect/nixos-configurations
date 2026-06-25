@@ -10,6 +10,7 @@
         tailwindcss-language-server
         typescript-language-server
         vscode-css-languageserver
+        lemminx
       ];
       settings = {
         theme = "doppler";
@@ -40,6 +41,9 @@
           command = "tailwindcss-language-server";
           args = [ "--stdio" ];
         };
+        language-server.lemminx = {
+          command = "lemminx";
+        };
         language = [
           {
             name = "astro";
@@ -58,9 +62,15 @@
           }
           {
             name = "svelte";
-            language-servers = [ "svelteserver" "tailwind-ls" "typescript-language-server" ];
+            language-servers = [ "svelteserver" ];
             formatter.command = "prettier";
             formatter.args = [ "--parser" "svelte" ];
+            auto-format = true;
+          }
+          {
+            name = "xml";
+            file-types = [ "xml" "svg" ];
+            language-servers = [ "lemminx" ];
             auto-format = true;
           }
         ];
