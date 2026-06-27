@@ -5,12 +5,12 @@
       enable = true;
       extraPackages = with pkgs; [
         astro-language-server
-        prettier
+        # prettier
         svelte-language-server
         tailwindcss-language-server
         typescript-language-server
         vscode-css-languageserver
-        lemminx
+        # lemminx
       ];
       settings = {
         theme = "doppler";
@@ -41,9 +41,9 @@
           command = "tailwindcss-language-server";
           args = [ "--stdio" ];
         };
-        language-server.lemminx = {
-          command = "lemminx";
-        };
+        # language-server.lemminx = {
+        #   command = "lemminx";
+        # };
         language = [
           {
             name = "astro";
@@ -63,16 +63,16 @@
           {
             name = "svelte";
             language-servers = [ "svelteserver" ];
-            formatter.command = "prettier";
-            formatter.args = [ "--parser" "svelte" ];
+            formatter.command = "yarn";
+            formatter.args = [ "dlx" "-q" "-p" "prettier@~3.6.1" "prettier" "--parser" "svelte" ];
             auto-format = true;
           }
-          {
-            name = "xml";
-            file-types = [ "xml" "svg" ];
-            language-servers = [ "lemminx" ];
-            auto-format = true;
-          }
+          # {
+          #   name = "xml";
+          #   file-types = [ "xml" "svg" ];
+          #   language-servers = [ "lemminx" ];
+          #   auto-format = true;
+          # }
         ];
       };
     };
