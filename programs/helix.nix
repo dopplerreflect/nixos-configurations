@@ -41,9 +41,10 @@
           command = "tailwindcss-language-server";
           args = [ "--stdio" ];
         };
-        # language-server.lemminx = {
-        #   command = "lemminx";
-        # };
+        language-server.svelte-ls = {
+          command = "svelteserver";
+          args = [ "--stdio" ];
+        };
         language = [
           {
             name = "astro";
@@ -62,17 +63,12 @@
           }
           {
             name = "svelte";
-            language-servers = [ "svelteserver" ];
+            language-servers = [ "svelte-ls" ];
+            file-types = [ "svelte" ];
             formatter.command = "yarn";
             formatter.args = [ "dlx" "-q" "-p" "prettier@~3.6.1" "prettier" "--parser" "svelte" ];
             auto-format = true;
           }
-          # {
-          #   name = "xml";
-          #   file-types = [ "xml" "svg" ];
-          #   language-servers = [ "lemminx" ];
-          #   auto-format = true;
-          # }
         ];
       };
     };
