@@ -11,6 +11,7 @@
         default-command = [ "log" ];
         editor = "${pkgs.helix}/bin/hx";
         paginate = "never";
+        color = "always";
       };
       aliases = {
         bmm = [ "bookmark" "move" "main" "--to=@-" ];
