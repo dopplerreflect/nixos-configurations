@@ -15,6 +15,7 @@
       };
       aliases = {
         bmm = [ "bookmark" "move" "main" "--to=@-" ];
+        d = [ "describe" "-m" ];
         gp = [ "git" "push" ];
       };
     };
