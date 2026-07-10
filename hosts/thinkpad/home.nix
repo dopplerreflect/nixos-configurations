@@ -22,7 +22,7 @@
       # helix
       # homebank
       imv
-      # inkscape
+      inkscape
       # krita
       librsvg
       mpv
