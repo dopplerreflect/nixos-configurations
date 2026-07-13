@@ -50,18 +50,31 @@
     #     xkb-options=ctrl:nocaps
     #   '';
     # };
-    desktopManager.cosmic.enable = true;
+    # desktopManager.cosmic.enable = true;
     devmon.enable = true;
     displayManager = {
+      dms-greeter = {
+        enable = true;
+        compositor = {
+          name = "hyprland";
+          customConfig = ''
+            input {
+              kb_layout = us
+              kb_variant = dvorak
+            }
+          '';
+        };
+        configHome = "/home/doppler";
+      };
       # autoLogin = {
       #   enable = true;
       #   user = "doppler";
       # };
-      cosmic-greeter.enable = true;
-      defaultSession = "cosmic";
+      # cosmic-greeter.enable = true;
+      # defaultSession = "cosmic";
       sessionPackages = [
         pkgs.hyprland
-        pkgs.cosmic-session
+        # pkgs.cosmic-session
       ];
     };
     fwupd.enable = true;
@@ -85,8 +98,15 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    power-profiles-daemon.enable = true;
+    power-profiles-daemon.enable = false;
     tailscale.enable = true;
+    tlp = {
+      enable = true;
+      settings = {
+        START_CHARGE_THRESH_BAT0 = 60;
+        STOP_CHARGE_THRESH_BAT0 = 80;
+      };
+    };
     udisks2 = {
       enable = true;
       mountOnMedia = true;
@@ -104,7 +124,7 @@
   };
 
   environment = {
-    pathsToLink = [ "/share/zsh" ];
+    pathsToLink = [ "/share/zsh" "/share/applications" "/share/xdg-desktop-portal" ];
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       PATH = [ "$HOME/.local/bin" "$HOME/.yarn/bin" ];
@@ -112,10 +132,10 @@
   };
 
   security = {
-    pam.services.cosmic-greeter = {
-      enableGnomeKeyring = true;
-      kwallet.enable = true;
-    };
+    # pam.services.cosmic-greeter = {
+    #   enableGnomeKeyring = true;
+    #   kwallet.enable = true;
+    # };
     polkit.enable = true;
     rtkit.enable = true;
   };
@@ -145,6 +165,7 @@
         restartIfChanged = true;
       };
     };
+    hyprland.enable = true;
     kdeconnect = {
       enable = true;
       package = pkgs.kdePackages.kdeconnect-kde;
