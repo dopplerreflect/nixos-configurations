@@ -98,15 +98,15 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    power-profiles-daemon.enable = false;
+    power-profiles-daemon.enable = true;
     tailscale.enable = true;
-    tlp = {
-      enable = true;
-      settings = {
-        START_CHARGE_THRESH_BAT0 = 60;
-        STOP_CHARGE_THRESH_BAT0 = 80;
-      };
-    };
+    # tlp = {
+    #   enable = true;
+    #   settings = {
+    #     START_CHARGE_THRESH_BAT0 = 60;
+    #     STOP_CHARGE_THRESH_BAT0 = 80;
+    #   };
+    # };
     udisks2 = {
       enable = true;
       mountOnMedia = true;
