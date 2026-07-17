@@ -47,6 +47,7 @@ in
             ls = "eza";
             nms = "nmcli device wifi list --rescan yes";
             nmc = "nmcli device wifi connect";
+            # ssh = "kitty +kitten ssh";
           }
           // lib.optionalAttrs isThinkpad {
             code = "codium";
