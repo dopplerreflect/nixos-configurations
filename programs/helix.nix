@@ -66,7 +66,7 @@
             language-servers = [ "svelte-ls" ];
             file-types = [ "svelte" ];
             formatter.command = "yarn";
-            formatter.args = [ "dlx" "-q" "-p" "prettier@~3.6.1" "prettier" "--parser" "svelte" ];
+            formatter.args = [ "dlx" "-q" "-p" "prettier@latest" "prettier" "--parser" "svelte" ];
             auto-format = true;
           }
         ];
