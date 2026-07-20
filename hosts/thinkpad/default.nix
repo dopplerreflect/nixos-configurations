@@ -78,7 +78,7 @@
       ];
     };
     fwupd.enable = true;
-    # gnome.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     # nginx = {
     #   enable = true;
@@ -170,7 +170,6 @@
       enable = true;
       package = pkgs.kdePackages.kdeconnect-kde;
     };
-    ssh.startAgent = true;
   };
 
   users = {
