@@ -129,6 +129,14 @@
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       PATH = [ "$HOME/.local/bin" "$HOME/.yarn/bin" ];
     };
+    systemPackages = with pkgs; [
+      librsvg
+      nixd
+      nixfmt
+      nodejs
+      unzip
+      wl-clipboard
+    ];
   };
 
   security = {

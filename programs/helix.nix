@@ -26,9 +26,7 @@
       };
       themes = {
         doppler = {
-          inherits = "tokyonight";
-          function = { fg = "blue"; };
-          keyword = { fg = "purple"; };
+          inherits = "modus_vivendi_tritanopia";
           "ui.background"= {};
         };
       };
