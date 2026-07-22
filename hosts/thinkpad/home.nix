@@ -3,55 +3,6 @@
   home = {
     username = "doppler";
     homeDirectory = "/home/doppler";
-    packages = with pkgs; [
-      authenticator
-      bitwarden-desktop
-      brave
-      btop
-      bun
-      # gcc
-      # gh
-      googleearth-pro
-      # gqrx
-      # file
-      # firefox
-      # freefilesync
-      # ghostty
-      gimp3
-      # gnumake
-      # helix
-      # homebank
-      imv
-      inkscape
-      # krita
-      librsvg
-      mpv
-      nautilus
-      nextcloud-client
-      # nixos-stable.nixd
-      nixd
-      nixfmt
-      nodejs
-      # ollama
-      pavucontrol
-      # pnpm
-      prettier
-      # python3
-      # ripgrep
-      tor-browser
-      unzip
-      virt-manager
-      virt-viewer
-      # vscodium
-      # wavemon
-      # xfce.thunar
-      # xfce.thunar-volman
-      # xfce.tumbler
-      # xfce.xfconf
-      xdg-desktop-portal-cosmic
-      yarn
-      yazi
-    ];
     file = {
       "./.local/share/applications" = {
         source = ./.local/share/applications;

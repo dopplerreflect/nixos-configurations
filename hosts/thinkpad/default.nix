@@ -129,15 +129,10 @@
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       PATH = [ "$HOME/.local/bin" "$HOME/.yarn/bin" ];
     };
-    systemPackages = with pkgs; [
-      librsvg
-      nixd
-      nixfmt
-      nodejs
-      unzip
-      wl-clipboard
-    ];
   };
+  imports = [
+    ./environment.systemPackages.nix
+  ];
 
   security = {
     # pam.services.cosmic-greeter = {
