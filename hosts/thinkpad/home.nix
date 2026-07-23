@@ -13,6 +13,10 @@
   };
 
   programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
     firefox = {
       enable = true;
       package = pkgs.firefox;
