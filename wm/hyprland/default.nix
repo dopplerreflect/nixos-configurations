@@ -1,6 +1,4 @@
 {
-  pkgs,
-  lib,
   ...
 }:
 {
@@ -8,7 +6,11 @@
     hyprland = {
       enable = true;
       configType = "lua";
-      extraConfig = "require('dms.hyprland')";
+      extraConfig = ''
+        hl.exec_cmd("echo -n bb | gnome-keyring-daemon --replace --unlock")
+        hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 24")
+        require('dms.hyprland')
+      '';
       # extraConfig = lib.fileContents ./hyprland.lua;
       # xwayland.enable = false; # this causes cache.nixos.org miss and thus has to build from source
     };

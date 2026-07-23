@@ -131,6 +131,7 @@
     };
   };
   imports = [
+    inputs.dms.nixosModules.dank-material-shell
     inputs.dms.nixosModules.greeter
     ./environment.systemPackages.nix
   ];
@@ -161,27 +162,34 @@
 
   programs = {
     dconf.enable = true;
-    dank-material-shell.greeter = {
-      enable = true;
-      compositor = {
-        name = "hyprland";
-        customConfig = ''
-          input {
-            kb_layout = us
-            kb_variant = dvorak
-          }
-        '';
-        };
-      configHome = "/home/doppler";
-    };
-    dms-shell = {
-      # package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    dank-material-shell= {
       enable = true;
       systemd = {
         enable = true;
         restartIfChanged = true;
       };
+      greeter = {
+        enable = true;
+        compositor = {
+          name = "hyprland";
+          customConfig = ''
+            input {
+              kb_layout = us
+              kb_variant = dvorak
+            }
+          '';
+          };
+        configHome = "/home/doppler";
+      };
     };
+    # dms-shell = {
+    #   # package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    #   enable = true;
+    #   systemd = {
+    #     enable = true;
+    #     restartIfChanged = true;
+    #   };
+    # };
     hyprland.enable = true;
     kdeconnect = {
       enable = true;
