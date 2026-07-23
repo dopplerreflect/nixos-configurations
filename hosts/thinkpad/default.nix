@@ -52,31 +52,31 @@
     # };
     # desktopManager.cosmic.enable = true;
     devmon.enable = true;
-    displayManager = {
-      dms-greeter = {
-        enable = true;
-        compositor = {
-          name = "hyprland";
-          customConfig = ''
-            input {
-              kb_layout = us
-              kb_variant = dvorak
-            }
-          '';
-        };
-        configHome = "/home/doppler";
-      };
-      # autoLogin = {
-      #   enable = true;
-      #   user = "doppler";
-      # };
-      # cosmic-greeter.enable = true;
-      # defaultSession = "cosmic";
-      sessionPackages = [
-        pkgs.hyprland
-        # pkgs.cosmic-session
-      ];
-    };
+    # displayManager = {
+    #   dms-greeter = {
+    #     enable = true;
+    #     compositor = {
+    #       name = "hyprland";
+    #       customConfig = ''
+    #         input {
+    #           kb_layout = us
+    #           kb_variant = dvorak
+    #         }
+    #       '';
+    #     };
+    #     configHome = "/home/doppler";
+    #   };
+    #   # autoLogin = {
+    #   #   enable = true;
+    #   #   user = "doppler";
+    #   # };
+    #   # cosmic-greeter.enable = true;
+    #   # defaultSession = "cosmic";
+    #   sessionPackages = [
+    #     pkgs.hyprland
+    #     # pkgs.cosmic-session
+    #   ];
+    # };
     fwupd.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
@@ -131,6 +131,7 @@
     };
   };
   imports = [
+    inputs.dms.nixosModules.greeter
     ./environment.systemPackages.nix
   ];
 
@@ -160,8 +161,21 @@
 
   programs = {
     dconf.enable = true;
+    dank-material-shell.greeter = {
+      enable = true;
+      compositor = {
+        name = "hyprland";
+        customConfig = ''
+          input {
+            kb_layout = us
+            kb_variant = dvorak
+          }
+        '';
+        };
+      configHome = "/home/doppler";
+    };
     dms-shell = {
-      package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      # package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
       enable = true;
       systemd = {
         enable = true;
