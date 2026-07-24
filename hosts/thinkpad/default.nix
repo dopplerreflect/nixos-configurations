@@ -224,7 +224,7 @@
   ];
 
   # nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.7.1155" ];
-  nixpkgs.config.allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) [ "googleearth-pro" "electron" ];
+  nixpkgs.config.allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) [ "googleearth-pro" ];
 
   nix = {
     settings = {
