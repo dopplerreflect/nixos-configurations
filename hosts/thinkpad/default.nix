@@ -147,6 +147,11 @@
 
   hardware = {
     rtl-sdr.enable = true;
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs;
+        [ intel-media-driver vpl-gpu-rt ];
+    };
   };
 
   virtualisation = {
@@ -210,6 +215,8 @@
         "networkmanager"
         # "nginx"
         "plugdev"
+        "render"
+        "video"
         "wheel"
       ];
       shell = pkgs.zsh;
