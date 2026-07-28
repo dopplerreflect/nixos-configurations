@@ -7,6 +7,7 @@
       enable = true;
       configType = "lua";
       extraConfig = builtins.readFile ./hyprland-with-dms.lua;
+      systemd.enable = false;
       # extraConfig = lib.fileContents ./hyprland.lua; # old, ags-based config
       # xwayland.enable = false; # this causes cache.nixos.org miss and thus has to build from source
     };

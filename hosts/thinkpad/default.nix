@@ -195,7 +195,10 @@
     #     restartIfChanged = true;
     #   };
     # };
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
     kdeconnect = {
       enable = true;
       package = pkgs.kdePackages.kdeconnect-kde;
