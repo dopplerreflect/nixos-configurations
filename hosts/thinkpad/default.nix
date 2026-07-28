@@ -41,6 +41,11 @@
   };
 
   services = {
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
     # kmscon = {
     #   enable = true;
     #   extraConfig = ''
@@ -99,6 +104,19 @@
       pulse.enable = true;
     };
     power-profiles-daemon.enable = true;
+    printing = {
+      enable = true;
+      listenAddresses = [ "*:631" ];
+      allowFrom = [ "all" ];
+      browsing = true;
+      defaultShared = true;
+      openFirewall = true;
+      drivers = with pkgs; [
+        cups-filters
+        cups-browsed
+        hplip
+      ];
+    };
     tailscale.enable = true;
     # tlp = {
     #   enable = true;
