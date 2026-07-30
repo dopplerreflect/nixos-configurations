@@ -12,4 +12,6 @@ hl.gesture({
   }
 })
 
+hl.window_rule({ match = { class = "^mpv$" }, fullscreen = true })
+
 require('dms.hyprland')
