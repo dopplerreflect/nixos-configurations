@@ -12,6 +12,12 @@ hl.gesture({
   }
 })
 
+hl.config({
+  input = {
+    kb_variant = "dvorak",
+    kb_options = "caps:ctrl_modifier",
+  }
+})
 hl.window_rule({ match = { class = "^mpv$" }, fullscreen = true })
 
 require('dms.hyprland')
