@@ -6,7 +6,7 @@
   imports = [
     ../programs/git.nix
     ../programs/neovim.nix
-    ../programs/zsh
+    ../programs/zsh.nix
   ];
 
   time.timeZone = "America/Chicago";

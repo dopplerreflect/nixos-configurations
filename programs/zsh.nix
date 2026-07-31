@@ -16,9 +16,6 @@ in
         fastfetch
         zoxide
       ];
-      file = {
-        # ".zprofile".source = ./.zprofile;
-      };
     };
     programs = {
       oh-my-posh = {
@@ -47,13 +44,9 @@ in
             ls = "eza";
             nms = "nmcli device wifi list --rescan yes";
             nmc = "nmcli device wifi connect";
-            # ssh = "kitty +kitten ssh";
           }
           // lib.optionalAttrs isThinkpad {
-            code = "codium";
-            hs = "hyprscale";
             pi = "ssh pi";
-            # ssh = "kitten ssh";
           };
       };
       zoxide = {
