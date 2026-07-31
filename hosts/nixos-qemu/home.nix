@@ -22,15 +22,15 @@
     ../../programs/kitty
   ];
 
-  gtk = {
-    enable = true;
-    theme = {
-      package = pkgs.andromeda-gtk-theme;
-      name = "Andromeda";
-    };
-    iconTheme = {
-      package = pkgs.beauty-line-icon-theme;
-      name = "BeautyLine";
-    };
-  };
+  # gtk = {
+  #   enable = true;
+  #   theme = {
+  #     package = pkgs.gruvbox-material-gtk-theme;
+  #     name = "Pop";
+  #   };
+  #   iconTheme = {
+  #     package = pkgs.beauty-line-icon-theme;
+  #     name = "BeautyLine";
+  #   };
+  # };
 }

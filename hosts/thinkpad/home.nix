@@ -38,18 +38,18 @@
 
   gtk = {
     enable = true;
-    theme = {
-      package = pkgs.andromeda-gtk-theme;
-      name = "Andromeda";
-    };
-    gtk4.theme = config.gtk.theme;
-    iconTheme = {
-      package = pkgs.beauty-line-icon-theme;
-      name = "BeautyLine";
-    };
     cursorTheme = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
     };
+  #   theme = {
+  #     package = pkgs.gruvbox-material-gtk-theme;
+  #     name = "Pop";
+  #   };
+  #   gtk4.theme = config.gtk.theme;
+  #   iconTheme = {
+  #     package = pkgs.beauty-line-icon-theme;
+  #     name = "BeautyLine";
+  #   };
   };
 }
