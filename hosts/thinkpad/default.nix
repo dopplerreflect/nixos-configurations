@@ -13,9 +13,6 @@
       };
     };
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-    # kernelPackages = pkgs.linuxPackages_cachyos;
-    # binfmt.emulatedSystems = [ "aarch64-linux" ];
-    # suppress "i801_smbus 0000:00:1f.4: SMBus is busy, can't use it!"
     blacklistedKernelModules = [ "i2c_i801" ];
   };
 
@@ -46,57 +43,10 @@
       nssmdns4 = true;
       openFirewall = true;
     };
-    # kmscon = {
-    #   enable = true;
-    #   extraConfig = ''
-    #     font-size=18
-    #     xkb-layout=us
-    #     xkb-variant=dvorak
-    #     xkb-options=ctrl:nocaps
-    #   '';
-    # };
-    # desktopManager.cosmic.enable = true;
     devmon.enable = true;
-    # displayManager = {
-    #   dms-greeter = {
-    #     enable = true;
-    #     compositor = {
-    #       name = "hyprland";
-    #       customConfig = ''
-    #         input {
-    #           kb_layout = us
-    #           kb_variant = dvorak
-    #         }
-    #       '';
-    #     };
-    #     configHome = "/home/doppler";
-    #   };
-    #   # autoLogin = {
-    #   #   enable = true;
-    #   #   user = "doppler";
-    #   # };
-    #   # cosmic-greeter.enable = true;
-    #   # defaultSession = "cosmic";
-    #   sessionPackages = [
-    #     pkgs.hyprland
-    #     # pkgs.cosmic-session
-    #   ];
-    # };
     fwupd.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
-    # nginx = {
-    #   enable = true;
-    #   virtualHosts."thinkpad" = {
-    #     root = "/var/www";
-    #   };
-    # };
-    # ollama = {
-    #   enable = true;
-    # };
-    # open-webui = {
-    #   enable = true;
-    # };
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -118,13 +68,6 @@
       ];
     };
     tailscale.enable = true;
-    # tlp = {
-    #   enable = true;
-    #   settings = {
-    #     START_CHARGE_THRESH_BAT0 = 60;
-    #     STOP_CHARGE_THRESH_BAT0 = 80;
-    #   };
-    # };
     udisks2 = {
       enable = true;
       mountOnMedia = true;
@@ -155,10 +98,6 @@
   ];
 
   security = {
-    # pam.services.cosmic-greeter = {
-    #   enableGnomeKeyring = true;
-    #   kwallet.enable = true;
-    # };
     polkit.enable = true;
     rtkit.enable = true;
   };
@@ -173,13 +112,6 @@
   };
 
   virtualisation = {
-    # docker = {
-    #   enable = true;
-    #   rootless = {
-    #     enable = true;
-    #     setSocketVariable = true;
-    #   };
-    # };
     libvirtd.enable = true;
   };
 
@@ -205,14 +137,6 @@
         configHome = "/home/doppler";
       };
     };
-    # dms-shell = {
-    #   # package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    #   enable = true;
-    #   systemd = {
-    #     enable = true;
-    #     restartIfChanged = true;
-    #   };
-    # };
     hyprland = {
       enable = true;
       withUWSM = true;
@@ -230,11 +154,9 @@
       hashedPassword = "$y$j9T$L4WXXG1W0rCNHzFrg8Q3D0$l7NOkrjD5B/VKUrHAjmfile5hDECM1yr6SJno71/xg1";
       description = "doppler";
       extraGroups = [
-        # "docker"
         "input"
         "libvirtd"
         "networkmanager"
-        # "nginx"
         "plugdev"
         "render"
         "video"
@@ -251,7 +173,6 @@
     nerd-fonts.fira-code
   ];
 
-  # nixpkgs.config.permittedInsecurePackages = [ "googleearth-pro-7.3.7.1155" ];
   nixpkgs.config.allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) [ "googleearth-pro" ];
 
   nix = {

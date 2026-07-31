@@ -12,12 +12,6 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # zen-browser = {
-    #   url = "github:0xc000022070/zen-browser-flake";
-    #   # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
-    #   # to have it up-to-date or simply don't specify the nixpkgs input
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
   outputs =
@@ -50,7 +44,6 @@
                 users.doppler = {
                   imports = [
                     ./hosts/thinkpad/home.nix
-                    # inputs.zen-browser.homeModules.beta
                   ];
                 };
               };
@@ -74,44 +67,6 @@
             }
           ];
         };
-        # x86_64-iso = nixpkgs.lib.nixosSystem {
-        #   specialArgs = inputs;
-        #   modules = [
-        #     { nixpkgs.hostPlatform = "x86_64-linux"; }
-        #     (
-        #       {
-        #         pkgs,
-        #         modulesPath,
-        #         ...
-        #       }:
-        #       {
-        #         imports = [
-        #           (modulesPath + "/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix")
-        #           ./programs/git.nix
-        #         ];
-        #         networking = {
-        #           # wireless.enable = false;
-        #           networkmanager.enable = true;
-        #         };
-        #         console = {
-        #           earlySetup = true;
-        #           font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v28b.psf.gz";
-        #           packages = with pkgs; [ powerline-fonts ];
-        #           keyMap = "dvorak";
-        #         };
-        #         nix = {
-        #           package = pkgs.nixVersions.stable;
-        #           extraOptions = "experimental-features = nix-command flakes";
-        #         };
-        #         environment.systemPackages = with pkgs; [
-        #           tmux
-        #           vim
-        #           git
-        #         ];
-        #       }
-        #     )
-        #   ];
-        # };
       };
     };
 }

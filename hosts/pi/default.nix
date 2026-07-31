@@ -39,7 +39,6 @@
 
   networking = {
     hostName = "pi";
-    # extraHosts = "192.168.12.11 GW2000X ecowitt\n192.168.12.10 thinkpad";
     firewall = {
       enable = false;
     };
@@ -148,15 +147,6 @@
     raspberry-pi."4".bluetooth.enable = true;
     enableRedistributableFirmware = true;
   };
-
-  #  systemd.services.btattach = {
-  #    before = [ "bluetooth.service" ];
-  #    after = [ "dev-ttyAMA0.device" ];
-  #    wantedBy = [ "multi-user.target" ];
-  #    serviceConfig = {
-  #      ExecStart = "${pkgs.bluez}/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000";
-  #    };
-  #  };
 
   system.stateVersion = "23.11";
 }

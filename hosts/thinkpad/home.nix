@@ -20,10 +20,8 @@
     firefox = {
       enable = true;
       package = pkgs.firefox;
-      # nativeMessagingHosts = [ pkgs.firefoxpwa ];
       configPath = "${config.xdg.configHome}/mozilla/firefox";
     };
-    # zen-browser.enable = true;
   };
 
   imports = [
@@ -42,14 +40,5 @@
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
     };
-  #   theme = {
-  #     package = pkgs.gruvbox-material-gtk-theme;
-  #     name = "Pop";
-  #   };
-  #   gtk4.theme = config.gtk.theme;
-  #   iconTheme = {
-  #     package = pkgs.beauty-line-icon-theme;
-  #     name = "BeautyLine";
-  #   };
   };
 }
