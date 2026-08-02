@@ -44,6 +44,21 @@
       openFirewall = true;
     };
     devmon.enable = true;
+    displayManager = {
+      dms-greeter = {
+        enable = true;
+        compositor = {
+          name = "hyprland";
+          customConfig = ''
+            input {
+              kb_layout = us
+              kb_variant = dvorak
+            }
+          '';
+          };
+        configHome = "/home/doppler";
+      };
+    };
     fwupd.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
@@ -123,19 +138,19 @@
         enable = true;
         restartIfChanged = true;
       };
-      greeter = {
-        enable = true;
-        compositor = {
-          name = "hyprland";
-          customConfig = ''
-            input {
-              kb_layout = us
-              kb_variant = dvorak
-            }
-          '';
-          };
-        configHome = "/home/doppler";
-      };
+      # greeter = {
+      #   enable = true;
+      #   compositor = {
+      #     name = "hyprland";
+      #     customConfig = ''
+      #       input {
+      #         kb_layout = us
+      #         kb_variant = dvorak
+      #       }
+      #     '';
+      #     };
+      #   configHome = "/home/doppler";
+      # };
     };
     hyprland = {
       enable = true;
