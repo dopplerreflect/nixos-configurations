@@ -7,7 +7,7 @@
       enable = true;
       configType = "lua";
       extraConfig = builtins.readFile ./hyprland-with-dms.lua;
-      systemd.enable = true;
+      systemd.enable = false;
     };
   };
 }
