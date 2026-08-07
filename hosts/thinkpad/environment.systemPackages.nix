@@ -6,6 +6,7 @@
     brave
     btop
     bun
+    freecad
     googleearth-pro
     gimp3
     imv
