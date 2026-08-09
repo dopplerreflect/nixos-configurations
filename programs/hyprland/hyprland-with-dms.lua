@@ -1,3 +1,8 @@
+hl.on("hyprland.start", function()
+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+  hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
+end)
+
 hl.exec_cmd("echo -n bb | gnome-keyring-daemon --replace --unlock")
 hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 24")
 
