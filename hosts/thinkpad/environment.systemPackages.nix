@@ -21,7 +21,6 @@
     unzip
     virt-manager
     virt-viewer
-    vlc
     wf-recorder
     wl-clipboard
     yarn    
