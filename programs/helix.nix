@@ -4,7 +4,7 @@
     helix = {
       enable = true;
       extraPackages = with pkgs; [
-        astro-language-server
+        # astro-language-server
         # prettier
         svelte-language-server
         tailwindcss-language-server
@@ -31,10 +31,10 @@
         };
       };
       languages = {
-        language-server.astro-ls = {
-          command = "astro-ls";
-          args = [ "--stdio" ];
-        };
+        # language-server.astro-ls = {
+        #   command = "astro-ls";
+        #   args = [ "--stdio" ];
+        # };
         language-server.tailwind-ls = {
           command = "tailwindcss-language-server";
           args = [ "--stdio" ];
@@ -44,15 +44,15 @@
           args = [ "--stdio" ];
         };
         language = [
-          {
-            name = "astro";
-            file-types = ["astro"];
-            roots = ["package.json" "astro.config.mjs"];
-            language-servers = ["astro-ls" "typescript-language-server"];
-            formatter.command = "prettier";
-            formatter.args = [ "--parser" "astro" ];
-            auto-format = true;
-          }
+          # {
+          #   name = "astro";
+          #   file-types = ["astro"];
+          #   roots = ["package.json" "astro.config.mjs"];
+          #   language-servers = ["astro-ls" "typescript-language-server"];
+          #   formatter.command = "prettier";
+          #   formatter.args = [ "--parser" "astro" ];
+          #   auto-format = true;
+          # }
           {
             name = "typescript";
             formatter.command = "prettier";

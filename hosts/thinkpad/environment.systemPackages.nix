@@ -18,6 +18,8 @@
     nixd
     nixfmt
     nodejs
+    openscad-unstable
+    openscad-lsp
     unzip
     virt-manager
     virt-viewer

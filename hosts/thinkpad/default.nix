@@ -157,10 +157,10 @@
       enable = true;
       withUWSM = true;
     };
-    kdeconnect = {
-      enable = true;
-      package = pkgs.kdePackages.kdeconnect-kde;
-    };
+    # kdeconnect = {
+    #   enable = true;
+    #   package = pkgs.kdePackages.kdeconnect-kde;
+    # };
   };
 
   users = {
