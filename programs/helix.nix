@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs-stable, ... }:
 {
   programs = {
     helix = {
       enable = true;
-      extraPackages = with pkgs; [
+      package = pkgs-stable.helix;
+      extraPackages = with pkgs-stable; [
         # astro-language-server
         # prettier
         svelte-language-server

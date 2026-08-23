@@ -2,8 +2,9 @@
   description = "NixOS Configurations";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +18,7 @@
   outputs =
     {
       nixpkgs,
+      nixpkgs-stable,
       nixos-hardware,
       home-manager,
       ...
@@ -24,8 +26,14 @@
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
       nixosConfigurations = {
-        thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+        thinkpad = let
+          system = "x86_64-linux";
+        in nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs;
+            pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+          };
           modules = [
             ./hosts/thinkpad/hardware-configuration.nix
 
@@ -41,6 +49,9 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
+                extraSpecialArgs = {
+                  pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+                };
                 users.doppler = {
                   imports = [
                     ./hosts/thinkpad/home.nix
