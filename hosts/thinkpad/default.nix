@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, pkgs-unstable, inputs, lib, ... }:
 {
   boot = {
     loader = {
@@ -154,6 +154,7 @@
       # };
     };
     hyprland = {
+      package = pkgs-unstable.hyprland;
       enable = true;
       withUWSM = true;
     };

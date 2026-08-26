@@ -2,23 +2,23 @@
   description = "NixOS Configurations";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dms = {
       url = "github:AvengeMedia/DankMaterialShell/stable";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
   outputs =
     {
       nixpkgs,
-      nixpkgs-stable,
+      nixpkgs-unstable,
       nixos-hardware,
       home-manager,
       ...
@@ -32,7 +32,7 @@
           inherit system;
           specialArgs = {
             inherit inputs;
-            pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+            pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
           };
           modules = [
             ./hosts/thinkpad/hardware-configuration.nix
@@ -50,7 +50,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = {
-                  pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+                  pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
                 };
                 users.doppler = {
                   imports = [

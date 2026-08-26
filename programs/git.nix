@@ -1,7 +1,6 @@
-{ pkgs-stable, ... }:
+{ ... }:
 {
   programs.git = {
-    package = pkgs-stable.git;
     enable = true;
     config = {
       init = {

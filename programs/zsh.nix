@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs-stable,
+  pkgs,
   ...
 }:
 let
@@ -10,7 +10,7 @@ in
 {
   home-manager.users.doppler = {
     home = {
-      packages = with pkgs-stable; [
+      packages = with pkgs; [
         bat
         eza
         fastfetch
@@ -19,12 +19,10 @@ in
     };
     programs = {
       oh-my-posh = {
-        package = pkgs-stable.oh-my-posh;
         enable = true;
         useTheme = "sonicboom_dark";
       };
       zsh = {
-        package = pkgs-stable.zsh;
         enable = true;
         enableCompletion = true;
         autosuggestion = {
@@ -52,7 +50,6 @@ in
           };
       };
       zoxide = {
-        package = pkgs-stable.zoxide;
         enable = true;
         options = [ "--cmd cd" ];
       };

@@ -1,6 +1,6 @@
-{ pkgs, pkgs-stable, ... }:
+{ pkgs,... }:
 {
-  environment.systemPackages = with pkgs-stable; [
+  environment.systemPackages = with pkgs; [
     authenticator
     blender
     brave
@@ -8,6 +8,7 @@
     bun
     freecad
     gimp3
+    googleearth-pro
     imv
     inkscape
     librsvg
@@ -25,7 +26,5 @@
     wf-recorder
     wl-clipboard
     yarn    
-  ] ++ [
-    pkgs.googleearth-pro
   ];
 }

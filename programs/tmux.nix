@@ -1,11 +1,10 @@
-{ pkgs-stable, ... }:
+{ pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
-    package = pkgs-stable.tmux;
     baseIndex = 1;
     escapeTime = 0;
-    plugins = with pkgs-stable; [
+    plugins = with pkgs; [
       tmuxPlugins.tokyo-night-tmux
     ];
   };
