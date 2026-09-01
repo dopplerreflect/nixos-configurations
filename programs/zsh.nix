@@ -35,6 +35,14 @@ in
         };
         initContent = ''
           setopt NO_CASE_GLOB
+          function project_tmux_autostart() {
+            [[ -n "$TMUX" ]] && return
+            [[ -z "$PROJECT_TMUX_SESSION" ]] && return
+            [[ -z "$DIRENV_DIR" ]] && return
+            tmux new-session -A -s "$PROJECT_TMUX_SESSION"
+          }
+          autoload -Uz add-zsh-hook
+          add-zsh-hook precmd project_tmux_autostart
         '';
         shellAliases =
           {
