@@ -48,11 +48,15 @@
       dms-greeter = {
         enable = true;
         compositor = {
-          name = "hyprland";
+          name = "niri";
           customConfig = ''
             input {
-              kb_layout = us
-              kb_variant = dvorak
+              keyboard {
+                xkb {
+                  layout "us"
+                  variant "dvorak"
+                }
+              }
             }
           '';
           };
@@ -153,15 +157,16 @@
       #   configHome = "/home/doppler";
       # };
     };
-    hyprland = {
-      package = pkgs-unstable.hyprland;
-      enable = true;
-      withUWSM = true;
-    };
+    # hyprland = {
+    #   package = pkgs-unstable.hyprland;
+    #   enable = true;
+    #   withUWSM = true;
+    # };
     # kdeconnect = {
     #   enable = true;
     #   package = pkgs.kdePackages.kdeconnect-kde;
     # };
+    niri.enable = true;
   };
 
   users = {
