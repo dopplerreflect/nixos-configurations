@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, inputs, lib, ... }:
+{ pkgs, pkgs-unstable, inputs, config, lib, ... }:
 {
   boot = {
     loader = {
@@ -49,16 +49,6 @@
         enable = true;
         compositor = {
           name = "niri";
-          customConfig = ''
-            input {
-              keyboard {
-                xkb {
-                  layout "us"
-                  variant "dvorak"
-                }
-              }
-            }
-          '';
           };
         configHome = "/home/doppler";
       };
@@ -112,7 +102,6 @@
   };
   imports = [
     inputs.dms.nixosModules.dank-material-shell
-    inputs.dms.nixosModules.greeter
     ./environment.systemPackages.nix
   ];
 
@@ -143,28 +132,11 @@
         enable = true;
         restartIfChanged = true;
       };
-      # greeter = {
-      #   enable = true;
-      #   compositor = {
-      #     name = "hyprland";
-      #     customConfig = ''
-      #       input {
-      #         kb_layout = us
-      #         kb_variant = dvorak
-      #       }
-      #     '';
-      #     };
-      #   configHome = "/home/doppler";
-      # };
     };
     # hyprland = {
     #   package = pkgs-unstable.hyprland;
     #   enable = true;
     #   withUWSM = true;
-    # };
-    # kdeconnect = {
-    #   enable = true;
-    #   package = pkgs.kdePackages.kdeconnect-kde;
     # };
     niri.enable = true;
   };

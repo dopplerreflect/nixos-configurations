@@ -25,7 +25,7 @@
   };
 
   imports = [
-    ../../programs/hyprland
+    # ../../programs/hyprland
     ../../programs/fzf.nix
     ../../programs/helix.nix
     ../../programs/jujutsu.nix
