@@ -81,6 +81,7 @@
       enable = true;
       mountOnMedia = true;
     };
+    upower.enable = true;
     xserver = {
       enable = true;
       autorun = false;
