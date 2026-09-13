@@ -56,6 +56,20 @@
     fwupd.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
+    home-assistant = {
+      enable = true;
+      extraComponents = [
+        "analytics"
+        "default_config"
+        "ecowitt"
+        "esphome"
+        "isal"
+        "met"
+        "my"
+        "radio_browser"
+        "wled"
+      ];
+    };
     pipewire = {
       enable = true;
       alsa.enable = true;
