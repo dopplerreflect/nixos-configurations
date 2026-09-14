@@ -62,12 +62,7 @@
         "analytics"
         "default_config"
         "ecowitt"
-        "esphome"
         "isal"
-        "met"
-        "my"
-        "radio_browser"
-        "wled"
       ];
     };
     pipewire = {
