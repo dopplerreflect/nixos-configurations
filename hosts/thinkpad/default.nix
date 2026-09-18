@@ -8,8 +8,10 @@
     };
     kernel = {
       sysctl = {
-        "net.ipv6.conf.wifi.hop_limit" = 66;
         "net.ipv4.ip_default_ttl" = 66;
+        "net.ipv6.conf.wlp0s20f3.hop_limit" = 66;
+        "net.ipv6.conf.all.hop_limit" = 66;
+        "net.ipv6.conf.default.hop_limit" = 66;
       };
     };
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
@@ -20,22 +22,23 @@
     hostName = "thinkpad";
     nameservers = [ "9.9.9.9" ];
     firewall.enable = false;
+    usePredictableInterfaceNames = true;
   };
 
-  systemd.network.links = {
-    "10-internet" = {
-      matchConfig.PermanentMACAddress = "a0:ce:c8:de:a0:43";
-      linkConfig.Name = "eth0";
-    };
-    "11-internet" = {
-      matchConfig.PermanentMACAddress = "54:05:db:a6:f2:9c";
-      linkConfig.Name = "eth1";
-    };
-    "12-internet" = {
-      matchConfig.PermanentMACAddress = "3c:9c:0f:fc:0c:51";
-      linkConfig.Name = "wifi";
-    };
-  };
+  # systemd.network.links = {
+  #   "10-internet" = {
+  #     matchConfig.PermanentMACAddress = "a0:ce:c8:de:a0:43";
+  #     linkConfig.Name = "eth0";
+  #   };
+  #   "11-internet" = {
+  #     matchConfig.PermanentMACAddress = "54:05:db:a6:f2:9c";
+  #     linkConfig.Name = "eth1";
+  #   };
+  #   "12-internet" = {
+  #     matchConfig.PermanentMACAddress = "3c:9c:0f:fc:0c:51";
+  #     linkConfig.Name = "wifi";
+  #   };
+  # };
 
   services = {
     avahi = {
