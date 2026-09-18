@@ -146,6 +146,9 @@
         restartIfChanged = true;
       };
     };
+    dsearch = {
+      enable = true;
+    };
     # hyprland = {
     #   package = pkgs-unstable.hyprland;
     #   enable = true;

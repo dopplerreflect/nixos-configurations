@@ -1,4 +1,4 @@
-{ pkgs,... }:
+{ pkgs,inputs,... }:
 {
   environment.systemPackages = with pkgs; [
     authenticator
@@ -6,6 +6,7 @@
     brave
     btop
     bun
+    inputs.dgop.packages.${pkgs.system}.default
     freecad
     gimp3
     googleearth-pro
