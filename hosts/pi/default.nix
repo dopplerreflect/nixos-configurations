@@ -11,22 +11,22 @@
       "usbhid"
       "usb_storage"
     ];
-    initrd.systemd.tpm2.enable = false; # https://github.com/NixOS/nixos-hardware/issues/858
-    blacklistedKernelModules = [ "rtl8xxxu" ];
-    kernelModules = [ "88x2bu" ];
-    extraModulePackages = [
-      config.boot.kernelPackages.rtl88x2bu
-    ];
+    # initrd.systemd.tpm2.enable = false; # https://github.com/NixOS/nixos-hardware/issues/858
+    # blacklistedKernelModules = [ "rtl8xxxu" ];
+    # kernelModules = [ "88x2bu" ];
+    # extraModulePackages = [
+    #   config.boot.kernelPackages.rtl88x2bu
+    # ];
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
     };
-    kernel = {
-      sysctl = {
-        "net.ipv6.conf.extwifi.hop_limit" = 65;
-        "net.ipv4.ip_default_ttl" = 65;
-      };
-    };
+    # kernel = {
+    #   sysctl = {
+    #     "net.ipv6.conf.extwifi.hop_limit" = 65;
+    #     "net.ipv4.ip_default_ttl" = 65;
+    #   };
+    # };
   };
 
   fileSystems = {
@@ -44,44 +44,44 @@
     };
   };
 
-  systemd.network.links = {
-    "10-internet" = {
-      matchConfig.PermanentMACAddress = "60:fb:00:62:b2:72";
-      linkConfig.Name = "extwifi";
-    };
-    "11-internet" = {
-      matchConfig.PermanentMACAddress = "dc:a6:32:bd:9b:4c";
-      linkConfig.Name = "intwifi";
-    };
-  };
+  # systemd.network.links = {
+  #   "10-internet" = {
+  #     matchConfig.PermanentMACAddress = "60:fb:00:62:b2:72";
+  #     linkConfig.Name = "extwifi";
+  #   };
+  #   "11-internet" = {
+  #     matchConfig.PermanentMACAddress = "dc:a6:32:bd:9b:4c";
+  #     linkConfig.Name = "intwifi";
+  #   };
+  # };
 
-  nixpkgs.overlays = [
-    (_: prev: {
-      linux-wifi-hotspot = prev.linux-wifi-hotspot.overrideAttrs (_: {
-        src = prev.fetchFromGitHub {
-          owner = "dopplerreflect";
-          repo = "linux-wifi-hotspot";
-          rev = "bfe7ca6f4bab6e20e1a94197714b1938e4ac3337";
-          hash = "sha256-y+3Pav72JJNgq/C1DoPFLl84SXy9+3nu7V5Qh4U/4Xc=";
-        };
-      });
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (_: prev: {
+  #     linux-wifi-hotspot = prev.linux-wifi-hotspot.overrideAttrs (_: {
+  #       src = prev.fetchFromGitHub {
+  #         owner = "dopplerreflect";
+  #         repo = "linux-wifi-hotspot";
+  #         rev = "bfe7ca6f4bab6e20e1a94197714b1938e4ac3337";
+  #         hash = "sha256-y+3Pav72JJNgq/C1DoPFLl84SXy9+3nu7V5Qh4U/4Xc=";
+  #       };
+  #     });
+  #   })
+  # ];
 
   services = {
-    create_ap = {
-      enable = true;
-      settings = {
-        CHANNEL = 3;
-        ETC_HOSTS = 1;
-        DHCP_HOSTS = "thinkpad GW2000X";
-        DHCP_DNS = "192.168.12.1,9.9.9.9";
-        INTERNET_IFACE = "extwifi";
-        WIFI_IFACE = "intwifi";
-        SSID = "pi";
-        PASSPHRASE = "anewpass";
-      };
-    };
+    # create_ap = {
+    #   enable = true;
+    #   settings = {
+    #     CHANNEL = 3;
+    #     ETC_HOSTS = 1;
+    #     DHCP_HOSTS = "thinkpad GW2000X";
+    #     DHCP_DNS = "192.168.12.1,9.9.9.9";
+    #     INTERNET_IFACE = "extwifi";
+    #     WIFI_IFACE = "intwifi";
+    #     SSID = "pi";
+    #     PASSPHRASE = "anewpass";
+    #   };
+    # };
     nextcloud = {
       enable = true;
       package = pkgs.nextcloud34;
@@ -100,7 +100,7 @@
     etc."nextcloud-admin-pass".text = "Para-Dongle-1";
     systemPackages = with pkgs; [
       bun
-      linux-wifi-hotspot
+      # linux-wifi-hotspot
       nodejs
       tmux
       wavemon
