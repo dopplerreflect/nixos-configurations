@@ -6,7 +6,7 @@
     brave
     btop
     bun
-    inputs.dgop.packages.${pkgs.system}.default
+    inputs.dgop.packages.${pkgs.stdenv.hostPlatform.system}.default
     freecad
     gimp3
     googleearth-pro
@@ -21,6 +21,7 @@
     nodejs
     openscad-unstable
     openscad-lsp
+    ripgrep
     unzip
     virt-manager
     virt-viewer
