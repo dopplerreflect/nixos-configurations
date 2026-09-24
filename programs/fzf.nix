@@ -1,7 +1,7 @@
-{ pkgs-unstable, ...}:
+{ ...}:
 {
   programs.fzf = {
     enable = true;
-    package = pkgs-unstable.fzf;
+    # package = pkgs-unstable.fzf;
   };
 }
