@@ -59,15 +59,15 @@
     fwupd.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
-    home-assistant = {
-      enable = true;
-      extraComponents = [
-        "analytics"
-        "default_config"
-        "ecowitt"
-        "isal"
-      ];
-    };
+    # home-assistant = {
+    #   enable = true;
+    #   extraComponents = [
+    #     "analytics"
+    #     "default_config"
+    #     "ecowitt"
+    #     "isal"
+    #   ];
+    # };
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -146,9 +146,9 @@
         restartIfChanged = true;
       };
     };
-    dsearch = {
-      enable = true;
-    };
+    # dsearch = {
+    #   enable = true;
+    # };
     # hyprland = {
     #   package = pkgs-unstable.hyprland;
     #   enable = true;
