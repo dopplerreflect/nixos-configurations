@@ -17,6 +17,7 @@
       url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dots.url = "github:gvolpe/dots";
   };
 
   outputs =
@@ -40,7 +41,6 @@
           };
           modules = [
             ./hosts/thinkpad/hardware-configuration.nix
-
             {
               nixpkgs = {
                 hostPlatform = "x86_64-linux";
@@ -59,6 +59,7 @@
                 users.doppler = {
                   imports = [
                     ./hosts/thinkpad/home.nix
+                    inputs.dots.homeModules.default
                   ];
                 };
               };

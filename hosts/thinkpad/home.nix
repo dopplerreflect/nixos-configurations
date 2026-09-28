@@ -34,6 +34,19 @@
     ../../programs/tmux.nix
   ];
 
+  dotfiles = {
+    mutable = false;
+    path = "${config.home.homeDirectory}/.config/nixos-configurations/home";
+    sourceRoot = ../../home;
+  };
+
+  xdg.configFile = {
+    niri = {
+      source = config.dotfiles.make ../../home/niri;
+      recursive = true;
+    };
+  };
+
   gtk = {
     enable = true;
     cursorTheme = {
