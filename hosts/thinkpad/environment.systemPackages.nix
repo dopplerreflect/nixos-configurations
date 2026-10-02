@@ -7,6 +7,7 @@
     btop
     bun
     inputs.dgop.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ffmpegthumbnailer
     freecad
     gimp3
     googleearth-pro
