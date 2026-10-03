@@ -30,6 +30,11 @@
     }@inputs:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+      homeConfigurations.doppler = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./hosts/thinkpad/home.nix inputs.dots.homeModules.default ];
+      };
       nixosConfigurations = {
         thinkpad = let
           system = "x86_64-linux";
@@ -48,22 +53,22 @@
             }
             ./hosts/common.nix
             ./hosts/thinkpad
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = {
-                  # pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-                };
-                users.doppler = {
-                  imports = [
-                    ./hosts/thinkpad/home.nix
-                    inputs.dots.homeModules.default
-                  ];
-                };
-              };
-            }
+            # home-manager.nixosModules.home-manager
+            # {
+            #   home-manager = {
+            #     useGlobalPkgs = true;
+            #     useUserPackages = true;
+            #     extraSpecialArgs = {
+            #       # pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+            #     };
+            #     users.doppler = {
+            #       imports = [
+            #         ./hosts/thinkpad/home.nix
+            #         inputs.dots.homeModules.default
+            #       ];
+            #     };
+            #   };
+            # }
           ];
         };
         pi = nixpkgs.lib.nixosSystem {
@@ -73,14 +78,14 @@
             nixos-hardware.nixosModules.raspberry-pi-4
             ./hosts/common.nix
             ./hosts/pi
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.doppler = import ./hosts/pi/home.nix;
-              };
-            }
+            # home-manager.nixosModules.home-manager
+            # {
+            #   home-manager = {
+            #     useGlobalPkgs = true;
+            #     useUserPackages = true;
+            #     users.doppler = import ./hosts/pi/home.nix;
+            #   };
+            # }
           ];
         };
         iso = nixpkgs.lib.nixosSystem {

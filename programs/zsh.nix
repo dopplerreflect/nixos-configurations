@@ -4,11 +4,7 @@
   pkgs,
   ...
 }:
-let
-  isThinkpad = config.networking.hostName == "thinkpad";
-in
 {
-  home-manager.users.doppler = {
     home = {
       packages = with pkgs; [
         bat
@@ -52,9 +48,6 @@ in
             ls = "eza";
             nms = "nmcli device wifi list --rescan yes";
             nmc = "nmcli device wifi connect";
-          }
-          // lib.optionalAttrs isThinkpad {
-            pi = "ssh pi";
           };
       };
       zoxide = {
@@ -62,5 +55,4 @@ in
         options = [ "--cmd cd" ];
       };
     };
-  };
 }

@@ -32,6 +32,7 @@
     ../../programs/kitty
     ../../programs/nh.nix
     ../../programs/tmux.nix
+    ../../programs/zsh.nix
   ];
 
   dotfiles = {

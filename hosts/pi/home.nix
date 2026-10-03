@@ -16,4 +16,8 @@
 
     stateVersion = "24.05";
   };
+
+  imports = [
+    ../../programs/zsh.nix
+  ];
 }
