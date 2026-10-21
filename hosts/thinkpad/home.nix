@@ -36,7 +36,7 @@
   ];
 
   dotfiles = {
-    mutable = false;
+    mutable = true;
     path = "${config.home.homeDirectory}/.config/nixos-configurations/home";
     sourceRoot = ../../home;
   };
