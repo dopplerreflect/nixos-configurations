@@ -40,6 +40,10 @@
   #   };
   # };
 
+  location = {
+    latitude = 30.367999;
+    longitude = -97.128106;
+  };
   services = {
     avahi = {
       enable = true;
@@ -57,6 +61,14 @@
       };
     };
     fwupd.enable = true;
+    geoclue2 = {
+      enable = true;
+      enableStatic = true;
+      staticAltitude = 158;
+      staticAccuracy = 100;
+      enableWifi = false;
+      whitelistedAgents = [ "firefox" ];
+    };
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     # home-assistant = {
