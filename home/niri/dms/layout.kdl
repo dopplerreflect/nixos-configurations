@@ -21,3 +21,22 @@ window-rule {
     tiled-state true
     draw-border-with-background false
 }
+
+blur {
+    passes 3
+    offset 2.1
+}
+
+layer-rule {
+    exclude namespace="^dms:bar$"
+    background-effect {
+        xray false
+    }
+}
+
+window-rule {
+    match app-id="^(dev.duxlabs.shell|com.danklinux.dms)$"
+    background-effect {
+        xray false
+    }
+}

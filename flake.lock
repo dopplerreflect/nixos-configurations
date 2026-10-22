@@ -23,16 +23,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1792524211,
-        "narHash": "sha256-GTDomQTBU132DVjqX/o3cZBo9ylUWLvUJ74PSlahgTo=",
-        "owner": "AvengeMedia",
-        "repo": "dgop",
-        "rev": "43a29526bb651c372c3291eb62c3e0cec3bca6e0",
+        "lastModified": 1792684000,
+        "narHash": "sha256-b2Wn6ySG7aqvi/6hF1t+DWpQzg0qA9rixrKIGe9IQ+Q=",
+        "owner": "duxlabs-dev",
+        "repo": "dux-gop",
+        "rev": "c1dbfaf3d2fab4fb602ef564da9462d3a1482712",
         "type": "github"
       },
       "original": {
-        "owner": "AvengeMedia",
-        "repo": "dgop",
+        "owner": "duxlabs-dev",
+        "repo": "dux-gop",
         "type": "github"
       }
     },
@@ -47,15 +47,15 @@
       "locked": {
         "lastModified": 1792523829,
         "narHash": "sha256-hyWdbsyOGXsJxvXG4Tqg0uRI1s3JwPi8DKyWips3Ta8=",
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
+        "owner": "duxlabs-dev",
+        "repo": "dux-shell",
         "rev": "9b413296b16721f7679fb62e624cb1ed2433fa58",
         "type": "github"
       },
       "original": {
-        "owner": "AvengeMedia",
+        "owner": "duxlabs-dev",
         "ref": "stable",
-        "repo": "DankMaterialShell",
+        "repo": "dux-shell",
         "type": "github"
       }
     },
@@ -144,11 +144,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1792503283,
-        "narHash": "sha256-vhe2jyvRCgufWPqDuDq1S3t3ypE+ka46IFutV02xKso=",
+        "lastModified": 1792615934,
+        "narHash": "sha256-MlvRfa1O5Cqc2/a+gG+l9TSuowEoCKCmrJ1d9oAVm0I=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "cd4ea8d57de16f4810bc5f14207bac45fbf19f67",
+        "rev": "da6dc0e7b26060f2f71ce3ef7088fb56ee44fa36",
         "type": "github"
       },
       "original": {

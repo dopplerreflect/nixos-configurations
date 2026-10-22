@@ -10,11 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dms = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
+      url = "github:duxlabs-dev/dux-shell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dgop = {
-      url = "github:AvengeMedia/dgop";
+      url = "github:duxlabs-dev/dux-gop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dots.url = "github:gvolpe/dots";
@@ -70,6 +70,11 @@
             #   };
             # }
           ];
+        };
+        # mom's laptop
+        nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/mom/configuration.nix ];
         };
         pi = nixpkgs.lib.nixosSystem {
           specialArgs = inputs;
