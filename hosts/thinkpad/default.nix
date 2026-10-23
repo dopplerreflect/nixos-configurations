@@ -196,7 +196,7 @@
     nerd-fonts.fira-code
   ];
 
-  nixpkgs.config.allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) [ "googleearth-pro" ];
+  # nixpkgs.config.allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) [ "googleearth-pro" ];
 
   nix = {
     settings = {

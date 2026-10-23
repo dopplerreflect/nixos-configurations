@@ -11,7 +11,6 @@
     ffmpegthumbnailer
     freecad
     gimp3
-    googleearth-pro
     google-chrome
     imv
     inkscape
