@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     authenticator
+    bitwarden-desktop
     blender
     brave
     btop
