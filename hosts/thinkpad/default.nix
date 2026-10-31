@@ -129,6 +129,7 @@
   imports = [
     inputs.dms.nixosModules.dank-material-shell
     ./environment.systemPackages.nix
+    ./orca-slicer.nix
   ];
 
   security = {
@@ -168,6 +169,7 @@
     #   withUWSM = true;
     # };
     niri.enable = true;
+    xwayland.enable = true;
   };
 
   users = {

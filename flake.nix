@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -23,7 +23,7 @@
   outputs =
     {
       nixpkgs,
-      # nixpkgs-unstable,
+      nixpkgs-unstable,
       nixos-hardware,
       home-manager,
       ...
@@ -42,7 +42,7 @@
           inherit system;
           specialArgs = {
             inherit inputs;
-            # pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+            pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
           };
           modules = [
             ./hosts/thinkpad/hardware-configuration.nix

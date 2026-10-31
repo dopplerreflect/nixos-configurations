@@ -171,6 +171,8 @@ overview {
 environment {
   XDG_CURRENT_DESKTOP "niri"
 }
+spawn-at-startup "xwayland-sattelite"
+
 hotkey-overlay {
     skip-at-startup
 }

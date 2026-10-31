@@ -1,7 +1,8 @@
-{ pkgs,inputs,... }:
+{ pkgs, inputs,... }:
 {
   environment.systemPackages = with pkgs; [
     authenticator
+    # bambu-studio
     bitwarden-desktop
     blender
     brave
@@ -29,6 +30,7 @@
     virt-viewer
     wf-recorder
     wl-clipboard
+    xwayland-satellite
     yarn    
   ];
 }
