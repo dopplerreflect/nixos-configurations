@@ -223,6 +223,7 @@ window-rule {
 }
 window-rule {
     match app-id="kitty"
+    match app-id="com.mitchellh.ghostty"
     draw-border-with-background false
 }
 window-rule {
@@ -232,6 +233,7 @@ window-rule {
 window-rule {
     match app-id=r#"firefox$"#
     match app-id="kitty"
+    match app-id="com.mitchellh.ghostty"
     open-maximized true
 }
 window-rule {
