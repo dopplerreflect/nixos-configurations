@@ -27,6 +27,7 @@
   imports = [
     # ../../programs/hyprland
     ../../programs/fzf.nix
+    ../../programs/ghostty.nix
     ../../programs/helix.nix
     ../../programs/jujutsu.nix
     ../../programs/kitty
