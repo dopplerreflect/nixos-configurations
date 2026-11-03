@@ -21,6 +21,7 @@
   networking = {
     hostName = "thinkpad";
     nameservers = [ "9.9.9.9" ];
+    dhcpcd.extraConfig = "nohook resolv.conf";
     firewall.enable = false;
     usePredictableInterfaceNames = true;
   };

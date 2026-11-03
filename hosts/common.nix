@@ -20,7 +20,10 @@
 
   security.sudo.wheelNeedsPassword = false;
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      insertNameservers = [ "94.140.15.15" "94.140.14.14" ];
+    };
     extraHosts = ''
       192.168.12.1 pi
       192.168.12.10 thinkpad thinkpad.local
