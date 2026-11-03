@@ -7,6 +7,7 @@
   };
 
   environment.systemPackages = [
+    pkgsUnstable.bambu-studio
     pkgsUnstable.orca-slicer
   ];
 }

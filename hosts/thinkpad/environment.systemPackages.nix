@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     authenticator
-    # bambu-studio
     bitwarden-desktop
     blender
     brave

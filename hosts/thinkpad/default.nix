@@ -130,7 +130,7 @@
   imports = [
     inputs.dms.nixosModules.dank-material-shell
     ./environment.systemPackages.nix
-    ./orca-slicer.nix
+    ./environment.systemPackages-from-nixpkgs-unstable.nix
   ];
 
   security = {
