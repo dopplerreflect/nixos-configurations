@@ -4,7 +4,7 @@
     authenticator
     bitwarden-desktop
     blender
-    brave
+    # brave
     btop
     bun
     inputs.dgop.packages.${pkgs.stdenv.hostPlatform.system}.default

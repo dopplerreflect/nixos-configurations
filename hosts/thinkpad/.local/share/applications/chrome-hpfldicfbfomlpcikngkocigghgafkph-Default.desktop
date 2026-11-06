@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Messages
+Exec=google-chrome-stable --profile-directory=Default --app-id=hpfldicfbfomlpcikngkocigghgafkph
+Icon=/home/doppler/.local/share/icons/hicolor/512x512/apps/chrome-hpfldicfbfomlpcikngkocigghgafkph-Default.png
+StartupWMClass=crx_hpfldicfbfomlpcikngkocigghgafkph
