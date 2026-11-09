@@ -1,6 +1,7 @@
 { pkgs, inputs,... }:
 {
   environment.systemPackages = with pkgs; [
+    android-tools
     authenticator
     bitwarden-desktop
     blender
@@ -24,6 +25,7 @@
     openscad-unstable
     openscad-lsp
     ripgrep
+    scrcpy
     unzip
     virt-manager
     virt-viewer
