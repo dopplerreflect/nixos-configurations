@@ -1,4 +1,4 @@
-// DMS Window Rules - Managed by Dux Shell
+// DMS Window Rules - Managed by Dux Modular Shell
 // Do not edit manually - changes may be overwritten
 
 // @id=dms-floating-windows @name=DMS Floating Windows
@@ -18,6 +18,8 @@ window-rule {
     match app-id="firefox$"
     match app-id="kitty"
     match app-id="^google-chrome$"
+    match app-id="^orca-slicer$"
+    match app-id="^org.freecad.FreeCAD$"
     open-maximized true
 }
 
