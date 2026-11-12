@@ -131,6 +131,7 @@
     inputs.dms.nixosModules.dank-material-shell
     ./environment.systemPackages.nix
     ./environment.systemPackages-from-nixpkgs-unstable.nix
+    ../../services/octoprint.nix
   ];
 
   security = {
