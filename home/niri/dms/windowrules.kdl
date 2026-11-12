@@ -20,6 +20,7 @@ window-rule {
     match app-id="^google-chrome$"
     match app-id="^orca-slicer$"
     match app-id="^org.freecad.FreeCAD$"
+    match app-id="^FreeCAD$"
     open-maximized true
 }
 

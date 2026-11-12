@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     android-tools
+    appimage-run
     authenticator
     bitwarden-desktop
     blender
