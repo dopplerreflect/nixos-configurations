@@ -24,6 +24,16 @@ window-rule {
     open-maximized true
 }
 
+// @id=wr_1794514562909500767 @name=Load Clock Window
+window-rule {
+    match app-id="^chrome-fhndgjphicgdlodikegejijmhegkhhdc-Default$"
+    open-floating true
+    min-width 500
+    max-width 500
+    min-height 800
+    max-height 800
+}
+
 // @id=dms-window-opaque @name=DMS Window Opaque
 window-rule {
     match app-id="^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dms)$"
