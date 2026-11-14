@@ -34,6 +34,13 @@ window-rule {
     max-height 800
 }
 
+// @id=wr_1794603523403209118 @name=chrome-hpfldicfbfomlpcikngkocigghgafkph-Default
+window-rule {
+    match app-id="^chrome-hpfldicfbfomlpcikngkocigghgafkph-Default$"
+    open-floating true
+    default-column-width { fixed 500; }
+}
+
 // @id=dms-window-opaque @name=DMS Window Opaque
 window-rule {
     match app-id="^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dms)$"
