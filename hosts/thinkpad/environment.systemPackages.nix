@@ -27,6 +27,7 @@
     openscad-lsp
     ripgrep
     scrcpy
+    stellarium
     unzip
     virt-manager
     virt-viewer
