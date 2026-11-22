@@ -1,5 +1,12 @@
 { pkgs, inputs,... }:
+
 {
+  nixpkgs.overlays = [
+    (self: super: {
+      freecad = super.callPackage ../../programs/freecad { };
+    })
+  ];
+  
   environment.systemPackages = with pkgs; [
     android-tools
     appimage-run
