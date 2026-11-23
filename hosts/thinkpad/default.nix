@@ -132,6 +132,7 @@
     ./environment.systemPackages.nix
     ./environment.systemPackages-from-nixpkgs-unstable.nix
     ../../services/octoprint.nix
+    ../../programs/orcaslicer
   ];
 
   security = {
@@ -154,6 +155,13 @@
   };
 
   programs = {
+    appimage = {
+      enable = true;
+      binfmt = true;
+      package = pkgs.appimage-run.override {
+        extraPkgs = pkgs: [ pkgs.webkitgtk_4_1 pkgs.libsoup_3 ];
+      };
+    };
     dconf.enable = true;
     dank-material-shell= {
       enable = true;

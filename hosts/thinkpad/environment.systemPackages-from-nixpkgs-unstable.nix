@@ -8,6 +8,6 @@
 
   environment.systemPackages = [
     pkgsUnstable.bambu-studio
-    pkgsUnstable.orca-slicer
+    # pkgsUnstable.orca-slicer
   ];
 }
