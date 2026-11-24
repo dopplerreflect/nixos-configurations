@@ -61,6 +61,7 @@
         configHome = "/home/doppler";
       };
     };
+    flatpak.enable = true;
     fprintd.enable = true;
     fwupd.enable = true;
     geoclue2 = {
