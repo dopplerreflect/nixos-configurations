@@ -82,22 +82,22 @@
     #     PASSPHRASE = "anewpass";
     #   };
     # };
-    nextcloud = {
-      enable = true;
-      package = pkgs.nextcloud34;
-      hostName = "pi";
-      config = {
-        adminpassFile = "/etc/nextcloud-admin-pass";
-        dbtype = "sqlite";
-      };
-    };
-    nginx.virtualHosts."localhost".listen = [ { addr = "0.0.0.0"; } ];
+    # nextcloud = {
+    #   enable = true;
+    #   package = pkgs.nextcloud34;
+    #   hostName = "pi";
+    #   config = {
+    #     adminpassFile = "/etc/nextcloud-admin-pass";
+    #     dbtype = "sqlite";
+    #   };
+    # };
+    # nginx.virtualHosts."localhost".listen = [ { addr = "0.0.0.0"; } ];
     tailscale.enable = true;
   };
 
   environment = {
     pathsToLink = [ "/share/zsh" ];
-    etc."nextcloud-admin-pass".text = "Para-Dongle-1";
+    # etc."nextcloud-admin-pass".text = "Para-Dongle-1";
     systemPackages = with pkgs; [
       bun
       # linux-wifi-hotspot

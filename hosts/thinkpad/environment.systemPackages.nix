@@ -25,7 +25,7 @@
     librsvg
     mpv
     nautilus
-    nextcloud-client
+    # nextcloud-client
     nixd
     nixfmt
     nodejs
