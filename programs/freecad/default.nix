@@ -2,11 +2,11 @@
 
 pkgs.appimageTools.wrapType2 rec {
   pname = "freecad";
-  version = "weekly-2026.11.18";
+  version = "weekly-2026.11.25";
 
   src = pkgs.fetchurl {
     url = "https://github.com/FreeCAD/FreeCAD/releases/download/${version}/FreeCAD_${version}-Linux-x86_64.AppImage";
-    hash = "sha256-PT5eqJ+e2tih8VHh1GVKH+A1+UTD1U40CaKuAzpuNoc=";
+    hash = "sha256-UE6lCOkSxKAB0aKt+IuF+sEhgUWxkW8FE04LRwmG2Qs=";
   };
 
   appimageContents = pkgs.appimageTools.extractType2 {
