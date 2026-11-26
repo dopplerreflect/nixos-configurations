@@ -77,20 +77,20 @@
           modules = [ ./hosts/mom/configuration.nix ];
         };
         pi = nixpkgs.lib.nixosSystem {
-          specialArgs = inputs;
+          specialArgs = { inherit inputs nixos-hardware; };
           modules = [
             { nixpkgs.hostPlatform = "aarch64-linux"; }
             nixos-hardware.nixosModules.raspberry-pi-4
             ./hosts/common.nix
             ./hosts/pi
-            # home-manager.nixosModules.home-manager
-            # {
-            #   home-manager = {
-            #     useGlobalPkgs = true;
-            #     useUserPackages = true;
-            #     users.doppler = import ./hosts/pi/home.nix;
-            #   };
-            # }
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.doppler = import ./hosts/pi/home.nix;
+              };
+            }
           ];
         };
         iso = nixpkgs.lib.nixosSystem {
